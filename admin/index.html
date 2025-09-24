@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Loja Integrada Assets</title>
+    <title>Loja Integrada Assets Manager</title>
     <link href="css/admin.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -13,9 +13,10 @@
         <header class="header">
             <div class="header-content">
                 <h1><i class="fas fa-code"></i> Loja Integrada Assets</h1>
+                <p class="header-subtitle">Sistema inteligente de performance para códigos CSS/JS</p>
                 <div class="header-actions">
                     <button class="btn btn-primary" id="btnNewCode">
-                        <i class="fas fa-plus"></i> Novo Código
+                        <i class="fas fa-plus"></i> Adicionar Código
                     </button>
                 </div>
             </div>
@@ -23,75 +24,113 @@
 
         <!-- Main Content -->
         <main class="main">
-            <!-- Stats Cards -->
-            <section class="stats">
-                <div class="stat-card">
+            <!-- Performance Stats -->
+            <section class="performance-stats">
+                <div class="stat-card performance">
+                    <div class="stat-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="performanceGain">0%</h3>
+                        <p>Melhoria de Performance</p>
+                        <small>vs códigos inline na Loja Integrada</small>
+                    </div>
+                </div>
+                <div class="stat-card groups">
+                    <div class="stat-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalGroups">0</h3>
+                        <p>Grupos Ativos</p>
+                        <small id="groupsDetail">0 arquivos únicos</small>
+                    </div>
+                </div>
+                <div class="stat-card codes">
                     <div class="stat-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <div class="stat-info">
                         <h3 id="totalCodes">0</h3>
-                        <p>Códigos Ativos</p>
+                        <p>Códigos Gerenciados</p>
+                        <small id="codesSize">0 KB minificados</small>
                     </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-css3-alt"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="totalCSS">0</h3>
-                        <p>Arquivos CSS</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fab fa-js-square"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="totalJS">0</h3>
-                        <p>Arquivos JS</p>
-                    </div>
-                </div>
-                <div class="stat-card">
+                <div class="stat-card deploy">
                     <div class="stat-icon">
                         <i class="fab fa-github"></i>
                     </div>
                     <div class="stat-info">
-                        <h3 id="deployStatus">offline</h3>
-                        <p>Deploy Status</p>
+                        <h3 id="deployStatus">Pendente</h3>
+                        <p>GitHub Pages</p>
+                        <small id="lastDeploy">Nunca deployado</small>
                     </div>
                 </div>
             </section>
 
-            <!-- Filters -->
-            <section class="filters">
-                <div class="filter-group">
-                    <input type="text" id="searchCodes" placeholder="Buscar códigos..." class="search-input">
-                    <select id="filterLocation" class="filter-select">
-                        <option value="">Todos os locais</option>
-                        <option value="header">Cabeçalho</option>
-                        <option value="footer">Rodapé</option>
-                        <option value="body">Corpo da página</option>
-                    </select>
-                    <select id="filterType" class="filter-select">
-                        <option value="">Todos os tipos</option>
-                        <option value="css">CSS</option>
-                        <option value="js">JavaScript</option>
-                        <option value="html">HTML</option>
-                    </select>
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <div class="action-card">
+                    <h3><i class="fas fa-rocket"></i> Deploy Rápido</h3>
+                    <p>Publica alterações no GitHub Pages</p>
+                    <button class="btn btn-primary btn-block" id="btnQuickDeploy">
+                        <i class="fas fa-upload"></i> Deploy Agora
+                    </button>
+                </div>
+                <div class="action-card">
+                    <h3><i class="fas fa-magic"></i> Otimização Automática</h3>
+                    <p>Sugere agrupamentos para melhor performance</p>
+                    <button class="btn btn-secondary btn-block" id="btnOptimize">
+                        <i class="fas fa-wand-magic-sparkles"></i> Otimizar
+                    </button>
+                </div>
+                <div class="action-card">
+                    <h3><i class="fas fa-download"></i> Exportar Backup</h3>
+                    <p>Baixa todos os códigos como backup</p>
+                    <button class="btn btn-secondary btn-block" id="btnExport">
+                        <i class="fas fa-file-export"></i> Exportar
+                    </button>
                 </div>
             </section>
 
-            <!-- Codes List -->
+            <!-- Groups List -->
+            <section class="groups-section">
+                <div class="section-header">
+                    <h2>Grupos de Códigos</h2>
+                    <div class="section-controls">
+                        <button class="btn btn-secondary btn-sm" id="btnRefresh">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                        <button class="btn btn-secondary btn-sm" id="btnExpandAll">
+                            <i class="fas fa-expand-arrows-alt"></i> Expandir Todos
+                        </button>
+                    </div>
+                </div>
+                <div class="groups-list" id="groupsList">
+                    <!-- Grupos serão inseridos aqui via JavaScript -->
+                </div>
+            </section>
+
+            <!-- Individual Codes -->
             <section class="codes-section">
                 <div class="section-header">
-                    <h2>Códigos Gerenciados</h2>
-                    <button class="btn btn-secondary" id="btnRefresh">
-                        <i class="fas fa-sync-alt"></i>
-                    </button>
+                    <h2>Códigos Individuais</h2>
+                    <div class="section-filters">
+                        <select id="filterLocation" class="filter-select">
+                            <option value="">Todos os locais</option>
+                            <option value="head">Cabeçalho</option>
+                            <option value="footer">Rodapé</option>
+                        </select>
+                        <select id="filterType" class="filter-select">
+                            <option value="">Todos os tipos</option>
+                            <option value="css">CSS</option>
+                            <option value="js">JavaScript</option>
+                        </select>
+                        <input type="text" id="searchCodes" placeholder="Buscar códigos..." class="search-input">
+                    </div>
                 </div>
                 <div class="codes-list" id="codesList">
-                    <!-- Códigos serão inseridos aqui via JavaScript -->
+                    <!-- Códigos individuais serão inseridos aqui -->
                 </div>
             </section>
         </main>
@@ -101,63 +140,129 @@
     <div class="modal" id="codeModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modalTitle">Novo Código</h2>
+                <h2 id="modalTitle">Adicionar Código</h2>
                 <button class="close-modal" id="closeModal">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
                 <form id="codeForm">
-                    <div class="form-group">
-                        <label for="codeName">Nome/Descrição</label>
-                        <input type="text" id="codeName" required placeholder="Ex: Dropmenu, Analytics, etc.">
-                    </div>
+                    <!-- Step 1: Basic Info -->
+                    <div class="form-step active" id="step1">
+                        <h3>📝 Informações do Código</h3>
 
-                    <div class="form-row">
                         <div class="form-group">
-                            <label for="codeLocation">Local de Publicação</label>
-                            <select id="codeLocation" required>
-                                <option value="header">Cabeçalho (&lt;head&gt;)</option>
-                                <option value="footer">Rodapé (antes de &lt;/body&gt;)</option>
-                                <option value="body">Corpo da página</option>
-                            </select>
+                            <label for="codeName">Nome/Descrição</label>
+                            <input type="text" id="codeName" required placeholder="Ex: Correção Carrinho, Google Analytics, etc.">
+                            <small>Nome descritivo para identificar este código</small>
                         </div>
+
                         <div class="form-group">
-                            <label for="codeType">Tipo</label>
-                            <select id="codeType" required>
-                                <option value="css">CSS</option>
-                                <option value="js">JavaScript</option>
-                                <option value="html">HTML</option>
-                            </select>
+                            <label for="codeContent">Código</label>
+                            <textarea id="codeContent" rows="12" required placeholder="Cole aqui seu código CSS, JavaScript ou HTML..."></textarea>
+                            <small>O código será automaticamente minificado</small>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="codePages">Páginas de Publicação</label>
-                        <select id="codePages">
-                            <option value="all">Todas as páginas</option>
-                            <option value="home">Página inicial - Home</option>
-                            <option value="product">Página do produto</option>
-                            <option value="category">Página da categoria</option>
-                            <option value="cart">Página do carrinho</option>
-                            <option value="checkout">Página de checkout</option>
-                            <option value="finalization">Página de finalização do pedido</option>
-                            <option value="except-checkout">Todas as páginas exceto checkout</option>
-                        </select>
+                    <!-- Step 2: Loja Integrada Config -->
+                    <div class="form-step" id="step2">
+                        <h3>🛒 Configuração da Loja Integrada</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="codeType">Tipo do Código</label>
+                                <select id="codeType" required>
+                                    <option value="">Selecione o tipo</option>
+                                    <option value="css">CSS (Estilos)</option>
+                                    <option value="js">JavaScript (Funcionalidade)</option>
+                                </select>
+                                <small>Define como o código será processado</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="codeLocation">Local na Loja Integrada</label>
+                                <select id="codeLocation" required>
+                                    <option value="">Onde inserir?</option>
+                                    <option value="head">Cabeçalho (&lt;head&gt;)</option>
+                                    <option value="footer">Rodapé (antes de &lt;/body&gt;)</option>
+                                </select>
+                                <small>Baseado na documentação da Loja Integrada</small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="codePages">Páginas de Aplicação</label>
+                            <select id="codePages" required>
+                                <option value="">Em quais páginas?</option>
+                                <option value="all">🌐 Todas as páginas</option>
+                                <option value="home">🏠 Página inicial</option>
+                                <option value="product">📦 Páginas de produto</option>
+                                <option value="category">📂 Páginas de categoria</option>
+                                <option value="cart">🛒 Página do carrinho</option>
+                                <option value="checkout">💳 Checkout</option>
+                                <option value="account">👤 Área do cliente</option>
+                            </select>
+                            <small>Selecione onde este código deve aparecer</small>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="codeContent">Conteúdo do Código</label>
-                        <textarea id="codeContent" rows="15" required placeholder="Cole aqui seu código CSS, JavaScript ou HTML..."></textarea>
+                    <!-- Step 3: Smart Grouping -->
+                    <div class="form-step" id="step3">
+                        <h3>🧠 Agrupamento Inteligente</h3>
+
+                        <div class="grouping-suggestion" id="groupingSuggestion">
+                            <!-- Sugestão será inserida via JS -->
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="useSmartGrouping" checked>
+                                Usar agrupamento inteligente
+                            </label>
+                            <small>Combina códigos com mesma configuração para melhor performance</small>
+                        </div>
+
+                        <div class="performance-preview" id="performancePreview">
+                            <!-- Preview de performance -->
+                        </div>
                     </div>
 
-                    <div class="form-actions">
+                    <!-- Navigation -->
+                    <div class="form-navigation">
                         <button type="button" class="btn btn-secondary" id="btnCancel">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-save"></i> Salvar Código
-                        </button>
+                        <div class="nav-buttons">
+                            <button type="button" class="btn btn-secondary" id="btnPrev" style="display: none;">
+                                <i class="fas fa-arrow-left"></i> Anterior
+                            </button>
+                            <button type="button" class="btn btn-primary" id="btnNext">
+                                Próximo <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button type="submit" class="btn btn-success" id="btnSave" style="display: none;">
+                                <i class="fas fa-save"></i> Salvar Código
+                            </button>
+                        </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deploy Modal -->
+    <div class="modal" id="deployModal">
+        <div class="modal-content small">
+            <div class="modal-header">
+                <h2>🚀 Deploy para GitHub Pages</h2>
+                <button class="close-modal" id="closeDeployModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="deploy-status" id="deployStatus">
+                    <div class="deploy-step">
+                        <i class="fas fa-spin fa-spinner"></i>
+                        <span>Preparando deploy...</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
