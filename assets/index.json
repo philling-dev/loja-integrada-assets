@@ -1,7 +1,7 @@
 {
-  "generated": "2025-09-24T14:36:50.021Z",
+  "generated": "2025-09-24T19:35:00.000Z",
   "version": "1.0.0",
-  "totalCodes": 2,
+  "totalCodes": 3,
   "files": {
     "css": [
       {
@@ -10,7 +10,7 @@
         "filename": "dropdown-menu-moderno-dropdown-menu-001.min.css",
         "location": "header",
         "pages": "all",
-        "url": "https://[SEU-USERNAME].github.io/loja-integrada-assets/assets/css/dropdown-menu-moderno-dropdown-menu-001.min.css"
+        "url": "https://philling-dev.github.io/loja-integrada-assets/assets/css/dropdown-menu-moderno-dropdown-menu-001.min.css"
       }
     ],
     "js": [
@@ -20,7 +20,20 @@
         "filename": "analytics-enhanced-analytics-enhanced-002.min.js",
         "location": "header",
         "pages": "all",
-        "url": "https://[SEU-USERNAME].github.io/loja-integrada-assets/assets/js/analytics-enhanced-analytics-enhanced-002.min.js"
+        "url": "https://philling-dev.github.io/loja-integrada-assets/assets/js/analytics-enhanced-analytics-enhanced-002.min.js"
+      },
+      {
+        "id": "fix-carrinho-exemplo",
+        "name": "Fix Carrinho Plugoo",
+        "filename": "fix-carrinho-plugoo-exemplo.min.js",
+        "location": "footer",
+        "pages": "all",
+        "url": "https://philling-dev.github.io/loja-integrada-assets/assets/fix-carrinho-plugoo-exemplo.min.js",
+        "description": "Corrige problemas do carrinho Plugoo - contador e visibilidade",
+        "size": 502,
+        "originalSize": 1247,
+        "compression": "60%",
+        "deployedAt": "2025-09-24T19:35:00.000Z"
       }
     ]
   }
