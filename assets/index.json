@@ -72,5 +72,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-minificacao.min.js",
         "deployedAt": "2025-09-24T20:06:07+00:00",
         "size": 104
+    },
+    "test-minify-v2": {
+        "id": "test-minify-v2",
+        "name": "Test Minify V2",
+        "filename": "test-minify-v2.min.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-minify-v2.min.js",
+        "deployedAt": "2025-09-24T20:07:27+00:00",
+        "size": 111
     }
 }
