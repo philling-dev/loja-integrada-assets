@@ -81,5 +81,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-minify-v2.min.js",
         "deployedAt": "2025-09-24T20:07:27+00:00",
         "size": 111
+    },
+    "teste-conversao": {
+        "id": "teste-conversao",
+        "name": "Teste Conversao",
+        "filename": "teste-conversao.min.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-conversao.min.js",
+        "deployedAt": "2025-09-24T20:33:21+00:00",
+        "size": 197
     }
 }
