@@ -242,7 +242,7 @@ class BuildSystem {
                     filename: this.generateFilename(code),
                     location: code.location,
                     pages: code.pages,
-                    url: `https://[SEU-USERNAME].github.io/loja-integrada-assets/assets/css/${this.generateFilename(code)}`
+                    url: `https://philling-dev.github.io/loja-integrada-assets/assets/css/${this.generateFilename(code)}`
                 })),
                 js: jsFiles.map(code => ({
                     id: code.id,
@@ -250,7 +250,7 @@ class BuildSystem {
                     filename: this.generateFilename(code),
                     location: code.location,
                     pages: code.pages,
-                    url: `https://[SEU-USERNAME].github.io/loja-integrada-assets/assets/js/${this.generateFilename(code)}`
+                    url: `https://philling-dev.github.io/loja-integrada-assets/assets/js/${this.generateFilename(code)}`
                 }))
             }
         };

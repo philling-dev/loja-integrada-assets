@@ -108,7 +108,7 @@ class LojaIntegradaManager {
 
     // Geração de códigos para Loja Integrada
     generateOneLineCode(code) {
-        const baseUrl = 'https://admin.widgetvpn.xyz';
+        const baseUrl = 'https://philling-dev.github.io/loja-integrada-assets';
         const filename = this.generateFilename(code);
 
         if (code.type === 'css') {
