@@ -90,5 +90,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-conversao.min.js",
         "deployedAt": "2025-09-24T20:33:21+00:00",
         "size": 197
+    },
+    "mfyhrp43xrf7rl0dc7k": {
+        "id": "mfyhrp43xrf7rl0dc7k",
+        "name": "TEste",
+        "filename": "teste-mfyhrp43xrf7rl0dc7k.min.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-mfyhrp43xrf7rl0dc7k.min.js",
+        "deployedAt": "2025-09-24T21:24:03+00:00",
+        "size": 5
     }
 }
