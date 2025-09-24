@@ -63,5 +63,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/carrinhofix-mfycxihnwmw5htsfdcm.min.js",
         "deployedAt": "2025-09-24T20:00:38+00:00",
         "size": 794
+    },
+    "test-minificacao": {
+        "id": "test-minificacao",
+        "name": "Test Minificacao",
+        "filename": "test-minificacao.min.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-minificacao.min.js",
+        "deployedAt": "2025-09-24T20:06:07+00:00",
+        "size": 104
     }
 }
