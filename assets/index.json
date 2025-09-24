@@ -1,0 +1,27 @@
+{
+  "generated": "2025-09-24T14:36:50.021Z",
+  "version": "1.0.0",
+  "totalCodes": 2,
+  "files": {
+    "css": [
+      {
+        "id": "dropdown-menu-001",
+        "name": "Dropdown Menu Moderno",
+        "filename": "dropdown-menu-moderno-dropdown-menu-001.min.css",
+        "location": "header",
+        "pages": "all",
+        "url": "https://[SEU-USERNAME].github.io/loja-integrada-assets/assets/css/dropdown-menu-moderno-dropdown-menu-001.min.css"
+      }
+    ],
+    "js": [
+      {
+        "id": "analytics-enhanced-002",
+        "name": "Analytics Enhanced",
+        "filename": "analytics-enhanced-analytics-enhanced-002.min.js",
+        "location": "header",
+        "pages": "all",
+        "url": "https://[SEU-USERNAME].github.io/loja-integrada-assets/assets/js/analytics-enhanced-analytics-enhanced-002.min.js"
+      }
+    ]
+  }
+}

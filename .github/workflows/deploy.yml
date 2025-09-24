@@ -1,0 +1,154 @@
+name: Deploy to GitHub Pages
+
+# Quando executar este workflow
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch: # Permite execução manual
+
+# Permissões necessárias para o GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permitir apenas um deploy por vez
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Job 1: Build dos assets
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout do código
+      uses: actions/checkout@v4
+
+    - name: 🟢 Configurar Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: 📦 Instalar dependências
+      run: npm ci
+
+    - name: 🏗️ Build dos assets
+      run: npm run build
+
+    - name: 📊 Verificar arquivos gerados
+      run: |
+        echo "=== Arquivos CSS gerados ==="
+        ls -la assets/css/ || echo "Nenhum arquivo CSS encontrado"
+        echo ""
+        echo "=== Arquivos JS gerados ==="
+        ls -la assets/js/ || echo "Nenhum arquivo JS encontrado"
+        echo ""
+        echo "=== Arquivos de índice ==="
+        ls -la assets/index.json assets/README.md || echo "Arquivos de índice não encontrados"
+
+    - name: 📄 Configurar GitHub Pages
+      uses: actions/configure-pages@v3
+
+    - name: 📤 Upload dos arquivos para Pages
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: ./assets
+
+  # Job 2: Deploy no GitHub Pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+    - name: 🚀 Deploy para GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
+
+    - name: ✅ Notificar sucesso
+      run: |
+        echo "✅ Deploy realizado com sucesso!"
+        echo "🌐 URL: ${{ steps.deployment.outputs.page_url }}"
+        echo "📁 Assets disponíveis em: ${{ steps.deployment.outputs.page_url }}index.json"
+
+  # Job 3: Executar testes (opcional)
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout do código
+      uses: actions/checkout@v4
+
+    - name: 🟢 Configurar Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: 📦 Instalar dependências
+      run: npm ci
+
+    - name: 🧪 Executar testes de build
+      run: |
+        # Testar se o build funciona
+        npm run build
+
+        # Verificar se arquivos foram gerados
+        if [ ! -f "assets/index.json" ]; then
+          echo "❌ Arquivo index.json não foi gerado!"
+          exit 1
+        fi
+
+        # Verificar estrutura do index.json
+        node -e "
+          const index = require('./assets/index.json');
+          if (!index.generated || !index.files) {
+            console.error('❌ Estrutura do index.json inválida!');
+            process.exit(1);
+          }
+          console.log('✅ index.json válido!');
+          console.log('📊 Códigos CSS:', index.files.css.length);
+          console.log('📊 Códigos JS:', index.files.js.length);
+        "
+
+    - name: 🔍 Validar CSS gerado
+      run: |
+        # Verificar se arquivos CSS são válidos
+        for file in assets/css/*.css; do
+          if [ -f "$file" ]; then
+            echo "🎨 Validando: $file"
+            # Verificar se arquivo não está vazio
+            if [ ! -s "$file" ]; then
+              echo "❌ Arquivo CSS vazio: $file"
+              exit 1
+            fi
+            echo "✅ CSS válido: $file"
+          fi
+        done
+
+    - name: 🔍 Validar JS gerado
+      run: |
+        # Verificar se arquivos JS são válidos
+        for file in assets/js/*.js; do
+          if [ -f "$file" ]; then
+            echo "📜 Validando: $file"
+            # Usar Node.js para validar sintaxe JavaScript
+            node -c "$file" && echo "✅ JS válido: $file" || (echo "❌ JS inválido: $file" && exit 1)
+          fi
+        done
+
+    - name: 📈 Relatório final
+      run: |
+        echo "=== 📊 RELATÓRIO FINAL ==="
+        echo "🎨 Arquivos CSS: $(find assets/css -name "*.css" | wc -l)"
+        echo "📜 Arquivos JS: $(find assets/js -name "*.js" | wc -l)"
+        echo "📦 Tamanho total: $(du -sh assets/ | cut -f1)"
+        echo "✅ Todos os testes passaram!"
