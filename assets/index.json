@@ -45,5 +45,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-debug-3.min.js",
         "deployedAt": "2025-09-24T19:57:18+00:00",
         "size": 28
+    },
+    "carrinho-fix-ok": {
+        "id": "carrinho-fix-ok",
+        "name": "Carrinho Fix OK",
+        "filename": "carrinho-fix-ok.min.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/carrinho-fix-ok.min.js",
+        "deployedAt": "2025-09-24T19:59:33+00:00",
+        "size": 31
     }
 }
