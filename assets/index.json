@@ -25,5 +25,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-simples.min.js",
         "deployedAt": "2025-09-25T12:24:05+00:00",
         "size": 21
+    },
+    "teste-final": {
+        "id": "teste-final",
+        "name": "Teste Final",
+        "filename": "teste-final.min.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-final.min.js",
+        "deployedAt": "2025-09-25T12:24:22+00:00",
+        "size": 26
     }
 }
