@@ -88,5 +88,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-completo-mfze5ep2ij0gu79af2.min.css",
         "deployedAt": "2025-09-25T12:54:22+00:00",
         "size": 2582
+    },
+    "dropdown-fix-important": {
+        "id": "dropdown-fix-important",
+        "name": "DropMenu com Important",
+        "filename": "dropmenu-com-important-fix.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-com-important-fix.min.css",
+        "deployedAt": "2025-09-25T12:54:50+00:00",
+        "size": 1004
     }
 }
