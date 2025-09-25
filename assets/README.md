@@ -1,7 +1,7 @@
 # Assets da Loja Integrada
 
 > Arquivos minificados e otimizados para uso na Loja Integrada
-> Gerado automaticamente em: 24/09/2025, 14:36:50
+> Gerado automaticamente em: 24/09/2025, 15:24:47
 
 ## 📊 Estatísticas
 
@@ -16,11 +16,11 @@
 - **Arquivo:** `dropdown-menu-moderno-dropdown-menu-001.min.css`
 - **Local:** header
 - **Páginas:** all
-- **URL:** `https://[SEU-USERNAME].github.io/loja-integrada-assets/assets/css/dropdown-menu-moderno-dropdown-menu-001.min.css`
+- **URL:** `https://philling-dev.github.io/loja-integrada-assets/assets/css/dropdown-menu-moderno-dropdown-menu-001.min.css`
 
 **Código para Loja Integrada:**
 ```html
-<link rel="stylesheet" href="https://[SEU-USERNAME].github.io/loja-integrada-assets/assets/css/dropdown-menu-moderno-dropdown-menu-001.min.css">
+<link rel="stylesheet" href="https://philling-dev.github.io/loja-integrada-assets/assets/css/dropdown-menu-moderno-dropdown-menu-001.min.css">
 ```
 
 
@@ -31,11 +31,11 @@
 - **Arquivo:** `analytics-enhanced-analytics-enhanced-002.min.js`
 - **Local:** header
 - **Páginas:** all
-- **URL:** `https://[SEU-USERNAME].github.io/loja-integrada-assets/assets/js/analytics-enhanced-analytics-enhanced-002.min.js`
+- **URL:** `https://philling-dev.github.io/loja-integrada-assets/assets/js/analytics-enhanced-analytics-enhanced-002.min.js`
 
 **Código para Loja Integrada:**
 ```html
-<script src="https://[SEU-USERNAME].github.io/loja-integrada-assets/assets/js/analytics-enhanced-analytics-enhanced-002.min.js"></script>
+<script src="https://philling-dev.github.io/loja-integrada-assets/assets/js/analytics-enhanced-analytics-enhanced-002.min.js"></script>
 ```
 
 
