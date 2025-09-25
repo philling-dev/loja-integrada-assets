@@ -1,0 +1,14 @@
+.tag-produto.tag-frete-gratis {
+    /* Estilos copiados do .frete-gratis-badge da sua vitrine */
+    background: linear-gradient(135deg, #4CAF50, #2E7D32) !important;  /* Fundo gradiente verde */
+    color: white !important; /* Texto branco */
+    padding: 4px 12px !important; /* Espaçamento interno */
+    border-radius: 12px !important; /* Cantos arredondados */
+    font-size: 11px !important; /* Tamanho da fonte */
+    font-weight: bold !important; /* Fonte em negrito */
+    
+    /* Ajustes finais para garantir a consistência */
+    display: inline-block !important;
+    border: none;
+    text-transform: none; /* Garante que o texto não fique em maiúsculas */
+}
