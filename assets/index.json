@@ -97,5 +97,32 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-com-important-fix.min.css",
         "deployedAt": "2025-09-25T12:54:50+00:00",
         "size": 1004
+    },
+    "teste-estrutura": {
+        "id": "teste-estrutura",
+        "name": "Teste Estrutura CSS",
+        "filename": "teste-estrutura-css.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-estrutura-css.min.css",
+        "deployedAt": "2025-09-25T12:56:30+00:00",
+        "size": 212
+    },
+    "teste-estrutura-v2": {
+        "id": "teste-estrutura-v2",
+        "name": "Teste Estrutura V2",
+        "filename": "teste-estrutura-v2.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-estrutura-v2.min.css",
+        "deployedAt": "2025-09-25T12:56:55+00:00",
+        "size": 197
+    },
+    "teste-estrutura-v3": {
+        "id": "teste-estrutura-v3",
+        "name": "Teste Estrutura V3",
+        "filename": "teste-estrutura-v3.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-estrutura-v3.min.css",
+        "deployedAt": "2025-09-25T12:57:22+00:00",
+        "size": 157
     }
 }

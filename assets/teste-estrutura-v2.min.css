@@ -1,0 +1,1 @@
+li.all-menu > li {\n position: relative;\n color: red;\n\n}\n\nli.all-menu > li > .nivel-dois {\n position: absolute;\n top: 0;\n left: 100%;\n\n}\n\nli.all-menu: hover {\n display: block;\n\n}\n\n

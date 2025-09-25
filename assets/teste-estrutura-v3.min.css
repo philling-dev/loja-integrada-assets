@@ -1,0 +1,1 @@
+li.all-menu > li {\n position: relative;\n color: red;\n\n}\n\nli.all-menu: hover {\n display: block;\n\n}\n\nli.menu-item: focus {\n outline: none;\n\n}\n\n
