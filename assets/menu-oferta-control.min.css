@@ -1,13 +1,13 @@
-/* Impede o submenu de aparecer ao passar o mouse */
+/* Impede mostrar o submenu ao passar o mouse */
 .bloquear-hover-oferta:hover .oferta-nivel-dois {
   display: none !important;
 }
 
-/* Estilo opcional para submenu quando estiver visível */
+/* Usa a classe .ativo para controlar visibilidade */
 .oferta-nivel-dois {
   display: none;
-  position: absolute;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  z-index: 9999;
+}
+
+.oferta-nivel-dois.ativo {
+  display: block !important;
 }
