@@ -1,0 +1,46 @@
+<style type="text/css">
+
+
+
+li.all-menu > li { position: relative !important; }
+
+
+li.all-menu > li > .nivel-dois, li.all-menu > li > ul { position: absolute !important; top: 0 !important; left: 100% !important; margin: 0 !important; margin-left: -1px !important; z-index: 999 !important; display: none !important; }
+
+
+li.all-menu > li:hover > .nivel-dois, li.all-menu > li:hover > ul { display: block !important; }
+
+
+li.all-menu > li.com-filho > a::after { content: ' \25B6' !important; font-size: 9px !important; margin-left: auto !important; margin-right: 0 !important; float: right !important; opacity: 0.7 !important; }
+
+
+li.all-menu .nivel-dois, li.all-menu ul { background-color: #2D2D2D !important; border: 1px solid #444 !important; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3) !important; padding: 5px 0 !important; border-radius: 0 !important; min-width: 250px !important; width: max-content !important; max-width: 320px !important; }
+
+
+li.all-menu ul.nivel-dois > li.com-filho { position: relative !important; }
+
+li.all-menu ul.nivel-dois > li.com-filho > ul.nivel-dois { position: absolute !important; top: -5px !important; left: 100% !important; margin-left: -1px !important; display: none !important; background-color: #2D2D2D !important; }
+
+
+li.all-menu ul.nivel-dois > li.com-filho:hover > ul.nivel-dois { display: block !important; }
+
+
+li.all-menu .nivel-dois li, li.all-menu .menu-categorias li { padding: 0 !important; margin: 0 !important; border: none !important; list-style: none !important; border-bottom: 1px solid #555 !important; }
+
+li.all-menu .nivel-dois li:last-child, li.all-menu .menu-categorias li:last-child { border-bottom: none !important; }
+
+
+li.all-menu .nivel-dois li a, li.all-menu .menu-categorias li a, li.all-menu .menu-categorias a.ver-categoria { display: block !important; padding: 10px 15px !important; font-size: 13px !important; text-transform: none !important; letter-spacing: normal !important; text-decoration: none !important; white-space: nowrap !important; transition: all 0.15s ease !important; border-left: 2px solid transparent !important; line-height: 1.4 !important; font-weight: 500 !important; }
+
+
+li.all-menu .nivel-dois li a, li.all-menu .nivel-dois a .titulo, li.all-menu .menu-categorias li a, li.all-menu .menu-categorias a.ver-categoria { color: #FFFFFF !important; font-weight: 400 !important; opacity: 1 !important; }
+
+
+li.all-menu .nivel-dois li a:hover, li.all-menu .menu-categorias li a:hover, li.all-menu .menu-categorias a.ver-categoria:hover { background-color: rgba(255, 255, 255, 0.08) !important; border-left: 2px solid #E53935 !important; padding-left: 18px !important; color: #FFFFFF !important; }
+
+
+li.all-menu .nivel-dois a.ver-categoria { margin-top: 5px !important; padding: 10px 15px !important; border-top: 1px solid #555 !important; text-align: center !important; font-size: 13px !important; font-weight: 500 !important; text-transform: uppercase !important; }
+
+
+li.all-menu ul.nivel-dois > li.com-filho > a::after { content: ' \25B6' !important; float: right !important; font-size: 8px !important; margin-left: auto !important; opacity: 0.5 !important; }
+</style>
