@@ -1,0 +1,118 @@
+/* Todos os seletores agora são prefixados com #descricao-rhid para evitar conflitos com o tema do site */
+body #descricao-rhid .rhid-tabs{max-width:1000px;margin:0 auto;padding:20px}
+body #descricao-rhid .rhid-tab-titles{display:flex;border-bottom:2px solid #e9ecef;margin-bottom:30px;flex-wrap:wrap}
+body #descricao-rhid .rhid-tab-button .rhid-icon{display:inline-flex;margin-right:10px;font-style:normal}
+body #descricao-rhid .rhid-tab-button{display:flex;align-items:center;padding:15px 25px;font-size:1rem;font-weight:600;color:#6c757d;cursor:pointer;border-bottom:3px solid transparent;transition:all .3s ease;position:relative;background:none;border:none;border-top:none;border-left:none;border-right:none;flex:1;min-width:150px;justify-content:center;font-family:inherit}
+body #descricao-rhid .rhid-tab-button:hover{color:#b30400;background:#f8f9fa}
+body #descricao-rhid .rhid-tab-button.rhid-active{color:#b30400;border-bottom-color:#b30400;background:#fff}
+body #descricao-rhid .rhid-tab-items .rhid-tab-item{display:none;opacity:0;transition:opacity .3s linear}
+body #descricao-rhid .rhid-tab-items .rhid-tab-item.rhid-active{display:block}
+body #descricao-rhid .rhid-tab-items .rhid-tab-item.rhid-active.in{opacity:1;animation:rhidFadeIn .3s ease-in}
+@keyframes rhidFadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+body #descricao-rhid .rhid-tab-item__content{padding:20px 0}
+body #descricao-rhid .rhid-header{text-align:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid #f5f5f5}
+body #descricao-rhid .rhid-header h1{font-size:2rem;color:#b30400;margin-bottom:10px;font-weight:700}
+body #descricao-rhid .rhid-header p{font-size:1rem;color:#666;max-width:600px;margin:0 auto}
+body #descricao-rhid .rhid-benefits-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin-bottom:25px;padding-bottom:20px;border-bottom:1px solid #f8f9fa}
+body #descricao-rhid .rhid-benefit-badge{background:linear-gradient(135deg,#f8f9fa,#fff);border:1px solid #dee2e6;border-radius:10px;padding:15px;text-align:center;transition:all .3s ease}
+body #descricao-rhid .rhid-benefit-badge:hover{border-color:#b30400;transform:translateY(-2px)}
+body #descricao-rhid .rhid-benefit-icon{font-size:1.5rem;color:#6c757d;margin-bottom:8px;font-weight:bold}
+body #descricao-rhid .rhid-benefit-text{font-size:.85rem;color:#555;font-weight:500}
+body #descricao-rhid .rhid-quick-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid #f8f9fa}
+body #descricao-rhid .rhid-info-card{background:#fff;border:1px solid #e9ecef;border-radius:10px;padding:15px;text-align:center;transition:all .3s ease;border-left:4px solid #b30400}
+body #descricao-rhid .rhid-info-card:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(179,4,0,.1)}
+body #descricao-rhid .rhid-info-title{font-size:.9rem;font-weight:600;color:#b30400;margin-bottom:5px}
+body #descricao-rhid .rhid-info-value{font-size:.85rem;color:#555}
+body #descricao-rhid .rhid-highlight{background:linear-gradient(135deg,#b30400,#d60500)!important;color:#ffffff!important;padding:2px 8px!important;border-radius:15px!important;font-weight:600!important;font-size:.8rem!important;display:inline-block!important}
+body #descricao-rhid .rhid-features-section{background:linear-gradient(135deg,#f8f9fa,#fff);border-radius:15px;padding:25px;margin:20px 0;border:1px solid #e9ecef;border-top:3px solid #b30400}
+body #descricao-rhid .rhid-features-title{font-size:1.3rem;color:#b30400;text-align:center;margin-bottom:20px;font-weight:600}
+body #descricao-rhid .rhid-features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+body #descricao-rhid .rhid-feature-item{background:white;padding:12px 15px;border-radius:8px;border-left:3px solid #b30400;font-size:.9rem;transition:all .3s ease;box-shadow:0 1px 5px rgba(0,0,0,.05)}
+body #descricao-rhid .rhid-feature-item:hover{transform:translateX(3px);box-shadow:0 3px 15px rgba(179,4,0,.1)}
+body #descricao-rhid .rhid-feature-item::before{content:'✓';color:#b30400;font-weight:bold;margin-right:8px}
+body #descricao-rhid .rhid-specs-grid{display:grid;gap:20px;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid #f8f9fa}
+body #descricao-rhid .rhid-spec-card{background:#fff;border:1px solid #e9ecef;border-radius:12px;padding:25px;transition:all .3s ease;border-left:4px solid #b30400;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+body #descricao-rhid .rhid-spec-card:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(179,4,0,.1)}
+body #descricao-rhid .rhid-spec-header{display:flex;align-items:center;margin-bottom:15px}
+body #descricao-rhid .rhid-spec-icon{font-size:1.8rem;color:#6c757d;margin-right:15px;font-weight:bold}
+body #descricao-rhid .rhid-spec-title{font-size:1.3rem;font-weight:600;color:#b30400}
+body #descricao-rhid .rhid-spec-content{color:#555;font-size:1rem;text-align:justify}
+body #descricao-rhid .rhid-spec-highlight{background:linear-gradient(135deg,#b30400,#d60500)!important;color:#ffffff!important;padding:2px 8px!important;border-radius:15px!important;font-weight:600!important;font-size:.9rem!important;display:inline-block!important}
+body #descricao-rhid .rhid-features-summary{background:linear-gradient(135deg,#f8f9fa,#fff);border-radius:15px;padding:25px;margin-top:30px;border:1px solid #e9ecef;text-align:center;border-top:3px solid #b30400}
+body #descricao-rhid .rhid-summary-title{font-size:1.4rem;color:#b30400;margin-bottom:15px;font-weight:600}
+body #descricao-rhid .rhid-summary-text{font-size:1.1rem;color:#555;font-weight:500}
+body #descricao-rhid .rhid-faq-grid{display:grid;gap:15px;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid #f8f9fa}
+body #descricao-rhid .rhid-faq-item{background:#fff;border:1px solid #e9ecef;border-radius:10px;overflow:hidden;transition:all .3s ease;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+body #descricao-rhid .rhid-faq-item:hover{box-shadow:0 5px 20px rgba(179,4,0,.1)}
+body #descricao-rhid .rhid-faq-question{background:#f8f9fa;padding:18px 20px;cursor:pointer;font-weight:600;color:#333;border-bottom:1px solid #e9ecef;display:flex;justify-content:space-between;align-items:center;transition:all .3s ease}
+body #descricao-rhid .rhid-faq-question:hover{background:#f0f0f0;color:#333}
+body #descricao-rhid .rhid-faq-item.active .rhid-faq-question{background:#ffffff!important;color:#333!important;border-left:4px solid #b30400!important;box-shadow:0 2px 8px rgba(0,0,0,0.1)!important}
+body #descricao-rhid .rhid-faq-icon{font-size:1.2rem;font-weight:bold;transition:transform .3s ease}
+body #descricao-rhid .rhid-faq-item.active .rhid-faq-icon{transform:rotate(180deg)}
+body #descricao-rhid .rhid-faq-answer{padding:20px;color:#555;line-height:1.6;display:none;border-left:4px solid #b30400;background:#fff;max-height:0;opacity:0;overflow:hidden;transition:all .3s ease-out}
+body #descricao-rhid .rhid-faq-item.active .rhid-faq-answer{display:block;max-height:200px;opacity:1}
+body #descricao-rhid .rhid-faq-highlight{background:linear-gradient(135deg,#b30400,#d60500)!important;color:#ffffff!important;padding:2px 6px!important;border-radius:12px!important;font-weight:600!important;font-size:.9rem!important;display:inline-block!important}
+body #descricao-rhid .rhid-reviews-section{background:#fff;padding:0;margin:0;border:none}
+body #descricao-rhid .rhid-reviews-container{display:grid;grid-template-columns:280px 1fr;gap:30px;align-items:start}
+body #descricao-rhid .rhid-rating-summary{background:#fff;border:1px solid #e6e6e6;border-radius:6px;padding:20px;text-align:center;position:sticky;top:20px}
+body #descricao-rhid .rhid-rating-score{font-size:3rem;font-weight:400;color:#333;margin-bottom:5px}
+body #descricao-rhid .rhid-rating-count{color:#666;font-size:.85rem;margin-bottom:20px}
+body #descricao-rhid .rhid-rating-stars{display:flex;justify-content:center;gap:2px;margin-bottom:15px}
+body #descricao-rhid .rhid-star{color:#ffc107;font-size:1.1rem}
+body #descricao-rhid .rhid-star.empty{color:#e9ecef}
+body #descricao-rhid .rhid-rating-breakdown{text-align:left}
+body #descricao-rhid .rhid-rating-row{display:flex;align-items:center;margin-bottom:6px;font-size:.8rem}
+body #descricao-rhid .rhid-rating-label{min-width:30px;color:#666}
+body #descricao-rhid .rhid-rating-bar{flex:1;height:4px;background:#e9ecef;border-radius:2px;margin:0 8px;overflow:hidden}
+body #descricao-rhid .rhid-rating-fill{height:100%;background:#ffc107;border-radius:2px}
+body #descricao-rhid .rhid-rating-number{color:#666;min-width:20px;text-align:right}
+body #descricao-rhid .rhid-reviews-content{flex:1}
+body #descricao-rhid .rhid-ml-filters{display:flex;gap:10px;margin-bottom:20px}
+body #descricao-rhid .rhid-ml-select{background:white;border:1px solid #e6e6e6;border-radius:6px;padding:8px 12px;font-size:.85rem;color:#333;cursor:pointer;min-width:140px}
+body #descricao-rhid .rhid-ml-select:hover{border-color:#b30400}
+body #descricao-rhid .rhid-ml-select:focus{border-color:#b30400;outline:none}
+body #descricao-rhid .rhid-opinions-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #e6e6e6}
+body #descricao-rhid .rhid-opinions-header h3{font-size:1.1rem;font-weight:500;color:#333;margin:0}
+body #descricao-rhid .rhid-opinions-count{font-size:.85rem;color:#666}
+body #descricao-rhid .rhid-reviews-grid{display:grid;gap:1px;border:1px solid #e6e6e6;border-radius:6px;overflow:hidden;background:#e6e6e6}
+body #descricao-rhid .rhid-review-card{background:#fff;border:none;border-radius:0;padding:20px;margin-bottom:0;transition:background-color .2s ease}
+body #descricao-rhid .rhid-review-card:hover{background:#fafafa}
+body #descricao-rhid .rhid-review-card:last-child{border-bottom:none}
+body #descricao-rhid .rhid-review-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #f5f5f5}
+body #descricao-rhid .rhid-review-author{flex:1}
+body #descricao-rhid .rhid-author-name{font-weight:500;color:#333;font-size:.9rem;margin-bottom:3px}
+body #descricao-rhid .rhid-author-company{color:#666;font-size:.8rem}
+body #descricao-rhid .rhid-review-rating{display:flex;align-items:center;gap:6px;flex-direction:column;align-items:flex-end}
+body #descricao-rhid .rhid-review-stars{display:flex;gap:1px;margin-bottom:3px}
+body #descricao-rhid .rhid-review-date{color:#999;font-size:.75rem}
+body #descricao-rhid .rhid-review-content{color:#333;line-height:1.5;margin-bottom:12px;font-size:.9rem}
+body #descricao-rhid .rhid-review-footer{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:#666;padding-top:10px;border-top:1px solid #f5f5f5}
+body #descricao-rhid .rhid-review-helpful{display:flex;align-items:center;gap:4px;cursor:pointer;padding:4px 8px;border-radius:4px;transition:all .2s ease;border:1px solid transparent;color:#666}
+body #descricao-rhid .rhid-review-helpful:hover{background:#f0f8f0;border-color:#28a745;color:#28a745}
+body #descricao-rhid .rhid-review-helpful.helpful-active{background:#28a745;color:white;border-color:#28a745;font-weight:500}
+body #descricao-rhid .rhid-show-all-btn{text-align:center;margin:20px 0}
+body #descricao-rhid .rhid-show-all-button{background:linear-gradient(135deg,#f8f9fa,#ffffff);border:2px solid #b30400;border-radius:30px;padding:15px 35px;font-size:1.1rem;font-weight:600;color:#b30400;cursor:pointer;transition:all .3s ease;display:inline-block;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,.1)}
+body #descricao-rhid .rhid-show-all-button:hover{background:linear-gradient(135deg,#b30400,#d60500);color:white;transform:translateY(-3px);box-shadow:0 12px 30px rgba(179,4,0,.25)}
+body #descricao-rhid .rhid-cta-section{text-align:center!important;margin:30px 0!important;padding:25px!important;background:linear-gradient(135deg,#b30400,#d60500)!important;border-radius:15px!important;color:#ffffff!important;box-shadow:0 4px 15px rgba(179,4,0,.2)!important;border:none!important;width:100%!important;box-sizing:border-box!important}
+body #descricao-rhid .rhid-cta-title{font-size:1.4rem!important;margin:0 0 10px 0!important;font-weight:600!important;color:#ffffff!important;line-height:1.3!important;text-shadow:none!important}
+body #descricao-rhid .rhid-cta-subtitle{font-size:1rem!important;margin:0 0 20px 0!important;opacity:.95!important;color:#ffffff!important;line-height:1.4!important;text-shadow:none!important}
+body #descricao-rhid .rhid-cta-button{background:#ffffff!important;color:#b30400!important;padding:12px 30px!important;border:2px solid #ffffff!important;border-radius:25px!important;font-size:1rem!important;font-weight:600!important;cursor:pointer!important;transition:all .3s ease!important;text-decoration:none!important;display:inline-block!important;box-shadow:0 2px 8px rgba(0,0,0,.1)!important;font-family:inherit!important}
+body #descricao-rhid .rhid-cta-button:hover{transform:translateY(-2px)!important;box-shadow:0 8px 20px rgba(255,255,255,.4)!important;background:#f8f9fa!important}
+body #descricao-rhid .rhid-cta-button:active{transform:translateY(0)!important}
+@media(max-width:768px){
+body #descricao-rhid .rhid-header h1{font-size:1.6rem}
+body #descricao-rhid .rhid-quick-info{grid-template-columns:1fr}
+body #descricao-rhid .rhid-features-grid{grid-template-columns:1fr}
+body #descricao-rhid .rhid-tabs{padding:15px}
+body #descricao-rhid .rhid-benefits-row{grid-template-columns:repeat(2,1fr)}
+body #descricao-rhid .rhid-tab-titles{flex-wrap:wrap}
+body #descricao-rhid .rhid-tab-titles a{flex:1;min-width:150px}
+body #descricao-rhid .rhid-spec-header{flex-direction:column;text-align:center}
+body #descricao-rhid .rhid-spec-icon{margin-right:0;margin-bottom:10px}
+body #descricao-rhid .rhid-reviews-container{grid-template-columns:1fr;gap:20px}
+body #descricao-rhid .rhid-rating-summary{position:static}
+body #descricao-rhid .rhid-ml-filters{flex-direction:column}
+body #descricao-rhid .rhid-opinions-header{flex-direction:column;gap:8px;align-items:flex-start}
+body #descricao-rhid .rhid-review-header{flex-direction:column;gap:8px;align-items:flex-start}
+body #descricao-rhid .rhid-review-rating{flex-direction:row;align-items:center}
+}
