@@ -61,5 +61,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-css-corrigido.min.css",
         "deployedAt": "2025-09-25T12:37:57+00:00",
         "size": 48
+    },
+    "teste-css-legivel": {
+        "id": "teste-css-legivel",
+        "name": "Teste CSS Legivel",
+        "filename": "teste-css-legivel.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-css-legivel.min.css",
+        "deployedAt": "2025-09-25T12:40:20+00:00",
+        "size": 152
     }
 }
