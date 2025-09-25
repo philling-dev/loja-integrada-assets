@@ -149,8 +149,8 @@
         "filename": "dropmenu-mfzf5lekax1h18jk7ed.min.css",
         "type": "css",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-mfzf5lekax1h18jk7ed.min.css",
-        "deployedAt": "2025-09-25T12:59:02+00:00",
-        "size": 3396
+        "deployedAt": "2025-09-25T13:04:00+00:00",
+        "size": 3325
     },
     "dropmenu-teste-correto": {
         "id": "dropmenu-teste-correto",
@@ -178,5 +178,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-final-funcional.min.css",
         "deployedAt": "2025-09-25T13:03:19+00:00",
         "size": 1870
+    },
+    "dropdown-teste-correto": {
+        "id": "dropdown-teste-correto",
+        "name": "Dropdown Menu Teste Corrigido",
+        "filename": "dropdown-corrigido-teste.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropdown-corrigido-teste.min.css",
+        "deployedAt": "2025-09-25T13:19:54+00:00",
+        "size": 905
     }
 }

@@ -1,0 +1,29 @@
+li.all-menu > li {
+position: relative !important;
+} li.all-menu > li > .nivel-dois, li.all-menu > li > ul {
+position: absolute !important;
+top: 0 !important;
+left: 100% !important;
+margin: 0 !important;
+margin-left: -1px !important;
+z-index: 999 !important;
+display: none !important;
+} li.all-menu > li:hover > .nivel-dois, li.all-menu > li:hover > ul {
+display: block !important;
+} li.all-menu > li.com-filho > a::after {
+content: ' \25B6' !important;
+font-size: 9px !important;
+margin-left: auto !important;
+margin-right: 0 !important;
+float: right !important;
+opacity: 0.7 !important;
+} li.all-menu .nivel-dois, li.all-menu ul {
+background-color: #2D2D2D !important;
+border: 1px solid #444 !important;
+box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3) !important;
+padding: 5px 0 !important;
+border-radius: 0 !important;
+min-width: 250px !important;
+width: max-content !important;
+max-width: 320px !important;
+}
