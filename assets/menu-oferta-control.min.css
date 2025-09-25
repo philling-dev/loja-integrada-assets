@@ -1,11 +1,13 @@
-/* Impede mostrar o submenu ao passar o mouse */
+/* Remove o comportamento de hover */
 .bloquear-hover-oferta:hover .oferta-nivel-dois {
   display: none !important;
 }
 
-/* Usa a classe .ativo para controlar visibilidade */
+/* Garante controle total por JS */
 .oferta-nivel-dois {
   display: none;
+  transition: all 0.3s ease;
+  z-index: 9999;
 }
 
 .oferta-nivel-dois.ativo {
