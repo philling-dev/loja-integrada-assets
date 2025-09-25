@@ -1,0 +1,59 @@
+/*
+=======================================================================================
+== CÓDIGO FINAL HÍBRIDO (VISUAL DO ORIGINAL + ESTRUTURA SEGURA) ==
+=======================================================================================
+*/
+
+/* 1. ESTRUTURA SEGURA DO CARROSSEL (PARA NÃO QUEBRAR O LAYOUT) */
+/* Garante que os cards tenham a mesma altura */
+.listagem.borda-alpha.com-caixa .slick-track {
+    display: flex !important;
+    align-items: stretch !important;
+    gap: 20px; /* Usando o espaçamento do seu código original */
+}
+
+.listagem.borda-alpha.com-caixa .slick-slide {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+
+/* 2. ESTILO VISUAL DO CARD (DO SEU CÓDIGO ORIGINAL) */
+/* Aplica o fundo, borda, raio e o SOMBREAMENTO que você queria */
+.listagem.borda-alpha.com-caixa .listagem-item {
+    background: #f7f7f9;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.08);
+    transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+    
+    /* Estrutura interna segura */
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+
+/* 3. EFEITO HOVER (DO SEU CÓDIGO ORIGINAL) */
+/* Aplica o destaque ao passar o mouse */
+.listagem.borda-alpha.com-caixa .listagem-item:hover {
+    background: #ffffff;
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0,0,0,.18);
+}
+
+
+/* 4. ALINHAMENTO INTERNO DO CONTEÚDO (ESTRUTURA SEGURA) */
+/* Garante que os preços fiquem sempre alinhados na base do card */
+.listagem.borda-alpha.com-caixa li.listagem-item .info-produto {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+    padding: 8px 12px 12px 12px;
+}
+
+.listagem.borda-alpha.com-caixa li.listagem-item .info-produto .nome-produto {
+    flex-grow: 1;
+}
