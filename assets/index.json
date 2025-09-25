@@ -187,5 +187,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropdown-corrigido-teste.min.css",
         "deployedAt": "2025-09-25T13:19:54+00:00",
         "size": 905
+    },
+    "dropdown-menu-final": {
+        "id": "dropdown-menu-final",
+        "name": "Dropdown Menu Completo - Submenu Lateral",
+        "filename": "dropdown-menu-completo.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropdown-menu-completo.min.css",
+        "deployedAt": "2025-09-25T13:20:50+00:00",
+        "size": 3085
     }
 }
