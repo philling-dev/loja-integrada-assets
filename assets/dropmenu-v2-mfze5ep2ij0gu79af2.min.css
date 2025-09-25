@@ -1,0 +1,1 @@
+li.all-menu > li {\n position: relative;\n \n}\n\nli.all-menu > li > .nivel-dois, li.all-menu > li > ul {\n position: absolute;\n top: 0;\n left: 100%;\n margin: 0;\n margin-left: -1px;\n z-index: 999;\n display: none;\n \n}\n\nli.all-menu > li:hover > .nivel-dois, li.all-menu > li:hover > ul {\n display: block;\n \n}

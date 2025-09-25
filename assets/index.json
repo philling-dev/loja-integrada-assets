@@ -70,5 +70,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-css-legivel.min.css",
         "deployedAt": "2025-09-25T12:40:20+00:00",
         "size": 152
+    },
+    "mfze5ep2ij0gu79af2v2": {
+        "id": "mfze5ep2ij0gu79af2v2",
+        "name": "DropMenu V2",
+        "filename": "dropmenu-v2-mfze5ep2ij0gu79af2.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-v2-mfze5ep2ij0gu79af2.min.css",
+        "deployedAt": "2025-09-25T12:45:26+00:00",
+        "size": 319
     }
 }
