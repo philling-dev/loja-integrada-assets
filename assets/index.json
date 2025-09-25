@@ -52,5 +52,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-mfze5ep2ij0gu79af2.min.css",
         "deployedAt": "2025-09-25T12:30:48+00:00",
         "size": 3147
+    },
+    "teste-css-fix": {
+        "id": "teste-css-fix",
+        "name": "Teste CSS Fix",
+        "filename": "teste-css-corrigido.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-css-corrigido.min.css",
+        "deployedAt": "2025-09-25T12:37:57+00:00",
+        "size": 48
     }
 }
