@@ -1,15 +1,14 @@
-/* Remove o comportamento de hover */
-.bloquear-hover-oferta:hover .oferta-nivel-dois {
+.bloquear-hover-oferta:hover > ul.oferta-nivel-dois {
   display: none !important;
 }
 
-/* Garante controle total por JS */
-.oferta-nivel-dois {
+ul.oferta-nivel-dois {
   display: none;
-  transition: all 0.3s ease;
-  z-index: 9999;
+  position: absolute; /* Se precisar posicionar */
+  background: white;
+  z-index: 1000;
 }
 
-.oferta-nivel-dois.ativo {
+li.item-oferta.ativo > ul.oferta-nivel-dois {
   display: block !important;
 }
