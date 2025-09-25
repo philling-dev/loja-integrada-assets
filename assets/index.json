@@ -151,5 +151,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-mfzf5lekax1h18jk7ed.min.css",
         "deployedAt": "2025-09-25T12:59:02+00:00",
         "size": 3396
+    },
+    "dropmenu-teste-correto": {
+        "id": "dropmenu-teste-correto",
+        "name": "DropMenu Teste Correto",
+        "filename": "dropmenu-teste-correto.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-teste-correto.min.css",
+        "deployedAt": "2025-09-25T13:02:32+00:00",
+        "size": 363
     }
 }
