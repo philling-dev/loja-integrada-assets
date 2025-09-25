@@ -133,5 +133,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-important-final.min.css",
         "deployedAt": "2025-09-25T12:57:55+00:00",
         "size": 164
+    },
+    "dropmenu-final-corrigido": {
+        "id": "dropmenu-final-corrigido",
+        "name": "DropMenu Final Corrigido",
+        "filename": "dropmenu-final-corrigido.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-final-corrigido.min.css",
+        "deployedAt": "2025-09-25T12:58:13+00:00",
+        "size": 500
     }
 }
