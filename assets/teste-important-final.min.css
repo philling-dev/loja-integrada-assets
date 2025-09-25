@@ -1,0 +1,1 @@
+li.all-menu > li {\n position: relative;\n color: red;\n \n}\n\nli.all-menu:hover {\n display: block;\n background: blue;\n \n}\n\n.test {\n margin: 10px;\n \n}\n\n
