@@ -1,0 +1,13 @@
+.sidebar-dark-pro {
+background: #111827;
+color: #e5e7eb;
+width: 280px;
+} .nav-group.expanded .project-header {
+background: #374151;
+} .nav-submenu {
+background: #1f2937;
+border-left: 3px solid #3b82f6;
+} .nav-item.active {
+background: #2563eb;
+color: white;
+}
