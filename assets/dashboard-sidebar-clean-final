@@ -1,0 +1,8 @@
+.sidebar-clean {
+--clean-spacing: 4px;
+--clean-hierarchy: 48px;
+} .nav-section {
+margin-bottom: 32px;
+} .project-header {
+font-weight: 500;
+}
