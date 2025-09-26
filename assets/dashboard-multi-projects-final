@@ -1,0 +1,5 @@
+.multi-projects-dashboard {
+--project-active: #10b981;
+--project-dev: #3b82f6;
+--project-spacing: 4px;
+}
