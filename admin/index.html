@@ -3,273 +3,1200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Integrada Assets Manager</title>
-    <link href="css/admin.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Admin Dashboard - WidgetVPN</title>
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gray-900: #0f172a;
+            --gray-800: #1e293b;
+            --gray-700: #334155;
+            --gray-600: #475569;
+            --gray-500: #64748b;
+            --gray-400: #94a3b8;
+            --gray-300: #cbd5e1;
+            --gray-200: #e2e8f0;
+            --gray-100: #f1f5f9;
+            --gray-50: #f8fafc;
+
+            --blue-600: #2563eb;
+            --blue-500: #3b82f6;
+            --blue-400: #60a5fa;
+
+            --green-500: #10b981;
+            --red-500: #ef4444;
+
+            --border-radius: 8px;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        .dashboard {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: white;
+            border-right: 1px solid var(--gray-200);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden; /* Prevents horizontal scroll */
+            flex-shrink: 0; /* Prevents sidebar from shrinking */
+        }
+
+        .sidebar-header {
+            padding: 24px 20px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .logo-subtitle {
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-top: 4px;
+        }
+
+        .nav {
+            flex: 1;
+            padding: 16px 0;
+        }
+
+        /* Nav separator */
+        .nav-separator {
+            height: 1px;
+            background: var(--gray-200);
+            margin: 20px 16px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin: 0 8px;
+            border-radius: 8px;
+        }
+
+        .nav-item:hover {
+            background: var(--gray-100);
+            color: var(--gray-900);
+        }
+
+        .nav-item.active {
+            background: var(--blue-500);
+            color: white;
+        }
+
+        .nav-item.active:hover {
+            background: var(--blue-600);
+        }
+
+        .nav-icon {
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+            opacity: 0.8;
+        }
+
+        /* Project Groups */
+        .nav-group {
+            margin-bottom: 8px;
+        }
+
+        .project-header {
+            position: relative;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+
+        .project-header .chevron {
+            margin-left: auto;
+            transition: transform 0.2s ease;
+            opacity: 0.6;
+            width: 14px;
+            height: 14px;
+        }
+
+        .nav-group.expanded .chevron {
+            transform: rotate(90deg);
+        }
+
+        .nav-group.expanded .project-header {
+            background: var(--gray-100);
+            color: var(--gray-900);
+        }
+
+        /* Status Indicators */
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-left: 8px;
+            margin-right: 4px;
+        }
+
+        .status-indicator.active {
+            background: var(--green-500);
+            box-shadow: 0 0 4px var(--green-500);
+        }
+
+        .status-indicator.dev {
+            background: var(--blue-400);
+            box-shadow: 0 0 4px var(--blue-400);
+        }
+
+        /* Submenus */
+        .nav-submenu {
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            background: var(--gray-50);
+            margin: 4px 8px 0;
+            border-radius: 8px;
+            border-left: 3px solid var(--blue-500);
+            max-height: 0;
+            opacity: 0;
+        }
+
+        .nav-group.expanded .nav-submenu {
+            max-height: 200px; /* Enough for 3 menu items */
+            opacity: 1;
+        }
+
+        .nav-submenu .nav-item {
+            font-size: 13px;
+            padding: 10px 16px 10px 40px;
+            margin: 0;
+            border-radius: 0;
+            color: var(--gray-600);
+            font-weight: 400;
+        }
+
+        .nav-submenu .nav-item:hover {
+            background: var(--gray-100);
+            color: var(--gray-900);
+        }
+
+        .nav-submenu .nav-item.active {
+            background: var(--blue-500);
+            color: white;
+            border-left: 3px solid var(--blue-400);
+            margin-left: -3px;
+        }
+
+        .nav-submenu .nav-item:first-child {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            margin-top: 4px;
+        }
+
+        .nav-submenu .nav-item:last-child {
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            margin-bottom: 4px;
+        }
+
+        /* Coming Soon & Disabled States */
+        .coming-soon {
+            opacity: 0.7;
+        }
+
+        .coming-soon .status-indicator.dev {
+            opacity: 0.6;
+        }
+
+        .disabled {
+            opacity: 0.5;
+            cursor: not-allowed !important;
+        }
+
+        .disabled:hover {
+            background: transparent !important;
+            color: var(--gray-400) !important;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0; /* Prevents flex overflow */
+            overflow: hidden; /* Prevents content from leaking */
+        }
+
+        .main-header {
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+            padding: 0 32px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .main-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green-500);
+        }
+
+        .main-body {
+            flex: 1;
+            padding: 32px;
+            overflow-y: auto;
+            overflow-x: hidden; /* Prevents horizontal overflow */
+            max-width: 100%; /* Ensures content doesn't exceed container */
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+            max-width: 100%; /* Prevents grid overflow */
+            overflow: hidden; /* Prevents card overflow */
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: between;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .card-subtitle {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-top: 4px;
+        }
+
+        .metric {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: var(--border-radius);
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--blue-500);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-600);
+        }
+
+        .btn-secondary {
+            background: var(--gray-100);
+            color: var(--gray-900);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-200);
+        }
+
+        /* Loading */
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            color: var(--gray-500);
+        }
+
+        .loading-spinner {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--gray-300);
+            border-top: 2px solid var(--blue-500);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                left: -280px;
+                top: 0;
+                height: 100vh;
+                z-index: 100;
+                transition: left 0.3s ease;
+                box-shadow: var(--shadow-lg);
+            }
+
+            .sidebar.active {
+                left: 0;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .mobile-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.6);
+                z-index: 90;
+                display: none;
+            }
+
+            .mobile-overlay.active {
+                display: block;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--gray-600);
+                font-size: 20px;
+                cursor: pointer;
+            }
+        }
+
+        .mobile-menu-btn {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <h1><i class="fas fa-code"></i> Loja Integrada Assets</h1>
-                <p class="header-subtitle">Sistema inteligente de performance para códigos CSS/JS</p>
-                <div class="header-actions">
-                    <button class="btn btn-primary" id="btnNewCode">
-                        <i class="fas fa-plus"></i> Adicionar Código
-                    </button>
-                </div>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">WidgetVPN</div>
+                <div class="logo-subtitle">Admin Dashboard</div>
             </div>
-        </header>
+
+            <nav class="nav">
+                <!-- Dashboard -->
+                <div class="nav-item active" data-page="dashboard">
+                    <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"/>
+                        <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"/>
+                    </svg>
+                    Dashboard
+                </div>
+
+                <!-- Script Deploy -->
+                <div class="nav-group" data-project="script-deploy">
+                    <div class="nav-item project-header" onclick="toggleProject('script-deploy')">
+                        <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                        </svg>
+                        Script Deploy
+                        <span class="status-indicator active"></span>
+                        <svg class="chevron" width="12" height="12" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="nav-submenu" id="script-deploy-submenu">
+                        <div class="nav-item" data-page="script-codes">
+                            <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/>
+                            </svg>
+                            Códigos
+                        </div>
+                        <div class="nav-item" data-page="script-deploy">
+                            <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
+                            </svg>
+                            Deploy & Status
+                        </div>
+                        <div class="nav-item" data-page="script-settings">
+                            <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                            </svg>
+                            Configurações
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App Manager -->
+                <div class="nav-item coming-soon">
+                    <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
+                    </svg>
+                    App Manager
+                    <span class="status-indicator dev"></span>
+                </div>
+
+                <!-- URL Shortener -->
+                <div class="nav-item coming-soon">
+                    <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"/>
+                    </svg>
+                    URL Shortener
+                    <span class="status-indicator dev"></span>
+                </div>
+
+                <!-- Analytics Hub -->
+                <div class="nav-item coming-soon">
+                    <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+                    </svg>
+                    Analytics Hub
+                    <span class="status-indicator dev"></span>
+                </div>
+
+                <!-- Separator -->
+                <div class="nav-separator"></div>
+
+                <!-- Settings -->
+                <div class="nav-item" data-page="system-settings">
+                    <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                    </svg>
+                    Settings
+                </div>
+
+                <!-- Logs -->
+                <div class="nav-item" data-page="system-logs">
+                    <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    Logs
+                </div>
+            </nav>
+        </aside>
 
         <!-- Main Content -->
-        <main class="main">
-            <!-- Performance Stats -->
-            <section class="performance-stats">
-                <div class="stat-card performance">
-                    <div class="stat-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="performanceGain">0%</h3>
-                        <p>Melhoria de Performance</p>
-                        <small>vs códigos inline na Loja Integrada</small>
-                    </div>
+        <main class="main-content">
+            <header class="main-header">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <h1 class="main-title" id="pageTitle">Dashboard</h1>
+                <div class="status-indicator">
+                    <div class="status-dot"></div>
+                    <span>Sistema Online</span>
                 </div>
-                <div class="stat-card groups">
-                    <div class="stat-icon">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="totalGroups">0</h3>
-                        <p>Grupos Ativos</p>
-                        <small id="groupsDetail">0 arquivos únicos</small>
-                    </div>
-                </div>
-                <div class="stat-card codes">
-                    <div class="stat-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="totalCodes">0</h3>
-                        <p>Códigos Gerenciados</p>
-                        <small id="codesSize">0 KB minificados</small>
-                    </div>
-                </div>
-                <div class="stat-card deploy">
-                    <div class="stat-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="deployStatus">Pendente</h3>
-                        <p>GitHub Pages</p>
-                        <small id="lastDeploy">Nunca deployado</small>
-                    </div>
-                </div>
-            </section>
+            </header>
 
-            <!-- Quick Actions -->
-            <section class="quick-actions">
-                <div class="action-card">
-                    <h3><i class="fas fa-rocket"></i> Deploy Rápido</h3>
-                    <p>Publica alterações no GitHub Pages</p>
-                    <button class="btn btn-primary btn-block" id="btnQuickDeploy">
-                        <i class="fas fa-upload"></i> Deploy Agora
-                    </button>
+            <div class="main-body" id="mainContent">
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <div>Carregando...</div>
                 </div>
-                <div class="action-card">
-                    <h3><i class="fas fa-magic"></i> Otimização Automática</h3>
-                    <p>Sugere agrupamentos para melhor performance</p>
-                    <button class="btn btn-secondary btn-block" id="btnOptimize">
-                        <i class="fas fa-wand-magic-sparkles"></i> Otimizar
-                    </button>
-                </div>
-                <div class="action-card">
-                    <h3><i class="fas fa-download"></i> Exportar Backup</h3>
-                    <p>Baixa todos os códigos como backup</p>
-                    <button class="btn btn-secondary btn-block" id="btnExport">
-                        <i class="fas fa-file-export"></i> Exportar
-                    </button>
-                </div>
-            </section>
-
-            <!-- Groups List -->
-            <section class="groups-section">
-                <div class="section-header">
-                    <h2>Grupos de Códigos</h2>
-                    <div class="section-controls">
-                        <button class="btn btn-secondary btn-sm" id="btnRefresh">
-                            <i class="fas fa-sync-alt"></i>
-                        </button>
-                        <button class="btn btn-secondary btn-sm" id="btnExpandAll">
-                            <i class="fas fa-expand-arrows-alt"></i> Expandir Todos
-                        </button>
-                    </div>
-                </div>
-                <div class="groups-list" id="groupsList">
-                    <!-- Grupos serão inseridos aqui via JavaScript -->
-                </div>
-            </section>
-
-            <!-- Individual Codes -->
-            <section class="codes-section">
-                <div class="section-header">
-                    <h2>Códigos Individuais</h2>
-                    <div class="section-filters">
-                        <select id="filterLocation" class="filter-select">
-                            <option value="">Todos os locais</option>
-                            <option value="head">Cabeçalho</option>
-                            <option value="footer">Rodapé</option>
-                        </select>
-                        <select id="filterType" class="filter-select">
-                            <option value="">Todos os tipos</option>
-                            <option value="css">CSS</option>
-                            <option value="js">JavaScript</option>
-                        </select>
-                        <input type="text" id="searchCodes" placeholder="Buscar códigos..." class="search-input">
-                    </div>
-                </div>
-                <div class="codes-list" id="codesList">
-                    <!-- Códigos individuais serão inseridos aqui -->
-                </div>
-            </section>
+            </div>
         </main>
     </div>
 
-    <!-- Modal para criar/editar código -->
-    <div class="modal" id="codeModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle">Adicionar Código</h2>
-                <button class="close-modal" id="closeModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="codeForm">
-                    <!-- Step 1: Basic Info -->
-                    <div class="form-step active" id="step1">
-                        <h3>📝 Informações do Código</h3>
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
 
-                        <div class="form-group">
-                            <label for="codeName">Nome/Descrição</label>
-                            <input type="text" id="codeName" required placeholder="Ex: Correção Carrinho, Google Analytics, etc.">
-                            <small>Nome descritivo para identificar este código</small>
-                        </div>
+    <script>
+        // Simple SPA Router
+        class Dashboard {
+            constructor() {
+                this.currentPage = 'dashboard';
+                this.init();
+            }
 
-                        <div class="form-group">
-                            <label for="codeContent">Código</label>
-                            <textarea id="codeContent" rows="12" required placeholder="Cole aqui seu código CSS, JavaScript ou HTML..."></textarea>
-                            <small>O código será automaticamente minificado</small>
-                        </div>
+            init() {
+                this.bindEvents();
+                this.showPage('dashboard');
+            }
+
+            bindEvents() {
+                // Navigation
+                document.addEventListener('click', (e) => {
+                    const navItem = e.target.closest('[data-page]');
+                    if (navItem && !navItem.classList.contains('disabled')) {
+                        e.preventDefault();
+                        const page = navItem.getAttribute('data-page');
+                        this.showPage(page);
+                    }
+                });
+
+                // Mobile menu
+                const mobileBtn = document.getElementById('mobileMenuBtn');
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('mobileOverlay');
+
+                if (mobileBtn) {
+                    mobileBtn.addEventListener('click', () => {
+                        sidebar.classList.toggle('active');
+                        overlay.classList.toggle('active');
+                    });
+                }
+
+                if (overlay) {
+                    overlay.addEventListener('click', () => {
+                        sidebar.classList.remove('active');
+                        overlay.classList.remove('active');
+                    });
+                }
+            }
+
+            // Project toggle functionality
+            toggleProject(projectId, forceOpen = false) {
+                const projectGroup = document.querySelector(`[data-project="${projectId}"]`);
+
+                if (!projectGroup) return;
+
+                const isExpanded = projectGroup.classList.contains('expanded');
+
+                // If forcing open (from navigation), just expand this project
+                if (forceOpen) {
+                    // Close all other projects first
+                    document.querySelectorAll('.nav-group').forEach(group => {
+                        group.classList.remove('expanded');
+                    });
+
+                    // Open this project
+                    projectGroup.classList.add('expanded');
+                    return;
+                }
+
+                // Normal toggle behavior
+                if (isExpanded) {
+                    // Close this project
+                    projectGroup.classList.remove('expanded');
+                } else {
+                    // Close all other projects first
+                    document.querySelectorAll('.nav-group').forEach(group => {
+                        group.classList.remove('expanded');
+                    });
+
+                    // Open this project
+                    projectGroup.classList.add('expanded');
+                }
+            }
+
+            showPage(page) {
+                // Update navigation - remove all active states
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Auto-expand and highlight project if accessing submenu
+                if (page.includes('script-')) {
+                    this.toggleProject('script-deploy', true);
+
+                    // Keep project header highlighted when in submenu
+                    const projectHeader = document.querySelector('[data-project="script-deploy"] .project-header');
+                    if (projectHeader) {
+                        projectHeader.classList.add('active');
+                    }
+                }
+
+                // Set active state on current page
+                const activeItem = document.querySelector(`[data-page="${page}"]`);
+                if (activeItem) {
+                    activeItem.classList.add('active');
+                }
+
+                // Update title
+                const titles = {
+                    'dashboard': 'Dashboard Multi-Projetos',
+                    'script-codes': 'Script Deploy - Códigos',
+                    'script-deploy': 'Script Deploy - Deploy & Status',
+                    'script-settings': 'Script Deploy - Configurações',
+                    'system-settings': 'Sistema - Configurações',
+                    'system-logs': 'Sistema - Logs'
+                };
+
+                document.getElementById('pageTitle').textContent = titles[page] || 'Dashboard';
+
+                // Load content
+                this.loadContent(page);
+            }
+
+            loadContent(page) {
+                const content = document.getElementById('mainContent');
+
+                const pages = {
+                    'dashboard': this.getDashboardContent(),
+                    'script-codes': this.getScriptCodesContent(),
+                    'script-deploy': this.getScriptDeployContent(),
+                    'script-settings': this.getScriptSettingsContent(),
+                    'system-settings': this.getSystemSettingsContent(),
+                    'system-logs': this.getSystemLogsContent()
+                };
+
+                content.innerHTML = pages[page] || pages['dashboard'];
+                this.currentPage = page;
+            }
+
+            // Deploy functionality
+            showNewCodeModal() {
+                const form = document.getElementById('codeForm');
+                if (form) {
+                    form.style.display = 'block';
+                    document.getElementById('codeFilename').focus();
+                }
+            }
+
+            hideCodeForm() {
+                const form = document.getElementById('codeForm');
+                if (form) {
+                    form.style.display = 'none';
+                    // Clear form
+                    document.getElementById('codeFilename').value = '';
+                    document.getElementById('codeContent').value = '';
+                }
+            }
+
+            async deployCode() {
+                const filename = document.getElementById('codeFilename').value.trim();
+                const content = document.getElementById('codeContent').value.trim();
+                const type = document.getElementById('codeType').value;
+
+                if (!filename || !content) {
+                    this.showResult('Por favor, preencha todos os campos.', 'error');
+                    return;
+                }
+
+                this.showResult('Fazendo deploy...', 'loading');
+
+                try {
+                    const response = await fetch('/api/deploy-code.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            filename: filename,
+                            content: content,
+                            type: type,
+                            codeId: Date.now(),
+                            codeName: filename
+                        })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        this.showResult(`✅ Deploy realizado com sucesso!<br><strong>URL:</strong> <a href="${result.url}" target="_blank" style="color: var(--blue-500);">${result.url}</a>`, 'success');
+                        this.hideCodeForm();
+                    } else {
+                        this.showResult(`❌ Erro no deploy: ${result.error || 'Erro desconhecido'}`, 'error');
+                    }
+                } catch (error) {
+                    this.showResult(`❌ Erro de conexão: ${error.message}`, 'error');
+                }
+            }
+
+            async testDeploy() {
+                this.showResult('Testando API de deploy...', 'loading');
+
+                const testCode = {
+                    filename: 'dashboard-clean-test',
+                    content: '/* Dashboard WidgetVPN Clean Test */\\n.dashboard-clean { background: #f8fafc; color: #1e293b; }\\n/* Professional, minimal, no emojis */',
+                    type: 'css',
+                    codeId: Date.now(),
+                    codeName: 'Dashboard Clean Test'
+                };
+
+                try {
+                    const response = await fetch('/api/deploy-code.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(testCode)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        this.showResult(`✅ API funcionando!<br><strong>Teste deployado:</strong> <a href="${result.url}" target="_blank" style="color: var(--blue-500);">${result.filename}</a>`, 'success');
+                    } else {
+                        this.showResult(`❌ API erro: ${result.error || 'Erro desconhecido'}`, 'error');
+                    }
+                } catch (error) {
+                    this.showResult(`❌ Erro de conexão: ${error.message}`, 'error');
+                }
+            }
+
+            showResult(message, type) {
+                const container = document.getElementById('deployResult');
+                if (!container) return;
+
+                const colors = {
+                    success: 'var(--green-500)',
+                    error: 'var(--red-500)',
+                    loading: 'var(--blue-500)'
+                };
+
+                container.innerHTML = `
+                    <div style="padding: 16px; border-left: 4px solid ${colors[type] || 'var(--gray-300)'}; background: var(--gray-50); border-radius: var(--border-radius);">
+                        ${message}
                     </div>
+                `;
+            }
 
-                    <!-- Step 2: Loja Integrada Config -->
-                    <div class="form-step" id="step2">
-                        <h3>🛒 Configuração da Loja Integrada</h3>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="codeType">Tipo do Código</label>
-                                <select id="codeType" required>
-                                    <option value="">Selecione o tipo</option>
-                                    <option value="css">CSS (Estilos)</option>
-                                    <option value="js">JavaScript (Funcionalidade)</option>
-                                </select>
-                                <small>Define como o código será processado</small>
+            getDashboardContent() {
+                return `
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">💻 Script Deploy</div>
+                                    <div class="card-subtitle">Sistema de deployment de códigos CSS/JS</div>
+                                </div>
                             </div>
+                            <div class="metric">
+                                <div class="metric-value" style="color: var(--green-500);">Ativo</div>
+                                <div class="metric-label">status</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value" id="dash-total-codes">-</div>
+                                <div class="metric-label">códigos deployados</div>
+                            </div>
+                            <a href="#" class="btn btn-primary" data-page="script-codes">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"/>
+                                </svg>
+                                Gerenciar Códigos
+                            </a>
+                        </div>
 
-                            <div class="form-group">
-                                <label for="codeLocation">Local na Loja Integrada</label>
-                                <select id="codeLocation" required>
-                                    <option value="">Onde inserir?</option>
-                                    <option value="head">Cabeçalho (&lt;head&gt;)</option>
-                                    <option value="footer">Rodapé (antes de &lt;/body&gt;)</option>
-                                </select>
-                                <small>Baseado na documentação da Loja Integrada</small>
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">📱 App Manager</div>
+                                    <div class="card-subtitle">Gerenciamento de aplicações mobile</div>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value" style="color: var(--blue-400);">Em Desenvolvimento</div>
+                                <div class="metric-label">status</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">Q1 2025</div>
+                                <div class="metric-label">previsão</div>
+                            </div>
+                            <button class="btn btn-secondary" disabled>
+                                Em Breve
+                            </button>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">🔗 URL Shortener</div>
+                                    <div class="card-subtitle">Encurtador de URLs personalizado</div>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value" style="color: var(--blue-400);">Em Desenvolvimento</div>
+                                <div class="metric-label">status</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">Q1 2025</div>
+                                <div class="metric-label">previsão</div>
+                            </div>
+                            <button class="btn btn-secondary" disabled>
+                                Em Breve
+                            </button>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">📊 Analytics Hub</div>
+                                    <div class="card-subtitle">Central de análise e métricas</div>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value" style="color: var(--blue-400);">Em Desenvolvimento</div>
+                                <div class="metric-label">status</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">Q2 2025</div>
+                                <div class="metric-label">previsão</div>
+                            </div>
+                            <button class="btn btn-secondary" disabled>
+                                Em Breve
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-top: 24px;">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">🚀 Ações Rápidas</div>
+                                <div class="card-subtitle">Tarefas mais comuns</div>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="codePages">Páginas de Aplicação</label>
-                            <select id="codePages" required>
-                                <option value="">Em quais páginas?</option>
-                                <option value="all">🌐 Todas as páginas</option>
-                                <option value="home">🏠 Página inicial</option>
-                                <option value="product">📦 Páginas de produto</option>
-                                <option value="category">📂 Páginas de categoria</option>
-                                <option value="cart">🛒 Página do carrinho</option>
-                                <option value="checkout">💳 Checkout</option>
-                                <option value="account">👤 Área do cliente</option>
-                            </select>
-                            <small>Selecione onde este código deve aparecer</small>
-                        </div>
-                    </div>
-
-                    <!-- Step 3: Smart Grouping -->
-                    <div class="form-step" id="step3">
-                        <h3>🧠 Agrupamento Inteligente</h3>
-
-                        <div class="grouping-suggestion" id="groupingSuggestion">
-                            <!-- Sugestão será inserida via JS -->
-                        </div>
-
-                        <div class="form-group">
-                            <label>
-                                <input type="checkbox" id="useSmartGrouping" checked>
-                                Usar agrupamento inteligente
-                            </label>
-                            <small>Combina códigos com mesma configuração para melhor performance</small>
-                        </div>
-
-                        <div class="performance-preview" id="performancePreview">
-                            <!-- Preview de performance -->
-                        </div>
-                    </div>
-
-                    <!-- Navigation -->
-                    <div class="form-navigation">
-                        <button type="button" class="btn btn-secondary" id="btnCancel">Cancelar</button>
-                        <div class="nav-buttons">
-                            <button type="button" class="btn btn-secondary" id="btnPrev" style="display: none;">
-                                <i class="fas fa-arrow-left"></i> Anterior
-                            </button>
-                            <button type="button" class="btn btn-primary" id="btnNext">
-                                Próximo <i class="fas fa-arrow-right"></i>
-                            </button>
-                            <button type="submit" class="btn btn-success" id="btnSave" style="display: none;">
-                                <i class="fas fa-save"></i> Salvar Código
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <a href="#" class="btn btn-primary" data-page="script-codes">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"/>
+                                </svg>
+                                Novo Código
+                            </a>
+                            <a href="#" class="btn btn-secondary" data-page="script-deploy">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
+                                </svg>
+                                Ver Deploys
+                            </a>
+                            <button class="btn btn-secondary" onclick="window.dashboard.testDeploy()">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Teste API
                             </button>
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
+                `;
+            }
 
-    <!-- Deploy Modal -->
-    <div class="modal" id="deployModal">
-        <div class="modal-content small">
-            <div class="modal-header">
-                <h2>🚀 Deploy para GitHub Pages</h2>
-                <button class="close-modal" id="closeDeployModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="deploy-status" id="deployStatus">
-                    <div class="deploy-step">
-                        <i class="fas fa-spin fa-spinner"></i>
-                        <span>Preparando deploy...</span>
+            getScriptCodesContent() {
+                return `
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">Gerenciar Códigos</div>
+                                <div class="card-subtitle">CSS e JavaScript para deploy</div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 24px;">
+                            <button class="btn btn-primary" onclick="window.dashboard.showNewCodeModal()">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"/>
+                                </svg>
+                                Novo Código
+                            </button>
+                            <button class="btn btn-secondary" onclick="window.dashboard.testDeploy()" style="margin-left: 12px;">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
+                                </svg>
+                                Teste Deploy
+                            </button>
+                        </div>
+                        <div id="deployResult" style="margin-bottom: 24px;"></div>
+                        <div class="code-form" style="display: none;" id="codeForm">
+                            <div style="margin-bottom: 16px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Nome do arquivo:</label>
+                                <input type="text" id="codeFilename" placeholder="ex: meu-codigo-css" style="width: 100%; padding: 10px; border: 1px solid var(--gray-300); border-radius: var(--border-radius);">
+                            </div>
+                            <div style="margin-bottom: 16px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Tipo:</label>
+                                <select id="codeType" style="width: 100%; padding: 10px; border: 1px solid var(--gray-300); border-radius: var(--border-radius);">
+                                    <option value="css">CSS</option>
+                                    <option value="js">JavaScript</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 16px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Código:</label>
+                                <textarea id="codeContent" rows="10" placeholder="Seu código CSS ou JavaScript aqui..." style="width: 100%; padding: 10px; border: 1px solid var(--gray-300); border-radius: var(--border-radius); font-family: 'SF Mono', Consolas, monospace;"></textarea>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary" onclick="window.dashboard.deployCode()">Deploy</button>
+                                <button class="btn btn-secondary" onclick="window.dashboard.hideCodeForm()" style="margin-left: 12px;">Cancelar</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                `;
+            }
 
-    <!-- Toast notifications -->
-    <div class="toast" id="toast"></div>
+            getScriptDeployContent() {
+                // Load deploy stats when page loads
+                setTimeout(() => this.loadDeployStats(), 100);
 
-    <script src="js/admin.js"></script>
+                return `
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">Status do Sistema</div>
+                                    <div class="card-subtitle">GitHub Pages Deploy</div>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value" style="color: var(--green-500);">Online</div>
+                                <div class="metric-label">status</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value" id="totalAssets">-</div>
+                                <div class="metric-label">assets deployados</div>
+                            </div>
+                            <button class="btn btn-primary" onclick="window.dashboard.refreshStats()">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/>
+                                </svg>
+                                Atualizar
+                            </button>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">Deploy Rápido</div>
+                                    <div class="card-subtitle">Testar sistema</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" onclick="window.dashboard.testDeploy()">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
+                                </svg>
+                                Teste Deploy
+                            </button>
+                            <div id="deployResult" style="margin-top: 16px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-top: 24px;">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">Assets Recentes</div>
+                                <div class="card-subtitle">Últimos deployments</div>
+                            </div>
+                        </div>
+                        <div id="recentAssets" style="color: var(--gray-500); text-align: center; padding: 20px;">
+                            Carregando...
+                        </div>
+                    </div>
+                `;
+            }
+
+            async loadDeployStats() {
+                try {
+                    const response = await fetch('https://philling-dev.github.io/loja-integrada-assets/assets/index.json');
+                    const data = await response.json();
+
+                    // Update total count
+                    const totalElement = document.getElementById('totalAssets');
+                    if (totalElement) {
+                        totalElement.textContent = data.assets?.length || 0;
+                    }
+
+                    // Show recent assets
+                    const recentContainer = document.getElementById('recentAssets');
+                    if (recentContainer && data.assets) {
+                        const recent = data.assets.slice(-5).reverse();
+                        if (recent.length > 0) {
+                            recentContainer.innerHTML = recent.map(asset => `
+                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                                    <div>
+                                        <div style="font-weight: 500;">${asset.filename}</div>
+                                        <div style="font-size: 12px; color: var(--gray-500);">${new Date(asset.deployedAt).toLocaleString()}</div>
+                                    </div>
+                                    <a href="https://philling-dev.github.io/loja-integrada-assets/assets/${asset.filename}" target="_blank" class="btn btn-secondary" style="padding: 6px 12px; font-size: 12px;">
+                                        Ver
+                                    </a>
+                                </div>
+                            `).join('');
+                        } else {
+                            recentContainer.innerHTML = '<div style="color: var(--gray-500); text-align: center; padding: 20px;">Nenhum asset encontrado</div>';
+                        }
+                    }
+                } catch (error) {
+                    console.error('Erro ao carregar stats:', error);
+                    const recentContainer = document.getElementById('recentAssets');
+                    if (recentContainer) {
+                        recentContainer.innerHTML = '<div style="color: var(--red-500); text-align: center; padding: 20px;">Erro ao carregar dados</div>';
+                    }
+                }
+            }
+
+            refreshStats() {
+                this.loadDeployStats();
+                this.showResult('✅ Dados atualizados', 'success');
+            }
+
+            getScriptSettingsContent() {
+                return `
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">Configurações do Script Deploy</div>
+                                <div class="card-subtitle">Ajustes e preferências do sistema</div>
+                            </div>
+                        </div>
+                        <div style="display: grid; gap: 24px;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                                <label style="display: flex; align-items: center; gap: 12px; padding: 16px; border: 1px solid var(--gray-200); border-radius: var(--border-radius);">
+                                    <input type="checkbox" checked style="width: 16px; height: 16px;">
+                                    <div>
+                                        <div style="font-weight: 500; font-size: 14px;">Minificação Automática</div>
+                                        <div style="font-size: 12px; color: var(--gray-500);">Compactar códigos automaticamente</div>
+                                    </div>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 12px; padding: 16px; border: 1px solid var(--gray-200); border-radius: var(--border-radius);">
+                                    <input type="checkbox" checked style="width: 16px; height: 16px;">
+                                    <div>
+                                        <div style="font-weight: 500; font-size: 14px;">Git Auto-commit</div>
+                                        <div style="font-size: 12px; color: var(--gray-500);">Commit automático no deploy</div>
+                                    </div>
+                                </label>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0 0 12px; font-size: 16px; font-weight: 600;">GitHub Pages</h4>
+                                <div style="background: var(--gray-50); padding: 16px; border-radius: var(--border-radius); font-family: monospace; font-size: 13px;">
+                                    <div><strong>Repositório:</strong> philling-dev/loja-integrada-assets</div>
+                                    <div><strong>Branch:</strong> main</div>
+                                    <div><strong>URL Base:</strong> https://philling-dev.github.io/loja-integrada-assets/assets/</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            getSystemSettingsContent() {
+                return `
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">Configurações do Sistema</div>
+                                <div class="card-subtitle">Configurações globais do dashboard</div>
+                            </div>
+                        </div>
+                        <div style="color: var(--gray-500); text-align: center; padding: 40px;">
+                            <svg width="48" height="48" fill="currentColor" viewBox="0 0 20 20" style="margin-bottom: 16px; opacity: 0.5;">
+                                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>Configurações do sistema em desenvolvimento</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            getSystemLogsContent() {
+                return `
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">Logs do Sistema</div>
+                                <div class="card-subtitle">Histórico de atividades e eventos</div>
+                            </div>
+                        </div>
+                        <div style="color: var(--gray-500); text-align: center; padding: 40px;">
+                            <svg width="48" height="48" fill="currentColor" viewBox="0 0 20 20" style="margin-bottom: 16px; opacity: 0.5;">
+                                <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>Sistema de logs em desenvolvimento</div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Global functions
+        function toggleProject(projectId) {
+            if (window.dashboard) {
+                window.dashboard.toggleProject(projectId);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            window.dashboard = new Dashboard();
+
+            // Load dashboard stats
+            setTimeout(() => {
+                fetch('https://philling-dev.github.io/loja-integrada-assets/assets/index.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const dashTotalCodes = document.getElementById('dash-total-codes');
+                        if (dashTotalCodes) {
+                            dashTotalCodes.textContent = data.assets?.length || 0;
+                        }
+                    })
+                    .catch(() => {
+                        // Silently fail
+                    });
+            }, 500);
+        });
+    </script>
 </body>
 </html>
