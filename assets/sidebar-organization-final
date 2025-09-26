@@ -1,0 +1,5 @@
+.sidebar-organization {
+--nav-clean: linear;
+--nav-direct: no-sections;
+--nav-separator: 1px solid #e2e8f0;
+}
