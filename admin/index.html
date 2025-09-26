@@ -430,6 +430,7 @@
         @media (max-width: 768px) {
             .dashboard {
                 overflow-x: hidden; /* Force no horizontal scroll on mobile */
+                position: relative;
             }
 
             .sidebar {
@@ -437,10 +438,11 @@
                 left: -280px;
                 top: 0;
                 height: 100vh;
-                z-index: 100;
+                z-index: 1000;
                 transition: left 0.3s ease;
                 box-shadow: var(--shadow-lg);
                 overflow-x: hidden; /* No horizontal scroll in mobile sidebar */
+                overflow-y: auto; /* Allow vertical scroll */
             }
 
             .sidebar.active {
@@ -450,11 +452,14 @@
             .main-content {
                 margin-left: 0;
                 width: 100%; /* Full width on mobile */
+                min-height: 100vh;
             }
 
             .main-header {
                 padding: 0 16px; /* Reduced padding on mobile */
                 height: 60px; /* Slightly shorter on mobile */
+                position: relative;
+                z-index: 10;
             }
 
             .main-title {
@@ -483,7 +488,7 @@
                 right: 0;
                 bottom: 0;
                 background: rgba(0, 0, 0, 0.6);
-                z-index: 90;
+                z-index: 900;
                 display: none;
             }
 
@@ -492,12 +497,20 @@
             }
 
             .mobile-menu-btn {
-                display: block;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
                 background: none;
                 border: none;
                 color: var(--gray-600);
-                font-size: 20px;
+                font-size: 24px;
                 cursor: pointer;
+                padding: 8px;
+                border-radius: 4px;
+            }
+
+            .mobile-menu-btn:hover {
+                background: var(--gray-100);
             }
         }
 
@@ -651,6 +664,14 @@
                         e.preventDefault();
                         const page = navItem.getAttribute('data-page');
                         this.showPage(page);
+
+                        // Close mobile menu on navigation
+                        if (window.innerWidth <= 768) {
+                            const sidebar = document.getElementById('sidebar');
+                            const overlay = document.getElementById('mobileOverlay');
+                            if (sidebar) sidebar.classList.remove('active');
+                            if (overlay) overlay.classList.remove('active');
+                        }
                     }
                 });
 
