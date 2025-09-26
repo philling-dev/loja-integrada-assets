@@ -282,7 +282,8 @@
             overflow: hidden; /* Hide overflow */
             text-overflow: ellipsis; /* Show ellipsis for long titles */
             white-space: nowrap; /* Prevent title wrapping */
-            margin-right: 16px; /* Space between title and status */
+            margin-right: 24px; /* More space for status */
+            max-width: calc(100% - 150px); /* Reserve space for status */
         }
 
         .status-indicator {
@@ -293,6 +294,7 @@
             color: var(--gray-600);
             flex-shrink: 0; /* Don't shrink status indicator */
             white-space: nowrap; /* Prevent status text wrapping */
+            min-width: 120px; /* Minimum width to fit "Sistema Online" */
         }
 
         .status-dot {
@@ -459,12 +461,14 @@
             }
 
             .main-title {
-                font-size: 18px; /* Smaller title on mobile */
-                margin-right: 8px; /* Less margin on mobile */
+                font-size: 16px; /* Even smaller title on mobile */
+                margin-right: 12px; /* Balanced margin on mobile */
+                max-width: calc(100% - 120px); /* Reserve more space for status on mobile */
             }
 
             .status-indicator {
-                font-size: 12px; /* Smaller status text on mobile */
+                font-size: 13px; /* Slightly larger to be readable */
+                min-width: 100px; /* Ensure "Sistema Online" fits on mobile */
             }
 
             .main-body {
