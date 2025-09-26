@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Dashboard</title>
+    <style>
+        body { font-family: monospace; background: #1a1a1a; color: #00ff00; padding: 20px; }
+        .test { margin: 10px 0; padding: 10px; background: #333; border-left: 4px solid #00ff00; }
+        .error { border-left-color: #ff0000; color: #ff0000; }
+        .warning { border-left-color: #ffff00; color: #ffff00; }
+        button { padding: 10px; margin: 5px; background: #333; color: #00ff00; border: 1px solid #00ff00; cursor: pointer; }
+        button:hover { background: #555; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug Dashboard WidgetVPN</h1>
+    <div id="debug-output"></div>
+
+    <h2>🧪 Testes</h2>
+    <button onclick="testNavigation()">Testar Navegação</button>
+    <button onclick="testAPI()">Testar API</button>
+    <button onclick="testStorage()">Testar Storage</button>
+    <button onclick="testToast()">Testar Toast</button>
+
+    <!-- Scripts do Dashboard -->
+    <script src="js/utils/api.js"></script>
+    <script src="js/utils/toast.js"></script>
+    <script src="js/utils/storage.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/projects/deploy-script.js"></script>
+
+    <script>
+        const output = document.getElementById('debug-output');
+
+        function log(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `test ${type}`;
+            div.innerHTML = `[${new Date().toLocaleTimeString()}] ${message}`;
+            output.appendChild(div);
+            output.scrollTop = output.scrollHeight;
+        }
+
+        // Monitorar carregamento dos scripts
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                log('🚀 Página carregada, verificando dependências...');
+
+                if (window.API) {
+                    log('✅ API carregado');
+                } else {
+                    log('❌ API não carregado', 'error');
+                }
+
+                if (window.Toast) {
+                    log('✅ Toast carregado');
+                } else {
+                    log('❌ Toast não carregado', 'error');
+                }
+
+                if (window.Storage) {
+                    log('✅ Storage carregado');
+                } else {
+                    log('❌ Storage não carregado', 'error');
+                }
+
+                if (window.Dashboard) {
+                    log('✅ Dashboard carregado');
+                } else {
+                    log('❌ Dashboard não carregado', 'error');
+                }
+
+                if (window.DeployScript) {
+                    log('✅ DeployScript carregado');
+                } else {
+                    log('❌ DeployScript não carregado', 'error');
+                }
+            }, 1000);
+        });
+
+        async function testNavigation() {
+            log('🧭 Testando navegação...');
+            if (window.Dashboard) {
+                try {
+                    await Dashboard.showPage('overview');
+                    log('✅ Navegação para overview funcionou');
+
+                    await Dashboard.showPage('deploy-script-codes');
+                    log('✅ Navegação para deploy-script-codes funcionou');
+                } catch (error) {
+                    log(`❌ Erro na navegação: ${error.message}`, 'error');
+                }
+            } else {
+                log('❌ Dashboard não está disponível', 'error');
+            }
+        }
+
+        async function testAPI() {
+            log('🌐 Testando API...');
+            if (window.API) {
+                try {
+                    const result = await API.deployCode({
+                        filename: 'debug-test.min.css',
+                        content: '.debug-test { color: blue; }',
+                        type: 'css',
+                        codeId: 'debug-test-123',
+                        codeName: 'Debug Test'
+                    });
+
+                    if (result.success) {
+                        log(`✅ API funcionando: ${result.message}`);
+                        log(`📁 Arquivo: ${result.filename}`);
+                    } else {
+                        log(`⚠️ API respondeu com erro: ${result.message}`, 'warning');
+                    }
+                } catch (error) {
+                    log(`❌ Erro na API: ${error.message}`, 'error');
+                }
+            } else {
+                log('❌ API não está disponível', 'error');
+            }
+        }
+
+        function testStorage() {
+            log('💾 Testando Storage...');
+            if (window.Storage) {
+                try {
+                    Storage.set('debug_test', 'Hello World');
+                    const value = Storage.get('debug_test');
+
+                    if (value === 'Hello World') {
+                        log('✅ Storage funcionando corretamente');
+                    } else {
+                        log('⚠️ Storage não retornou valor esperado', 'warning');
+                    }
+                } catch (error) {
+                    log(`❌ Erro no Storage: ${error.message}`, 'error');
+                }
+            } else {
+                log('❌ Storage não está disponível', 'error');
+            }
+        }
+
+        function testToast() {
+            log('🍞 Testando Toast...');
+            if (window.Toast) {
+                try {
+                    Toast.success('Teste de toast bem-sucedido!');
+                    Toast.info('Toast de informação');
+                    Toast.warning('Toast de aviso');
+                    log('✅ Toast funcionando (verifique as notificações na tela)');
+                } catch (error) {
+                    log(`❌ Erro no Toast: ${error.message}`, 'error');
+                }
+            } else {
+                log('❌ Toast não está disponível', 'error');
+            }
+        }
+
+        // Monitorar erros JavaScript
+        window.addEventListener('error', (event) => {
+            log(`🚨 Erro JavaScript: ${event.error.message} em ${event.filename}:${event.lineno}`, 'error');
+        });
+
+        // Monitorar eventos do dashboard
+        window.addEventListener('pageLoaded', (event) => {
+            log(`📄 Página carregada: ${event.detail.page}`);
+        });
+    </script>
+</body>
+</html>

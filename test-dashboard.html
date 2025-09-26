@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Dashboard - WidgetVPN</title>
+</head>
+<body>
+    <h1>Teste Dashboard WidgetVPN</h1>
+    <div id="test-results"></div>
+
+    <script>
+        // Teste JavaScript do Dashboard
+        async function testDashboard() {
+            const results = document.getElementById('test-results');
+
+            try {
+                // Testar carregamento dos utilitários
+                const response = await fetch('/js/utils/api.js');
+                if (response.ok) {
+                    results.innerHTML += '<p>✅ API.js carregado com sucesso</p>';
+                } else {
+                    results.innerHTML += '<p>❌ Erro ao carregar API.js</p>';
+                }
+
+                const toastResponse = await fetch('/js/utils/toast.js');
+                if (toastResponse.ok) {
+                    results.innerHTML += '<p>✅ Toast.js carregado com sucesso</p>';
+                } else {
+                    results.innerHTML += '<p>❌ Erro ao carregar Toast.js</p>';
+                }
+
+                const storageResponse = await fetch('/js/utils/storage.js');
+                if (storageResponse.ok) {
+                    results.innerHTML += '<p>✅ Storage.js carregado com sucesso</p>';
+                } else {
+                    results.innerHTML += '<p>❌ Erro ao carregar Storage.js</p>';
+                }
+
+                const dashboardResponse = await fetch('/js/dashboard.js');
+                if (dashboardResponse.ok) {
+                    results.innerHTML += '<p>✅ Dashboard.js carregado com sucesso</p>';
+                } else {
+                    results.innerHTML += '<p>❌ Erro ao carregar Dashboard.js</p>';
+                }
+
+                const deployResponse = await fetch('/js/projects/deploy-script.js');
+                if (deployResponse.ok) {
+                    results.innerHTML += '<p>✅ Deploy-script.js carregado com sucesso</p>';
+                } else {
+                    results.innerHTML += '<p>❌ Erro ao carregar Deploy-script.js</p>';
+                }
+
+                // Testar API de deploy
+                const apiTest = await fetch('/api/deploy-code.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        filename: 'test-api-connection.min.css',
+                        content: '.test-api { color: green; }',
+                        type: 'css',
+                        codeId: 'test-api-123',
+                        codeName: 'Teste Conexão API'
+                    })
+                });
+
+                if (apiTest.ok) {
+                    const apiResult = await apiTest.json();
+                    if (apiResult.success) {
+                        results.innerHTML += '<p>✅ API de deploy funcionando corretamente</p>';
+                        results.innerHTML += `<p>📁 Arquivo deployado: ${apiResult.filename}</p>`;
+                        results.innerHTML += `<p>🌐 URL: <a href="${apiResult.url}" target="_blank">${apiResult.url}</a></p>`;
+                    } else {
+                        results.innerHTML += '<p>⚠️ API respondeu mas com erro</p>';
+                    }
+                } else {
+                    results.innerHTML += '<p>❌ Erro na API de deploy</p>';
+                }
+
+                results.innerHTML += '<h2>Dashboard está funcional! 🎉</h2>';
+
+            } catch (error) {
+                results.innerHTML += `<p>❌ Erro geral: ${error.message}</p>`;
+            }
+        }
+
+        // Executar teste quando página carregar
+        window.addEventListener('load', testDashboard);
+    </script>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Dashboard - WidgetVPN</title>
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/projects.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f9fafb;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .test-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+        }
+
+        .test-section h3 {
+            margin-top: 0;
+            color: #1f2937;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status.success { background: #dcfce7; color: #166534; }
+        .status.error { background: #fef2f2; color: #dc2626; }
+        .status.loading { background: #fef3c7; color: #d97706; }
+
+        .test-button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 4px;
+        }
+
+        .test-button:hover {
+            background: #2563eb;
+        }
+
+        .log {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            padding: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .main-dashboard-link {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: #1f2937;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .main-dashboard-link:hover {
+            background: #374151;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🧪 Dashboard Test Suite</h1>
+            <p>Testes de funcionalidade do Dashboard WidgetVPN</p>
+
+            <a href="index.html" class="main-dashboard-link">
+                🚀 Ir para o Dashboard Principal
+            </a>
+        </div>
+
+        <div class="test-section">
+            <h3>📁 Carregamento de Dependências</h3>
+            <p>Status das dependências JavaScript:</p>
+            <div id="dependencies-status">
+                <span class="status loading">Verificando...</span>
+            </div>
+            <div class="log" id="dependencies-log"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>🖱️ Teste de Navegação</h3>
+            <p>Teste dos links de navegação:</p>
+            <button class="test-button" onclick="testNavigation('overview')">Dashboard Overview</button>
+            <button class="test-button" onclick="testNavigation('deploy-script-codes')">Códigos Individuais</button>
+            <button class="test-button" onclick="testNavigation('deploy-script-deploy')">Deploy & Status</button>
+            <button class="test-button" onclick="testNavigation('deploy-script-settings')">Configurações</button>
+            <div class="log" id="navigation-log"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>🔄 Teste de Menu Toggle</h3>
+            <p>Teste do menu Deploy Script:</p>
+            <button class="test-button" onclick="testMenuToggle()">Toggle Deploy Script</button>
+            <div class="log" id="menu-toggle-log"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>🌐 Teste de API</h3>
+            <p>Teste da conexão com a API:</p>
+            <button class="test-button" onclick="testAPI()">Testar API Deploy</button>
+            <button class="test-button" onclick="testAPIStats()">Testar API Stats</button>
+            <div class="log" id="api-log"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>💾 Teste de Storage</h3>
+            <p>Teste do sistema de armazenamento:</p>
+            <button class="test-button" onclick="testStorage()">Testar Storage</button>
+            <div class="log" id="storage-log"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>🔔 Teste de Toast</h3>
+            <p>Teste do sistema de notificações:</p>
+            <button class="test-button" onclick="testToast('success')">Toast Sucesso</button>
+            <button class="test-button" onclick="testToast('error')">Toast Erro</button>
+            <button class="test-button" onclick="testToast('warning')">Toast Aviso</button>
+            <button class="test-button" onclick="testToast('info')">Toast Info</button>
+            <div class="log" id="toast-log"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils/api.js"></script>
+    <script src="js/utils/toast.js"></script>
+    <script src="js/utils/storage.js"></script>
+    <script src="js/dashboard.js"></script>
+
+    <script>
+        let testLog = {
+            dependencies: [],
+            navigation: [],
+            menuToggle: [],
+            api: [],
+            storage: [],
+            toast: []
+        };
+
+        function log(category, message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `[${timestamp}] ${type.toUpperCase()}: ${message}`;
+            testLog[category].push(logEntry);
+
+            const logElement = document.getElementById(`${category}-log`);
+            if (logElement) {
+                logElement.textContent = testLog[category].join('\n');
+                logElement.scrollTop = logElement.scrollHeight;
+            }
+
+            console.log(`[TEST-${category.toUpperCase()}]`, message);
+        }
+
+        // Test Dependencies
+        function checkDependencies() {
+            const deps = [
+                { name: 'API', obj: window.API },
+                { name: 'Toast', obj: window.Toast },
+                { name: 'Storage', obj: window.Storage },
+                { name: 'Dashboard', obj: window.Dashboard },
+                { name: 'Lucide', obj: window.lucide }
+            ];
+
+            let allGood = true;
+
+            deps.forEach(dep => {
+                if (dep.obj) {
+                    log('dependencies', `✅ ${dep.name} carregado`);
+                } else {
+                    log('dependencies', `❌ ${dep.name} NÃO carregado`, 'error');
+                    allGood = false;
+                }
+            });
+
+            const statusEl = document.getElementById('dependencies-status');
+            if (allGood) {
+                statusEl.innerHTML = '<span class="status success">Todas as dependências OK</span>';
+            } else {
+                statusEl.innerHTML = '<span class="status error">Algumas dependências faltando</span>';
+            }
+
+            return allGood;
+        }
+
+        // Test Navigation
+        function testNavigation(page) {
+            log('navigation', `Testando navegação para: ${page}`);
+
+            if (window.Dashboard && window.Dashboard.showPage) {
+                try {
+                    window.Dashboard.showPage(page);
+                    log('navigation', `✅ Navegação para ${page} executada`);
+                } catch (error) {
+                    log('navigation', `❌ Erro na navegação: ${error.message}`, 'error');
+                }
+            } else {
+                log('navigation', `❌ Dashboard.showPage não disponível`, 'error');
+            }
+        }
+
+        // Test Menu Toggle
+        function testMenuToggle() {
+            log('menuToggle', 'Testando toggle do menu Deploy Script');
+
+            if (window.Dashboard && window.Dashboard.toggleProject) {
+                try {
+                    window.Dashboard.toggleProject('deploy-script');
+                    log('menuToggle', '✅ Toggle do menu executado');
+                } catch (error) {
+                    log('menuToggle', `❌ Erro no toggle: ${error.message}`, 'error');
+                }
+            } else {
+                log('menuToggle', '❌ Dashboard.toggleProject não disponível', 'error');
+            }
+        }
+
+        // Test API
+        async function testAPI() {
+            log('api', 'Testando API de deploy...');
+
+            if (!window.API) {
+                log('api', '❌ API não disponível', 'error');
+                return;
+            }
+
+            try {
+                const testData = {
+                    filename: 'test-dashboard-check',
+                    content: '/* Test dashboard check */',
+                    type: 'css',
+                    codeId: 'test-' + Date.now(),
+                    codeName: 'Dashboard Test'
+                };
+
+                const result = await window.API.deployCode(testData);
+
+                if (result.success) {
+                    log('api', `✅ Deploy API OK: ${result.url}`);
+                } else {
+                    log('api', `❌ Deploy API falhou: ${result.error}`, 'error');
+                }
+            } catch (error) {
+                log('api', `❌ Erro na API: ${error.message}`, 'error');
+            }
+        }
+
+        async function testAPIStats() {
+            log('api', 'Testando API de estatísticas...');
+
+            if (!window.API) {
+                log('api', '❌ API não disponível', 'error');
+                return;
+            }
+
+            try {
+                const stats = await window.API.getDeployStats();
+
+                if (stats.success) {
+                    log('api', `✅ Stats API OK: ${stats.stats.total} assets`);
+                } else {
+                    log('api', `❌ Stats API falhou: ${stats.error}`, 'error');
+                }
+            } catch (error) {
+                log('api', `❌ Erro nas stats: ${error.message}`, 'error');
+            }
+        }
+
+        // Test Storage
+        function testStorage() {
+            log('storage', 'Testando sistema de storage...');
+
+            if (!window.Storage) {
+                log('storage', '❌ Storage não disponível', 'error');
+                return;
+            }
+
+            try {
+                // Test basic operations
+                const testKey = 'dashboard-test';
+                const testValue = { test: true, timestamp: Date.now() };
+
+                window.Storage.set(testKey, testValue);
+                log('storage', '✅ Storage.set() funcionando');
+
+                const retrieved = window.Storage.get(testKey);
+                if (JSON.stringify(retrieved) === JSON.stringify(testValue)) {
+                    log('storage', '✅ Storage.get() funcionando');
+                } else {
+                    log('storage', '❌ Storage.get() retornou valor incorreto', 'error');
+                }
+
+                window.Storage.remove(testKey);
+                log('storage', '✅ Storage.remove() funcionando');
+
+                const stats = window.Storage.getStats();
+                log('storage', `✅ Storage stats: ${stats.keysCount} keys, ${stats.sizeFormatted}`);
+
+            } catch (error) {
+                log('storage', `❌ Erro no storage: ${error.message}`, 'error');
+            }
+        }
+
+        // Test Toast
+        function testToast(type) {
+            log('toast', `Testando toast tipo: ${type}`);
+
+            if (!window.Toast) {
+                log('toast', '❌ Toast não disponível', 'error');
+                return;
+            }
+
+            try {
+                const messages = {
+                    success: 'Teste de toast de sucesso!',
+                    error: 'Teste de toast de erro!',
+                    warning: 'Teste de toast de aviso!',
+                    info: 'Teste de toast de informação!'
+                };
+
+                window.Toast[type](messages[type]);
+                log('toast', `✅ Toast ${type} exibido`);
+            } catch (error) {
+                log('toast', `❌ Erro no toast: ${error.message}`, 'error');
+            }
+        }
+
+        // Initialize tests
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide icons
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+
+            // Check dependencies after a short delay
+            setTimeout(() => {
+                checkDependencies();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrativo - WidgetVPN</title>
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/projects.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <!-- Logo/Header -->
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        ⚙️
+                    </div>
+                    <div class="logo-text">
+                        <h1>Dashboard Admin</h1>
+                        <span>WidgetVPN</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="sidebar-nav">
+                <!-- Overview -->
+                <div class="nav-section">
+                    <div class="nav-item active" data-page="overview">
+                        📊
+                        <span>Dashboard</span>
+                    </div>
+                </div>
+
+                <!-- Projetos -->
+                <div class="nav-section">
+
+                    <!-- Deploy Script -->
+                    <div class="nav-group">
+                        <div class="nav-item project-toggle" data-project="deploy-script" onclick="toggleDeployScript(event)">
+                            💻
+                            <span>Deploy Script</span>
+                            <span class="chevron">▶</span>
+                        </div>
+                        <div class="nav-submenu" id="deploy-script-submenu" style="display: block;">
+                            <div class="nav-item submenu-item" data-page="deploy-script-codes" onclick="navigateToPage('deploy-script-codes')">
+                                📄
+                                <span>Códigos Individuais</span>
+                            </div>
+                            <div class="nav-item submenu-item" data-page="deploy-script-deploy" onclick="navigateToPage('deploy-script-deploy')">
+                                🚀
+                                <span>Deploy & Status</span>
+                            </div>
+                            <div class="nav-item submenu-item" data-page="deploy-script-settings" onclick="navigateToPage('deploy-script-settings')">
+                                ⚙️
+                                <span>Configurações</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- App Manager - Em Breve -->
+                    <div class="nav-item coming-soon">
+                        📱
+                        <span>App Manager</span>
+                        <span class="badge badge-soon">Em Breve</span>
+                    </div>
+
+                    <!-- URL Shortener - Em Breve -->
+                    <div class="nav-item coming-soon">
+                        🔗
+                        <span>URL Shortener</span>
+                        <span class="badge badge-soon">Em Breve</span>
+                    </div>
+
+                    <!-- Analytics - Em Breve -->
+                    <div class="nav-item coming-soon">
+                        📊
+                        <span>Analytics</span>
+                        <span class="badge badge-soon">Em Breve</span>
+                    </div>
+                </div>
+
+                <!-- Sistema -->
+                <div class="nav-section">
+                    <div class="section-title">Sistema</div>
+
+                    <div class="nav-item coming-soon">
+                        ⚙️
+                        <span>Configurações Gerais</span>
+                    </div>
+
+                    <div class="nav-item coming-soon">
+                        📝
+                        <span>Logs</span>
+                    </div>
+
+                    <div class="nav-item coming-soon">
+                        💾
+                        <span>Backup</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Menu -->
+            <div class="sidebar-footer">
+                <div class="user-menu" id="user-menu">
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            👤
+                        </div>
+                        <div class="user-details">
+                            <div class="user-name">Admin</div>
+                            <div class="user-role">Super Admin</div>
+                        </div>
+                    </div>
+                    <button class="user-menu-toggle" id="user-menu-toggle">
+                        ▲
+                    </button>
+                </div>
+
+                <!-- User Dropdown -->
+                <div class="user-dropdown" id="user-dropdown">
+                    <div class="dropdown-header">
+                        <div class="user-name">Admin</div>
+                        <div class="user-email">admin@widgetvpn.xyz</div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">
+                            👤
+                            <span>Perfil</span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            ⚙️
+                            <span>Configurações</span>
+                        </a>
+                        <hr class="dropdown-divider">
+                        <a href="#" class="dropdown-item text-danger">
+                            🚪
+                            <span>Sair</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    ☰
+                </button>
+                <div class="header-title">
+                    <h1 id="page-title">Dashboard</h1>
+                    <div class="breadcrumb" id="breadcrumb">
+                        🏠
+                        <span>Multi-Projetos</span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <div class="status-indicator">
+                        <div class="status-dot status-online"></div>
+                        <span>Sistema Online</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content" id="main-content">
+                <div class="loading" id="loading">
+                    <div class="loading-spinner">
+                        ⏳
+                    </div>
+                    <div class="loading-text">Carregando...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- Modals Container -->
+    <div id="modals-container"></div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/utils/api.js"></script>
+    <script src="js/utils/toast.js"></script>
+    <script src="js/utils/storage.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/projects/deploy-script.js"></script>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        // Initialize Lucide icons after DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+
+        // Função global para toggle do Deploy Script
+        function toggleDeployScript(event) {
+            console.log('🖱️ Toggle Deploy Script chamado diretamente!', event);
+            event.preventDefault();
+
+            const navGroup = event.target.closest('.nav-group');
+            const submenu = navGroup?.querySelector('.nav-submenu');
+
+            if (submenu) {
+                console.log('📋 Submenu encontrado:', submenu);
+                const isHidden = submenu.style.display === 'none' || !submenu.style.display;
+
+                if (isHidden) {
+                    console.log('✅ Mostrando submenu');
+                    submenu.style.display = 'block';
+                    navGroup.classList.add('expanded');
+                } else {
+                    console.log('❌ Escondendo submenu');
+                    submenu.style.display = 'none';
+                    navGroup.classList.remove('expanded');
+                }
+            } else {
+                console.error('❌ Submenu não encontrado');
+            }
+        }
+
+        // Função global para navegação
+        function navigateToPage(page) {
+            console.log('🧭 Navegando para:', page);
+            if (window.Dashboard) {
+                window.Dashboard.showPage(page);
+            } else {
+                console.error('❌ Dashboard não disponível');
+            }
+        }
+    </script>
+</body>
+</html>

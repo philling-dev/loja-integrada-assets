@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# API routes
+RewriteRule ^api/deploy-code$ api/deploy-code.php [L]
+
+# Dashboard routes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ admin/index.html [L]

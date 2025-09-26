@@ -45,11 +45,14 @@
             background: var(--gray-50);
             color: var(--gray-900);
             line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll on body */
         }
 
         .dashboard {
             display: flex;
             height: 100vh;
+            overflow: hidden; /* Prevent any overflow from dashboard container */
+            width: 100%;
         }
 
         /* Sidebar */
@@ -84,6 +87,8 @@
         .nav {
             flex: 1;
             padding: 16px 0;
+            overflow-x: hidden; /* Prevent horizontal scroll in navigation */
+            overflow-y: auto; /* Allow vertical scroll if needed */
         }
 
         /* Nav separator */
@@ -199,6 +204,9 @@
             border-radius: 0;
             color: var(--gray-600);
             font-weight: 400;
+            white-space: nowrap; /* Prevent text wrapping */
+            overflow: hidden; /* Hide overflow text */
+            text-overflow: ellipsis; /* Show ellipsis for long text */
         }
 
         .nav-submenu .nav-item:hover {
@@ -308,6 +316,9 @@
             border-radius: var(--border-radius);
             padding: 24px;
             box-shadow: var(--shadow);
+            max-width: 100%; /* Prevent card overflow */
+            overflow: hidden; /* Hide any overflowing content */
+            box-sizing: border-box; /* Include padding in width calculation */
         }
 
         .card-header {
@@ -407,6 +418,10 @@
 
         /* Mobile */
         @media (max-width: 768px) {
+            .dashboard {
+                overflow-x: hidden; /* Force no horizontal scroll on mobile */
+            }
+
             .sidebar {
                 position: fixed;
                 left: -280px;
@@ -415,6 +430,7 @@
                 z-index: 100;
                 transition: left 0.3s ease;
                 box-shadow: var(--shadow-lg);
+                overflow-x: hidden; /* No horizontal scroll in mobile sidebar */
             }
 
             .sidebar.active {
@@ -423,6 +439,18 @@
 
             .main-content {
                 margin-left: 0;
+                width: 100%; /* Full width on mobile */
+                max-width: 100vw; /* Don't exceed viewport width */
+            }
+
+            .main-body {
+                padding: 16px; /* Reduced padding on mobile */
+                overflow-x: hidden; /* Force no horizontal overflow on mobile */
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+                gap: 16px; /* Reduced gap */
             }
 
             .mobile-overlay {
