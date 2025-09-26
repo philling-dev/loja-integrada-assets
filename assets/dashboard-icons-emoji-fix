@@ -1,0 +1,7 @@
+.dashboard-emojis {
+font-family: Inter, sans-serif;
+} .logo-fixed {
+color: #10b981;
+} .submenu-visible {
+display: block !important;
+}
