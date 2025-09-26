@@ -268,39 +268,16 @@
             height: 72px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            min-width: 0; /* Allow header to shrink */
-            overflow: hidden; /* Prevent header overflow */
+            gap: 16px;
         }
 
         .main-title {
             font-size: 24px;
             font-weight: 700;
             color: var(--gray-900);
-            flex: 1; /* Allow title to take available space */
-            min-width: 0; /* Allow title to shrink */
-            overflow: hidden; /* Hide overflow */
-            text-overflow: ellipsis; /* Show ellipsis for long titles */
-            white-space: nowrap; /* Prevent title wrapping */
-            margin-right: 16px; /* Normal spacing */
+            margin: 0;
         }
 
-        .status-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: var(--gray-600);
-            flex-shrink: 0; /* Don't shrink status indicator */
-            white-space: nowrap; /* Prevent status text wrapping */
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--green-500);
-        }
 
         .main-body {
             flex: 1;
@@ -463,12 +440,7 @@
             }
 
             .main-title {
-                font-size: 18px; /* Reasonable size on mobile */
-                margin-right: 12px; /* Balanced margin on mobile */
-            }
-
-            .status-indicator {
-                font-size: 13px; /* Readable size on mobile */
+                font-size: 20px; /* Reasonable size on mobile */
             }
 
             .main-body {
@@ -625,10 +597,6 @@
             <header class="main-header">
                 <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
                 <h1 class="main-title" id="pageTitle">Dashboard</h1>
-                <div class="status-indicator">
-                    <div class="status-dot"></div>
-                    <span>Sistema Online</span>
-                </div>
             </header>
 
             <div class="main-body" id="mainContent">
