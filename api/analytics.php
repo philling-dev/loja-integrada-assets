@@ -109,8 +109,17 @@ function getPerformanceMetrics($repoPath) {
     $sizes = array_column($index, 'size');
     $metrics['avg_file_size'] = array_sum($sizes) / count($sizes);
 
-    $largest = max($index, fn($a, $b) => $a['size'] <=> $b['size']);
-    $smallest = min($index, fn($a, $b) => $a['size'] <=> $b['size']);
+    // CORREÇÃO: Encontrar maior e menor arquivo corretamente
+    $largest = null;
+    $smallest = null;
+    foreach ($index as $item) {
+        if ($largest === null || $item['size'] > $largest['size']) {
+            $largest = $item;
+        }
+        if ($smallest === null || $item['size'] < $smallest['size']) {
+            $smallest = $item;
+        }
+    }
 
     $metrics['largest_file'] = [
         'name' => $largest['filename'],
