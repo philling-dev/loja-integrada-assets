@@ -635,7 +635,7 @@
     <div class="mobile-overlay" id="mobileOverlay"></div>
 
     <script>
-        // Simple SPA Router
+        // Simple SPA Router with URL persistence
         class Dashboard {
             constructor() {
                 this.currentPage = 'dashboard';
@@ -644,7 +644,21 @@
 
             init() {
                 this.bindEvents();
-                this.showPage('dashboard');
+                this.loadFromUrl();
+            }
+
+            // Load page from URL hash or localStorage
+            loadFromUrl() {
+                const urlHash = window.location.hash.slice(1);
+                const savedPage = localStorage.getItem('dashboard-current-page');
+                const pageToLoad = urlHash || savedPage || 'dashboard';
+                this.showPage(pageToLoad);
+            }
+
+            // Save current page state
+            savePageState(page) {
+                localStorage.setItem('dashboard-current-page', page);
+                window.location.hash = page;
             }
 
             bindEvents() {
@@ -684,6 +698,11 @@
                         overlay.classList.remove('active');
                     });
                 }
+
+                // Listen for URL hash changes (browser back/forward)
+                window.addEventListener('hashchange', () => {
+                    this.loadFromUrl();
+                });
             }
 
             // Project toggle functionality
@@ -755,6 +774,9 @@
                 };
 
                 document.getElementById('pageTitle').textContent = titles[page] || 'Dashboard';
+
+                // Save page state for persistence
+                this.savePageState(page);
 
                 // Load content
                 this.loadContent(page);
@@ -1475,16 +1497,18 @@
                     const response = await fetch('https://philling-dev.github.io/loja-integrada-assets/assets/index.json');
                     const data = await response.json();
 
-                    // Update total count
+                    // CORREÇÃO: Update total count - data é um objeto, não array
                     const totalElement = document.getElementById('totalAssets');
                     if (totalElement) {
-                        totalElement.textContent = data.assets?.length || 0;
+                        totalElement.textContent = Object.keys(data).length || 0;
                     }
 
                     // Show recent assets
                     const recentContainer = document.getElementById('recentAssets');
-                    if (recentContainer && data.assets) {
-                        const recent = data.assets.slice(-5).reverse();
+                    if (recentContainer && data) {
+                        // CORREÇÃO: Converter objeto para array e pegar os 5 mais recentes
+                        const assetsArray = Object.values(data);
+                        const recent = assetsArray.slice(-5).reverse();
                         if (recent.length > 0) {
                             recentContainer.innerHTML = recent.map(asset => `
                                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
@@ -1611,7 +1635,8 @@
                     .then(data => {
                         const dashTotalCodes = document.getElementById('dash-total-codes');
                         if (dashTotalCodes) {
-                            dashTotalCodes.textContent = data.assets?.length || 0;
+                            // CORREÇÃO: data é um objeto, não array
+                            dashTotalCodes.textContent = Object.keys(data).length || 0;
                         }
                     })
                     .catch(() => {
