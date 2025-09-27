@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - WidgetVPN | Sistema de Deploy CSS/JS</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <style>
+        /* Reset e variáveis CSS */
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #2a2a2a;
+            --accent: #00d4ff;
+            --success: #00ff88;
+            --warning: #ffaa00;
+            --error: #ff4444;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border: #333333;
+            --gradient: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Layout Principal */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--gradient);
+            border-right: 1px solid var(--border);
+            padding: 2rem 0;
+            position: fixed;
+            height: 100vh;
+            width: 280px;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 0 1.5rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .logo p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0 1rem;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent);
+        }
+
+        .nav-link .icon {
+            margin-right: 0.75rem;
+            font-size: 1.125rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 2rem;
+            background: var(--primary);
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .sync-status {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--secondary);
+            border-radius: var(--border-radius);
+            font-size: 0.875rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--gradient);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--gradient);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Files List */
+        .files-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .file-type-section {
+            background: var(--gradient);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+        }
+
+        .file-type-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .file-type-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .file-count {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .files-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .file-item:hover {
+            background: rgba(0, 212, 255, 0.05);
+            border-color: var(--accent);
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-name {
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .file-meta {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .file-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: #00b8e6;
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+        }
+
+        .btn-small {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        /* Search */
+        .search-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        /* Loading */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border);
+            border-top: 2px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Notifications */
+        .notification {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius);
+            color: white;
+            font-weight: 500;
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: var(--transition);
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            background: var(--success);
+        }
+
+        .notification.error {
+            background: var(--error);
+        }
+
+        .notification.warning {
+            background: var(--warning);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+                transition: var(--transition);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .files-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Hide scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>🚀 WidgetVPN</h1>
+                <p>Dashboard Administrativo</p>
+            </div>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#overview" class="nav-link active" data-section="overview">
+                            <span class="icon">📊</span>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#deploy" class="nav-link" data-section="deploy">
+                            <span class="icon">🚀</span>
+                            Script Deploy
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#files" class="nav-link" data-section="files">
+                            <span class="icon">📄</span>
+                            Arquivos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#analytics" class="nav-link" data-section="analytics">
+                            <span class="icon">📈</span>
+                            Analytics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#settings" class="nav-link" data-section="settings">
+                            <span class="icon">⚙️</span>
+                            Configurações
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <h1 class="page-title" id="pageTitle">Dashboard Geral</h1>
+                <div class="sync-status">
+                    <div class="status-indicator">
+                        <div class="status-dot"></div>
+                        <span id="syncStatus">Sincronizado</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="syncGitHub()">
+                        <span>🔄</span>
+                        Sincronizar
+                    </button>
+                </div>
+            </header>
+
+            <!-- Overview Section -->
+            <section id="overview-section" class="content-section">
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number" id="totalFiles">-</span>
+                        <span class="stat-label">Total de Arquivos</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="cssFiles">-</span>
+                        <span class="stat-label">Arquivos CSS</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="jsFiles">-</span>
+                        <span class="stat-label">Arquivos JavaScript</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="totalSize">-</span>
+                        <span class="stat-label">Tamanho Total</span>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="card">
+                    <h2 class="section-title">
+                        <span>🕒</span>
+                        Atividade Recente
+                    </h2>
+                    <div id="recentActivity" class="loading">
+                        <div class="spinner"></div>
+                        Carregando atividades...
+                    </div>
+                </div>
+            </section>
+
+            <!-- Files Section -->
+            <section id="files-section" class="content-section" style="display: none;">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="🔍 Buscar arquivos..." id="fileSearch">
+                </div>
+
+                <div class="files-container">
+                    <div class="file-type-section">
+                        <div class="file-type-header">
+                            <h3 class="file-type-title">🎨 Arquivos CSS</h3>
+                            <span class="file-count" id="cssCount">0</span>
+                        </div>
+                        <div class="files-list" id="cssFilesList">
+                            <div class="loading">
+                                <div class="spinner"></div>
+                                Carregando arquivos CSS...
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="file-type-section">
+                        <div class="file-type-header">
+                            <h3 class="file-type-title">⚡ Arquivos JavaScript</h3>
+                            <span class="file-count" id="jsCount">0</span>
+                        </div>
+                        <div class="files-list" id="jsFilesList">
+                            <div class="loading">
+                                <div class="spinner"></div>
+                                Carregando arquivos JS...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Deploy Section -->
+            <section id="deploy-section" class="content-section" style="display: none;">
+                <div class="card">
+                    <h2 class="section-title">
+                        <span>🚀</span>
+                        Deploy de Código
+                    </h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        Faça deploy de códigos CSS/JS diretamente para o GitHub Pages
+                    </p>
+                    <!-- Deploy form will be implemented here -->
+                    <div style="text-align: center; padding: 2rem; color: var(--text-secondary);">
+                        🚧 Interface de deploy em desenvolvimento
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics-section" class="content-section" style="display: none;">
+                <div class="card">
+                    <h2 class="section-title">
+                        <span>📈</span>
+                        Analytics e Métricas
+                    </h2>
+                    <div style="text-align: center; padding: 2rem; color: var(--text-secondary);">
+                        📊 Métricas avançadas serão implementadas aqui
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings-section" class="content-section" style="display: none;">
+                <div class="card">
+                    <h2 class="section-title">
+                        <span>⚙️</span>
+                        Configurações do Sistema
+                    </h2>
+                    <div style="text-align: center; padding: 2rem; color: var(--text-secondary);">
+                        🔧 Configurações avançadas em desenvolvimento
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notificationContainer"></div>
+
+    <script>
+        // Estado global da aplicação
+        const AppState = {
+            files: {},
+            stats: {
+                total: 0,
+                css: 0,
+                js: 0,
+                size: 0
+            },
+            currentSection: 'overview'
+        };
+
+        // Utilities
+        function formatBytes(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleDateString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+
+            document.getElementById('notificationContainer').appendChild(notification);
+
+            setTimeout(() => notification.classList.add('show'), 100);
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Navigation
+        function initNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
+
+                    // Add active class to clicked link
+                    link.classList.add('active');
+
+                    // Show corresponding section
+                    const section = link.dataset.section;
+                    showSection(section);
+                });
+            });
+        }
+
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show target section
+            document.getElementById(`${sectionName}-section`).style.display = 'block';
+
+            // Update page title
+            const titles = {
+                overview: 'Dashboard Geral',
+                deploy: 'Script Deploy',
+                files: 'Gerenciar Arquivos',
+                analytics: 'Analytics e Métricas',
+                settings: 'Configurações'
+            };
+
+            document.getElementById('pageTitle').textContent = titles[sectionName] || 'Dashboard';
+            AppState.currentSection = sectionName;
+        }
+
+        // Load and display files
+        async function loadFiles() {
+            try {
+                const response = await fetch('assets/index.json');
+                const data = await response.json();
+
+                AppState.files = data;
+                updateStats();
+                displayFiles();
+                showRecentActivity();
+
+            } catch (error) {
+                console.error('Erro ao carregar arquivos:', error);
+                showNotification('Erro ao carregar dados dos arquivos', 'error');
+            }
+        }
+
+        function updateStats() {
+            const files = Object.values(AppState.files);
+
+            const cssFiles = files.filter(f => f.type === 'css');
+            const jsFiles = files.filter(f => f.type === 'js');
+            const totalSize = files.reduce((sum, f) => sum + (f.size || 0), 0);
+
+            AppState.stats = {
+                total: files.length,
+                css: cssFiles.length,
+                js: jsFiles.length,
+                size: totalSize
+            };
+
+            // Update UI
+            document.getElementById('totalFiles').textContent = AppState.stats.total;
+            document.getElementById('cssFiles').textContent = AppState.stats.css;
+            document.getElementById('jsFiles').textContent = AppState.stats.js;
+            document.getElementById('totalSize').textContent = formatBytes(AppState.stats.size);
+
+            // Update file counts in files section
+            document.getElementById('cssCount').textContent = AppState.stats.css;
+            document.getElementById('jsCount').textContent = AppState.stats.js;
+        }
+
+        function displayFiles() {
+            const files = Object.values(AppState.files);
+            const cssFiles = files.filter(f => f.type === 'css');
+            const jsFiles = files.filter(f => f.type === 'js');
+
+            displayFileList('cssFilesList', cssFiles);
+            displayFileList('jsFilesList', jsFiles);
+        }
+
+        function displayFileList(containerId, files) {
+            const container = document.getElementById(containerId);
+
+            if (files.length === 0) {
+                container.innerHTML = '<div style="text-align: center; padding: 1rem; color: var(--text-secondary);">Nenhum arquivo encontrado</div>';
+                return;
+            }
+
+            container.innerHTML = files.map(file => `
+                <div class="file-item">
+                    <div class="file-info">
+                        <div class="file-name">${file.filename}</div>
+                        <div class="file-meta">
+                            <span>📦 ${formatBytes(file.size)}</span>
+                            <span>📅 ${formatDate(file.deployedAt)}</span>
+                            <span>🔗 ${file.source || 'local'}</span>
+                        </div>
+                    </div>
+                    <div class="file-actions">
+                        <a href="${file.url}" target="_blank" class="btn btn-secondary btn-small">
+                            🔗 Ver
+                        </a>
+                        <button class="btn btn-primary btn-small" onclick="copyToClipboard('${file.url}')">
+                            📋 Copiar
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showRecentActivity() {
+            const files = Object.values(AppState.files);
+            const recentFiles = files
+                .sort((a, b) => new Date(b.deployedAt) - new Date(a.deployedAt))
+                .slice(0, 5);
+
+            const container = document.getElementById('recentActivity');
+
+            if (recentFiles.length === 0) {
+                container.innerHTML = '<div style="text-align: center; color: var(--text-secondary);">Nenhuma atividade recente</div>';
+                return;
+            }
+
+            container.innerHTML = recentFiles.map(file => `
+                <div class="file-item">
+                    <div class="file-info">
+                        <div class="file-name">${file.filename}</div>
+                        <div class="file-meta">
+                            <span>${file.type === 'css' ? '🎨' : '⚡'} ${file.type.toUpperCase()}</span>
+                            <span>📅 ${formatDate(file.deployedAt)}</span>
+                        </div>
+                    </div>
+                    <div class="file-actions">
+                        <a href="${file.url}" target="_blank" class="btn btn-secondary btn-small">
+                            Ver arquivo
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Search functionality
+        function initSearch() {
+            const searchInput = document.getElementById('fileSearch');
+
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                filterFiles(query);
+            });
+        }
+
+        function filterFiles(query) {
+            if (!query) {
+                displayFiles();
+                return;
+            }
+
+            const files = Object.values(AppState.files);
+            const filteredFiles = files.filter(file =>
+                file.filename.toLowerCase().includes(query) ||
+                file.name.toLowerCase().includes(query)
+            );
+
+            const cssFiles = filteredFiles.filter(f => f.type === 'css');
+            const jsFiles = filteredFiles.filter(f => f.type === 'js');
+
+            displayFileList('cssFilesList', cssFiles);
+            displayFileList('jsFilesList', jsFiles);
+        }
+
+        // Sync functionality
+        async function syncGitHub() {
+            const statusElement = document.getElementById('syncStatus');
+            const originalText = statusElement.textContent;
+
+            statusElement.textContent = 'Sincronizando...';
+
+            try {
+                // Simulate sync (replace with actual API call)
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                await loadFiles();
+                statusElement.textContent = 'Sincronizado';
+                showNotification('Sincronização com GitHub concluída com sucesso!');
+
+            } catch (error) {
+                console.error('Erro na sincronização:', error);
+                statusElement.textContent = originalText;
+                showNotification('Erro na sincronização com GitHub', 'error');
+            }
+        }
+
+        // Copy to clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('URL copiada para a área de transferência!');
+            }).catch(() => {
+                showNotification('Erro ao copiar URL', 'error');
+            });
+        }
+
+        // Initialize app
+        function init() {
+            initNavigation();
+            initSearch();
+            loadFiles();
+
+            // Auto-refresh every 5 minutes
+            setInterval(loadFiles, 5 * 60 * 1000);
+        }
+
+        // Start app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
