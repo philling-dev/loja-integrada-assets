@@ -86,3 +86,23 @@ tmp/
 # Local configuration (se houver)
 config.local.json
 .env.local
+
+# SEGURANÇA CRÍTICA - Arquivos com informações sensíveis
+CLAUDE.md
+*.backup
+BACKUP_DUPLO_SETUP.md
+STATUS_ATUAL.md
+
+# Admin files com dados sensíveis
+admin/config/
+admin/credentials/
+admin/*.backup
+
+# Scripts com configurações críticas
+scripts/credentials/
+scripts/keys/
+
+# Logs com informações do servidor
+audit-deploy.log
+*.log
+logs/
