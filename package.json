@@ -1,7 +1,7 @@
 {
-  "name": "loja-integrada-assets",
+  "name": "admin-widgetvpn-dashboard",
   "version": "1.0.0",
-  "description": "Sistema de gerenciamento de códigos para Loja Integrada com deploy automático via GitHub Pages",
+  "description": "Dashboard Administrativo Multi-Projetos WidgetVPN com backup duplo inteligente",
   "main": "index.js",
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -11,7 +11,11 @@
     "serve": "http-server admin -p 8080 -o",
     "clean": "rimraf assets/css/* assets/js/*",
     "start": "npm run serve",
-    "push": "git add . && git commit -m 'Update dashboard' && git push"
+    "push": "git add . && git commit -m 'Update dashboard' && git push",
+    "backup:dual": "scripts/backup-dual-intelligent.sh",
+    "version:patch": "scripts/deploy.sh patch",
+    "version:minor": "scripts/deploy.sh minor",
+    "version:major": "scripts/deploy.sh major"
   },
   "repository": {
     "type": "git",
