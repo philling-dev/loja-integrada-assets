@@ -156,3 +156,8 @@ npm run backup:dual
 **📅 Última Atualização**: 27/09/2025 - 00:30
 **👤 Responsável**: Sistema de Backup Automatizado v2.0
 **🔄 Próxima Revisão**: A cada novo backup funcional validado
+### ❌ **BACKUP REJEITADO #20250927_151005 - SISTEMA COM PROBLEMAS**
+- **📅 Data**: 27/09/2025 - 15:10
+- **❌ Motivo**: Sistema não passou na validação
+- **⚠️ Status**: **NÃO EXECUTADO - SISTEMA COM FALHAS**
+
