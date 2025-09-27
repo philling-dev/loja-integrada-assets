@@ -378,6 +378,29 @@
             background: var(--gray-200);
         }
 
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            background: white;
+            color: var(--gray-600);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: 0;
+        }
+
+        .btn-icon:hover {
+            background: var(--gray-50);
+            border-color: var(--gray-400);
+            color: var(--gray-800);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
         /* Loading */
         .loading {
             display: flex;
@@ -980,6 +1003,9 @@
             }
 
             getScriptCodesContent() {
+                // Load existing codes when page loads
+                setTimeout(() => this.loadExistingCodes(), 100);
+
                 return `
                     <div class="card">
                         <div class="card-header">
@@ -1000,6 +1026,12 @@
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
                                 </svg>
                                 Teste Deploy
+                            </button>
+                            <button class="btn btn-secondary" onclick="window.dashboard.loadExistingCodes()" style="margin-left: 12px;">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/>
+                                </svg>
+                                Atualizar Lista
                             </button>
                         </div>
                         <div id="deployResult" style="margin-bottom: 24px;"></div>
@@ -1025,7 +1057,190 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Lista de códigos existentes -->
+                    <div class="card" style="margin-top: 24px;">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">Códigos Existentes</div>
+                                <div class="card-subtitle">Lista de códigos CSS e JS deployados</div>
+                            </div>
+                        </div>
+                        <div id="existingCodesContainer">
+                            <div style="text-align: center; padding: 40px; color: var(--gray-500);">
+                                <svg width="48" height="48" fill="currentColor" viewBox="0 0 20 20" style="margin-bottom: 16px; opacity: 0.5;">
+                                    <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                                </svg>
+                                <div>Carregando códigos...</div>
+                            </div>
+                        </div>
+                    </div>
                 `;
+            }
+
+            async loadExistingCodes() {
+                const container = document.getElementById('existingCodesContainer');
+                if (!container) return;
+
+                // Show loading
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: var(--gray-500);">
+                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 20 20" style="margin-bottom: 16px; opacity: 0.5; animation: spin 1s linear infinite;">
+                            <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/>
+                        </svg>
+                        <div>Carregando códigos...</div>
+                    </div>
+                    <style>
+                        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+                    </style>
+                `;
+
+                try {
+                    // Try local first, then fallback to GitHub Pages
+                    let response;
+                    try {
+                        response = await fetch('/assets/index.json');
+                        if (!response.ok) throw new Error('Local fetch failed');
+                    } catch (e) {
+                        console.log('Local fetch failed, trying GitHub Pages...');
+                        response = await fetch('https://philling-dev.github.io/loja-integrada-assets/assets/index.json');
+                    }
+
+                    const data = await response.json();
+                    const codes = Object.values(data);
+
+                    if (codes.length === 0) {
+                        container.innerHTML = `
+                            <div style="text-align: center; padding: 40px; color: var(--gray-500);">
+                                <svg width="48" height="48" fill="currentColor" viewBox="0 0 20 20" style="margin-bottom: 16px; opacity: 0.5;">
+                                    <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                                </svg>
+                                <div>Nenhum código encontrado</div>
+                                <div style="margin-top: 8px; font-size: 14px;">Clique em "Novo Código" para criar o primeiro</div>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    // Sort by deployed date (newest first)
+                    codes.sort((a, b) => new Date(b.deployedAt) - new Date(a.deployedAt));
+
+                    // Group by type
+                    const cssFiles = codes.filter(code => code.type === 'css');
+                    const jsFiles = codes.filter(code => code.type === 'js');
+
+                    let html = '';
+
+                    if (cssFiles.length > 0) {
+                        html += `
+                            <div style="margin-bottom: 32px;">
+                                <h3 style="margin-bottom: 16px; color: var(--gray-700); font-size: 16px; font-weight: 600;">
+                                    <span style="background: linear-gradient(135deg, #2563eb, #3b82f6); background-clip: text; -webkit-background-clip: text; color: transparent;">CSS Files (${cssFiles.length})</span>
+                                </h3>
+                                <div style="display: grid; gap: 12px;">
+                                    ${cssFiles.map(code => this.renderCodeItem(code)).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }
+
+                    if (jsFiles.length > 0) {
+                        html += `
+                            <div style="margin-bottom: 16px;">
+                                <h3 style="margin-bottom: 16px; color: var(--gray-700); font-size: 16px; font-weight: 600;">
+                                    <span style="background: linear-gradient(135deg, #f59e0b, #f97316); background-clip: text; -webkit-background-clip: text; color: transparent;">JavaScript Files (${jsFiles.length})</span>
+                                </h3>
+                                <div style="display: grid; gap: 12px;">
+                                    ${jsFiles.map(code => this.renderCodeItem(code)).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }
+
+                    container.innerHTML = html;
+
+                } catch (error) {
+                    console.error('Error loading codes:', error);
+                    container.innerHTML = `
+                        <div style="text-align: center; padding: 40px; color: var(--red-500);">
+                            <svg width="48" height="48" fill="currentColor" viewBox="0 0 20 20" style="margin-bottom: 16px; opacity: 0.5;">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>Erro ao carregar códigos</div>
+                            <div style="margin-top: 8px; font-size: 14px;">${error.message}</div>
+                            <button class="btn btn-secondary" onclick="window.dashboard.loadExistingCodes()" style="margin-top: 16px;">
+                                Tentar Novamente
+                            </button>
+                        </div>
+                    `;
+                }
+            }
+
+            renderCodeItem(code) {
+                const deployedDate = new Date(code.deployedAt).toLocaleString('pt-BR');
+                const sizeKB = (code.size / 1024).toFixed(1);
+                const typeColor = code.type === 'css' ? 'var(--blue-500)' : 'var(--orange-500)';
+                const sourceIcon = code.source === 'github_sync' ? '🔄' : '📝';
+                const sourceText = code.source === 'github_sync' ? 'GitHub Sync' : 'Deploy Local';
+
+                return `
+                    <div style="border: 1px solid var(--gray-200); border-radius: var(--border-radius); padding: 16px; background: white; transition: all 0.2s ease; hover: box-shadow: var(--shadow-lg);">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="display: flex; align-items: center; margin-bottom: 4px;">
+                                    <span style="background: ${typeColor}; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 500; margin-right: 8px;">
+                                        ${code.type.toUpperCase()}
+                                    </span>
+                                    <h4 style="margin: 0; font-size: 14px; font-weight: 600; color: var(--gray-900); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        ${code.name}
+                                    </h4>
+                                </div>
+                                <div style="font-size: 13px; color: var(--gray-600); margin-bottom: 2px;">
+                                    📁 ${code.filename}
+                                </div>
+                                <div style="font-size: 12px; color: var(--gray-500);">
+                                    📅 ${deployedDate} • 📦 ${sizeKB}KB • ${sourceIcon} ${sourceText}
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 8px; flex-shrink: 0; margin-left: 16px;">
+                                <button onclick="window.dashboard.copyUrl('${code.url}')" class="btn-icon" title="Copiar URL">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
+                                        <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"/>
+                                    </svg>
+                                </button>
+                                <button onclick="window.open('${code.url}', '_blank')" class="btn-icon" title="Abrir URL">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z"/>
+                                        <path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 001.06.053L16.5 4.44v2.81a.75.75 0 001.5 0v-4.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 000 1.5h2.553l-9.056 8.194a.75.75 0 00-.053 1.06z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            async copyUrl(url) {
+                try {
+                    await navigator.clipboard.writeText(url);
+                    this.showResult('URL copiada para a área de transferência!', 'success');
+                } catch (err) {
+                    console.error('Failed to copy:', err);
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = url;
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        this.showResult('URL copiada para a área de transferência!', 'success');
+                    } catch (err) {
+                        this.showResult('Erro ao copiar URL', 'error');
+                    }
+                    document.body.removeChild(textArea);
+                }
             }
 
             getScriptDeployContent() {
