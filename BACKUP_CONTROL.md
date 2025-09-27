@@ -161,3 +161,9 @@ npm run backup:dual
 - **❌ Motivo**: Sistema não passou na validação
 - **⚠️ Status**: **NÃO EXECUTADO - SISTEMA COM FALHAS**
 
+
+### ❌ **BACKUP REJEITADO #20250927_152633 - SISTEMA COM PROBLEMAS**
+- **📅 Data**: 27/09/2025 - 15:26
+- **❌ Motivo**: Sistema não passou na validação
+- **⚠️ Status**: **NÃO EXECUTADO - SISTEMA COM FALHAS**
+

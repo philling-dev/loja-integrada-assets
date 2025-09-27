@@ -13,143 +13,16 @@
     <link rel="stylesheet" href="css/layout-base.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/status-indicators.css">
+    <link rel="stylesheet" href="css/submenus.css">
+    <link rel="stylesheet" href="css/states.css">
+    <link rel="stylesheet" href="css/main-content.css">
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        .nav-group.expanded .project-header {
-            background: var(--gray-100);
-            color: var(--gray-900);
-        }
-
-        /* Status Indicators */
-        .status-indicator {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            margin-left: 8px;
-            margin-right: 4px;
-        }
-
-        .status-indicator.active {
-            background: var(--green-500);
-            box-shadow: 0 0 4px var(--green-500);
-        }
-
-        .status-indicator.dev {
-            background: var(--blue-400);
-            box-shadow: 0 0 4px var(--blue-400);
-        }
-
-        /* Submenus */
-        .nav-submenu {
-            overflow: hidden;
-            transition: max-height 0.3s ease, opacity 0.2s ease;
-            background: var(--gray-50);
-            margin: 4px 8px 0;
-            border-radius: 8px;
-            border-left: 3px solid var(--blue-500);
-            max-height: 0;
-            opacity: 0;
-        }
-
-        .nav-group.expanded .nav-submenu {
-            max-height: calc(3 * 45px + 8px); /* Exactly 3 items + padding */
-            opacity: 1;
-        }
-
-        .nav-submenu .nav-item {
-            font-size: 13px;
-            padding: 10px 16px 10px 40px;
-            margin: 0;
-            border-radius: 0;
-            color: var(--gray-600);
-            font-weight: 400;
-            white-space: nowrap; /* Prevent text wrapping */
-            overflow: hidden; /* Hide overflow text */
-            text-overflow: ellipsis; /* Show ellipsis for long text */
-        }
-
-        .nav-submenu .nav-item:hover {
-            background: var(--gray-100);
-            color: var(--gray-900);
-        }
-
-        .nav-submenu .nav-item.active {
-            background: var(--blue-500);
-            color: white;
-            border-left: 3px solid var(--blue-400);
-            margin-left: -3px;
-        }
-
-        .nav-submenu .nav-item:first-child {
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            margin-top: 4px;
-        }
-
-        .nav-submenu .nav-item:last-child {
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
-            margin-bottom: 4px;
-        }
-
-        /* Coming Soon & Disabled States */
-        .coming-soon {
-            opacity: 0.7;
-        }
-
-        .coming-soon .status-indicator.dev {
-            opacity: 0.6;
-        }
-
-        .disabled {
-            opacity: 0.5;
-            cursor: not-allowed !important;
-        }
-
-        .disabled:hover {
-            background: transparent !important;
-            color: var(--gray-400) !important;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            min-width: 0; /* Prevents flex overflow */
-            overflow: hidden; /* Prevents content from leaking */
-        }
-
-        .main-header {
-            background: white;
-            border-bottom: 1px solid var(--gray-200);
-            padding: 0 32px;
-            height: 72px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .main-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin: 0;
-        }
-
-
-        .main-body {
-            flex: 1;
-            padding: 32px;
-            overflow-y: auto;
-            overflow-x: hidden; /* Prevents horizontal overflow */
-            max-width: 100%; /* Ensures content doesn't exceed container */
         }
 
         /* Cards */

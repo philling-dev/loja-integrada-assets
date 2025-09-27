@@ -1,0 +1,23 @@
+.nav-group.expanded .project-header {
+    background: var(--gray-100);
+    color: var(--gray-900);
+}
+
+/* Status Indicators */
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 8px;
+    margin-right: 4px;
+}
+
+.status-indicator.active {
+    background: var(--green-500);
+    box-shadow: 0 0 4px var(--green-500);
+}
+
+.status-indicator.dev {
+    background: var(--blue-400);
+    box-shadow: 0 0 4px var(--blue-400);
+}
