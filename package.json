@@ -1,6 +1,6 @@
 {
   "name": "admin-widgetvpn-dashboard",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Dashboard Administrativo Multi-Projetos WidgetVPN com backup duplo inteligente",
   "main": "index.js",
   "scripts": {

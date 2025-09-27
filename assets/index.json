@@ -5,7 +5,7 @@
         "filename": "Fretegratis.min.css",
         "type": "css",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/Fretegratis.min.css",
-        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
         "size": 674,
         "source": "github_sync",
         "github_sha": "497743f23284435b1a836787c8d77ae6ab5531b8"
@@ -38,7 +38,7 @@
         "filename": "dashboard-fix-test.min.css",
         "type": "css",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dashboard-fix-test.min.css",
-        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
         "size": 113,
         "source": "github_sync",
         "github_sha": "b49273cc1486485070f33e94c101682068c5195e"
@@ -49,7 +49,7 @@
         "filename": "dashboard-test-final.min.css",
         "type": "css",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dashboard-test-final.min.css",
-        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
         "size": 122,
         "source": "github_sync",
         "github_sha": "bbd99e88aedaa67e3c381dca553416871dbb5731"
@@ -71,7 +71,7 @@
         "filename": "descricao-01.min.css",
         "type": "css",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/descricao-01.min.css",
-        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
         "size": 14316,
         "source": "github_sync",
         "github_sha": "ce76972b6359d327962dc089bce46e0845c3a3cc"
@@ -82,7 +82,7 @@
         "filename": "descricao-02.min.js",
         "type": "js",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/descricao-02.min.js",
-        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
         "size": 9967,
         "source": "github_sync",
         "github_sha": "f634c099b3219cb72a7ff4fba35dfce03ec0a006"
@@ -203,7 +203,7 @@
         "filename": "menu-oferta-control.min.css",
         "type": "css",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/menu-oferta-control.min.css",
-        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
         "size": 294,
         "source": "github_sync",
         "github_sha": "1a8bbd78f63472b79d5e7917547bb463b6590fa7"
@@ -214,7 +214,7 @@
         "filename": "menu-oferta-control.min.js",
         "type": "js",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/menu-oferta-control.min.js",
-        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
         "size": 1127,
         "source": "github_sync",
         "github_sha": "706a6f8df7b14480a938d22ebf328119d671bc84"
@@ -225,7 +225,7 @@
         "filename": "nav-fix-test.min.css",
         "type": "css",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/nav-fix-test.min.css",
-        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
         "size": 67,
         "source": "github_sync",
         "github_sha": "1fb5d8422fecb0cb848ee07f04227d94f1c5293b"
@@ -236,7 +236,7 @@
         "filename": "test-integration.min.css",
         "type": "css",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-integration.min.css",
-        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
         "size": 21,
         "source": "github_sync",
         "github_sha": "4f4b5c7ee347a0612028b85ff95ee4e88dbcea3e"
@@ -247,7 +247,7 @@
         "filename": "test-simple.min.css",
         "type": "css",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-simple.min.css",
-        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
         "size": 16,
         "source": "github_sync",
         "github_sha": "ce33ea2f6ce0657d65d4f8870edac2b0cec0bde5"
@@ -258,7 +258,7 @@
         "filename": "test-simple.min.js",
         "type": "js",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-simple.min.js",
-        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
         "size": 20,
         "source": "github_sync",
         "github_sha": "02525d0fb872c7f42b5571944120ea478131d65b"
@@ -273,6 +273,28 @@
         "size": 152,
         "source": "github_sync",
         "github_sha": "14b4100c5f36c291585906390051eb88441554b4"
+    },
+    "testedeploycssa091739e4f33b3d9008fb2a77d8471665": {
+        "id": "testedeploycssa091739e4f33b3d9008fb2a77d8471665",
+        "name": "Teste Deploy Css Auditoria.min",
+        "filename": "teste-deploy-css-auditoria.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-deploy-css-auditoria.min.css",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
+        "size": 132,
+        "source": "github_sync",
+        "github_sha": "177f9199e7925d3065d9471925379fa37d55c979"
+    },
+    "testedeployjsau63b20228d1d6388bd401c35c0de92388": {
+        "id": "testedeployjsau63b20228d1d6388bd401c35c0de92388",
+        "name": "Teste Deploy Js Auditoria.min",
+        "filename": "teste-deploy-js-auditoria.min.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-deploy-js-auditoria.min.js",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
+        "size": 302,
+        "source": "github_sync",
+        "github_sha": "ea6ca0c3936094773a473ededc400335bc17054f"
     },
     "teste-estrutura": {
         "id": "teste-estrutura",
@@ -357,7 +379,7 @@
         "filename": "teste-sistema-completo.min.js",
         "type": "js",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-sistema-completo.min.js",
-        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
         "size": 366,
         "source": "github_sync",
         "github_sha": "3c466f94f7e9cc1de2272ed7014034ff1dd68599"
@@ -368,7 +390,7 @@
         "filename": "vitrine-produto.css",
         "type": "css",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/vitrine-produto.css",
-        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
         "size": 1869,
         "source": "github_sync",
         "github_sha": "7ecdfef82c9ef41b8c7037224f864e8b0d38f696"
