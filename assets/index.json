@@ -1,12 +1,14 @@
 {
-    "mfzdd8vzajkakib9v7n": {
-        "id": "mfzdd8vzajkakib9v7n",
-        "name": "Carrinho FIX",
-        "filename": "carrinho-fix-mfzdd8vzajkakib9v7n.min.js",
-        "type": "js",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/carrinho-fix-mfzdd8vzajkakib9v7n.min.js",
-        "deployedAt": "2025-09-25T12:13:04+00:00",
-        "size": 923
+    "fretegratisminca789e0f37dc48cd20982c3f70273db3": {
+        "id": "fretegratisminca789e0f37dc48cd20982c3f70273db3",
+        "name": "Fretegratis.min",
+        "filename": "Fretegratis.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/Fretegratis.min.css",
+        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "size": 674,
+        "source": "github_sync",
+        "github_sha": "497743f23284435b1a836787c8d77ae6ab5531b8"
     },
     "mfzdr47umbg098ipglo": {
         "id": "mfzdr47umbg098ipglo",
@@ -15,25 +17,42 @@
         "type": "js",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/bot-o-subir-mfzdr47umbg098ipglo.min.js",
         "deployedAt": "2025-09-25T12:19:38+00:00",
-        "size": 282
+        "size": 282,
+        "source": "github_sync",
+        "github_sha": "00689e9e3344a4c6b5a1ca537fc482028b4d4485"
     },
-    "teste-simples": {
-        "id": "teste-simples",
-        "name": "Teste Simples",
-        "filename": "teste-simples.min.js",
+    "mfzdd8vzajkakib9v7n": {
+        "id": "mfzdd8vzajkakib9v7n",
+        "name": "Carrinho FIX",
+        "filename": "carrinho-fix-mfzdd8vzajkakib9v7n.min.js",
         "type": "js",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-simples.min.js",
-        "deployedAt": "2025-09-25T12:24:05+00:00",
-        "size": 21
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/carrinho-fix-mfzdd8vzajkakib9v7n.min.js",
+        "deployedAt": "2025-09-25T12:13:04+00:00",
+        "size": 923,
+        "source": "github_sync",
+        "github_sha": "eed1d1319bf90620cb14f5847e1e977f2a75ea76"
     },
-    "teste-final": {
-        "id": "teste-final",
-        "name": "Teste Final",
-        "filename": "teste-final.min.js",
-        "type": "js",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-final.min.js",
-        "deployedAt": "2025-09-25T12:24:22+00:00",
-        "size": 26
+    "dashboardfixtes244c51dce13dad6423784057033459e0": {
+        "id": "dashboardfixtes244c51dce13dad6423784057033459e0",
+        "name": "Dashboard Fix Test.min",
+        "filename": "dashboard-fix-test.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dashboard-fix-test.min.css",
+        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "size": 113,
+        "source": "github_sync",
+        "github_sha": "b49273cc1486485070f33e94c101682068c5195e"
+    },
+    "dashboardtestfi17693195560e008fc1de791fedc086d5": {
+        "id": "dashboardtestfi17693195560e008fc1de791fedc086d5",
+        "name": "Dashboard Test Final.min",
+        "filename": "dashboard-test-final.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dashboard-test-final.min.css",
+        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "size": 122,
+        "source": "github_sync",
+        "github_sha": "bbd99e88aedaa67e3c381dca553416871dbb5731"
     },
     "deploy-ok": {
         "id": "deploy-ok",
@@ -42,142 +61,31 @@
         "type": "js",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/deploy-automatico-ok.min.js",
         "deployedAt": "2025-09-25T12:25:36+00:00",
-        "size": 45
+        "size": 45,
+        "source": "github_sync",
+        "github_sha": "7994fc1e0ddde8f0463e55990bcdc6897ee5e19c"
     },
-    "mfze5ep2ij0gu79af2": {
-        "id": "mfze5ep2ij0gu79af2",
-        "name": "DropMenu",
-        "filename": "dropmenu-mfze5ep2ij0gu79af2.min.css",
+    "descricao01min039a85b775e2d1c166aad817c0d7956e": {
+        "id": "descricao01min039a85b775e2d1c166aad817c0d7956e",
+        "name": "Descricao 01.min",
+        "filename": "descricao-01.min.css",
         "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-mfze5ep2ij0gu79af2.min.css",
-        "deployedAt": "2025-09-25T12:48:32+00:00",
-        "size": 3321
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/descricao-01.min.css",
+        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "size": 14316,
+        "source": "github_sync",
+        "github_sha": "ce76972b6359d327962dc089bce46e0845c3a3cc"
     },
-    "teste-css-fix": {
-        "id": "teste-css-fix",
-        "name": "Teste CSS Fix",
-        "filename": "teste-css-corrigido.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-css-corrigido.min.css",
-        "deployedAt": "2025-09-25T12:37:57+00:00",
-        "size": 48
-    },
-    "teste-css-legivel": {
-        "id": "teste-css-legivel",
-        "name": "Teste CSS Legivel",
-        "filename": "teste-css-legivel.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-css-legivel.min.css",
-        "deployedAt": "2025-09-25T12:40:20+00:00",
-        "size": 152
-    },
-    "mfze5ep2ij0gu79af2v2": {
-        "id": "mfze5ep2ij0gu79af2v2",
-        "name": "DropMenu V2",
-        "filename": "dropmenu-v2-mfze5ep2ij0gu79af2.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-v2-mfze5ep2ij0gu79af2.min.css",
-        "deployedAt": "2025-09-25T12:45:26+00:00",
-        "size": 319
-    },
-    "mfze5ep2ij0gu79af2-completo": {
-        "id": "mfze5ep2ij0gu79af2-completo",
-        "name": "DropMenu Completo",
-        "filename": "dropmenu-completo-mfze5ep2ij0gu79af2.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-completo-mfze5ep2ij0gu79af2.min.css",
-        "deployedAt": "2025-09-25T12:54:22+00:00",
-        "size": 2582
-    },
-    "dropdown-fix-important": {
-        "id": "dropdown-fix-important",
-        "name": "DropMenu com Important",
-        "filename": "dropmenu-com-important-fix.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-com-important-fix.min.css",
-        "deployedAt": "2025-09-25T12:54:50+00:00",
-        "size": 1004
-    },
-    "teste-estrutura": {
-        "id": "teste-estrutura",
-        "name": "Teste Estrutura CSS",
-        "filename": "teste-estrutura-css.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-estrutura-css.min.css",
-        "deployedAt": "2025-09-25T12:56:30+00:00",
-        "size": 212
-    },
-    "teste-estrutura-v2": {
-        "id": "teste-estrutura-v2",
-        "name": "Teste Estrutura V2",
-        "filename": "teste-estrutura-v2.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-estrutura-v2.min.css",
-        "deployedAt": "2025-09-25T12:56:55+00:00",
-        "size": 197
-    },
-    "teste-estrutura-v3": {
-        "id": "teste-estrutura-v3",
-        "name": "Teste Estrutura V3",
-        "filename": "teste-estrutura-v3.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-estrutura-v3.min.css",
-        "deployedAt": "2025-09-25T12:57:22+00:00",
-        "size": 157
-    },
-    "teste-important-final": {
-        "id": "teste-important-final",
-        "name": "Teste Important Final",
-        "filename": "teste-important-final.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-important-final.min.css",
-        "deployedAt": "2025-09-25T12:57:55+00:00",
-        "size": 164
-    },
-    "dropmenu-final-corrigido": {
-        "id": "dropmenu-final-corrigido",
-        "name": "DropMenu Final Corrigido",
-        "filename": "dropmenu-final-corrigido.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-final-corrigido.min.css",
-        "deployedAt": "2025-09-25T12:58:13+00:00",
-        "size": 500
-    },
-    "mfzf5lekax1h18jk7ed": {
-        "id": "mfzf5lekax1h18jk7ed",
-        "name": "DropMenu",
-        "filename": "dropmenu-mfzf5lekax1h18jk7ed.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-mfzf5lekax1h18jk7ed.min.css",
-        "deployedAt": "2025-09-25T13:22:00+00:00",
-        "size": 3085
-    },
-    "dropmenu-teste-correto": {
-        "id": "dropmenu-teste-correto",
-        "name": "DropMenu Teste Correto",
-        "filename": "dropmenu-teste-correto.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-teste-correto.min.css",
-        "deployedAt": "2025-09-25T13:02:32+00:00",
-        "size": 363
-    },
-    "teste-pseudo-final": {
-        "id": "teste-pseudo-final",
-        "name": "Teste Pseudo Final",
-        "filename": "teste-pseudo-final.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-pseudo-final.min.css",
-        "deployedAt": "2025-09-25T13:02:54+00:00",
-        "size": 243
-    },
-    "dropmenu-final-funcional": {
-        "id": "dropmenu-final-funcional",
-        "name": "DropMenu Final Funcional",
-        "filename": "dropmenu-final-funcional.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-final-funcional.min.css",
-        "deployedAt": "2025-09-25T13:03:19+00:00",
-        "size": 1870
+    "descricao02min2ff2cd039d6f35cbacedeb712039ab00": {
+        "id": "descricao02min2ff2cd039d6f35cbacedeb712039ab00",
+        "name": "Descricao 02.min",
+        "filename": "descricao-02.min.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/descricao-02.min.js",
+        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "size": 9967,
+        "source": "github_sync",
+        "github_sha": "f634c099b3219cb72a7ff4fba35dfce03ec0a006"
     },
     "dropdown-teste-correto": {
         "id": "dropdown-teste-correto",
@@ -186,7 +94,9 @@
         "type": "css",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropdown-corrigido-teste.min.css",
         "deployedAt": "2025-09-25T13:19:54+00:00",
-        "size": 905
+        "size": 905,
+        "source": "github_sync",
+        "github_sha": "15034db08e4ecc76793e0ac5eb14e0a3d78ed1ae"
     },
     "dropdown-menu-final": {
         "id": "dropdown-menu-final",
@@ -195,6 +105,282 @@
         "type": "css",
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropdown-menu-completo.min.css",
         "deployedAt": "2025-09-25T13:20:50+00:00",
-        "size": 3085
+        "size": 3085,
+        "source": "github_sync",
+        "github_sha": "e92361d8cd102e052b3d3b0ae7a805e318e29cd8"
+    },
+    "dropdown-fix-important": {
+        "id": "dropdown-fix-important",
+        "name": "DropMenu com Important",
+        "filename": "dropmenu-com-important-fix.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-com-important-fix.min.css",
+        "deployedAt": "2025-09-25T12:54:50+00:00",
+        "size": 1004,
+        "source": "github_sync",
+        "github_sha": "cde43c81c5744eb78d4319578bdb51889c03f8b9"
+    },
+    "mfze5ep2ij0gu79af2-completo": {
+        "id": "mfze5ep2ij0gu79af2-completo",
+        "name": "DropMenu Completo",
+        "filename": "dropmenu-completo-mfze5ep2ij0gu79af2.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-completo-mfze5ep2ij0gu79af2.min.css",
+        "deployedAt": "2025-09-25T12:54:22+00:00",
+        "size": 2582,
+        "source": "github_sync",
+        "github_sha": "f8bb9a68f89e419983cb5caae998e43099a6c67f"
+    },
+    "dropmenu-final-corrigido": {
+        "id": "dropmenu-final-corrigido",
+        "name": "DropMenu Final Corrigido",
+        "filename": "dropmenu-final-corrigido.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-final-corrigido.min.css",
+        "deployedAt": "2025-09-25T12:58:13+00:00",
+        "size": 500,
+        "source": "github_sync",
+        "github_sha": "5ab71594552ed109567934f1dfef7931e0138fe2"
+    },
+    "dropmenu-final-funcional": {
+        "id": "dropmenu-final-funcional",
+        "name": "DropMenu Final Funcional",
+        "filename": "dropmenu-final-funcional.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-final-funcional.min.css",
+        "deployedAt": "2025-09-25T13:03:19+00:00",
+        "size": 1870,
+        "source": "github_sync",
+        "github_sha": "5267d30a3eddff5c7cb4c7f78325cac5ae7b26e4"
+    },
+    "mfze5ep2ij0gu79af2": {
+        "id": "mfze5ep2ij0gu79af2",
+        "name": "DropMenu",
+        "filename": "dropmenu-mfze5ep2ij0gu79af2.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-mfze5ep2ij0gu79af2.min.css",
+        "deployedAt": "2025-09-25T12:48:32+00:00",
+        "size": 3321,
+        "source": "github_sync",
+        "github_sha": "c478f36644d2275910f06382b17504a99664bc63"
+    },
+    "mfzf5lekax1h18jk7ed": {
+        "id": "mfzf5lekax1h18jk7ed",
+        "name": "DropMenu",
+        "filename": "dropmenu-mfzf5lekax1h18jk7ed.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-mfzf5lekax1h18jk7ed.min.css",
+        "deployedAt": "2025-09-25T13:22:00+00:00",
+        "size": 3085,
+        "source": "github_sync",
+        "github_sha": "e92361d8cd102e052b3d3b0ae7a805e318e29cd8"
+    },
+    "dropmenu-teste-correto": {
+        "id": "dropmenu-teste-correto",
+        "name": "DropMenu Teste Correto",
+        "filename": "dropmenu-teste-correto.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-teste-correto.min.css",
+        "deployedAt": "2025-09-25T13:02:32+00:00",
+        "size": 363,
+        "source": "github_sync",
+        "github_sha": "4970a015adc76b48508214eadf74ad7c8ee17be5"
+    },
+    "mfze5ep2ij0gu79af2v2": {
+        "id": "mfze5ep2ij0gu79af2v2",
+        "name": "DropMenu V2",
+        "filename": "dropmenu-v2-mfze5ep2ij0gu79af2.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dropmenu-v2-mfze5ep2ij0gu79af2.min.css",
+        "deployedAt": "2025-09-25T12:45:26+00:00",
+        "size": 319,
+        "source": "github_sync",
+        "github_sha": "be369e63a4561754bc33c583d662e5c86aba085e"
+    },
+    "menuofertacontr0dbbfdcaf216b7943d995f967fad1bf4": {
+        "id": "menuofertacontr0dbbfdcaf216b7943d995f967fad1bf4",
+        "name": "Menu Oferta Control.min",
+        "filename": "menu-oferta-control.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/menu-oferta-control.min.css",
+        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "size": 294,
+        "source": "github_sync",
+        "github_sha": "1a8bbd78f63472b79d5e7917547bb463b6590fa7"
+    },
+    "menuofertacontrab3ea225c1f748c09e67feeb1d155374": {
+        "id": "menuofertacontrab3ea225c1f748c09e67feeb1d155374",
+        "name": "Menu Oferta Control.min",
+        "filename": "menu-oferta-control.min.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/menu-oferta-control.min.js",
+        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "size": 1127,
+        "source": "github_sync",
+        "github_sha": "706a6f8df7b14480a938d22ebf328119d671bc84"
+    },
+    "navfixtestmin3327c7bc8aa19c52278bb0179af9bcef": {
+        "id": "navfixtestmin3327c7bc8aa19c52278bb0179af9bcef",
+        "name": "Nav Fix Test.min",
+        "filename": "nav-fix-test.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/nav-fix-test.min.css",
+        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "size": 67,
+        "source": "github_sync",
+        "github_sha": "1fb5d8422fecb0cb848ee07f04227d94f1c5293b"
+    },
+    "testintegration0fa700874b48bebe059ce1d7b836c417": {
+        "id": "testintegration0fa700874b48bebe059ce1d7b836c417",
+        "name": "Test Integration.min",
+        "filename": "test-integration.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-integration.min.css",
+        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "size": 21,
+        "source": "github_sync",
+        "github_sha": "4f4b5c7ee347a0612028b85ff95ee4e88dbcea3e"
+    },
+    "testsimplemin7a9549ddc9d583591afec06ff7b0f4f3": {
+        "id": "testsimplemin7a9549ddc9d583591afec06ff7b0f4f3",
+        "name": "Test Simple.min",
+        "filename": "test-simple.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-simple.min.css",
+        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "size": 16,
+        "source": "github_sync",
+        "github_sha": "ce33ea2f6ce0657d65d4f8870edac2b0cec0bde5"
+    },
+    "testsimplemin59f13e37c20afb9eff01410c1ac53513": {
+        "id": "testsimplemin59f13e37c20afb9eff01410c1ac53513",
+        "name": "Test Simple.min",
+        "filename": "test-simple.min.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-simple.min.js",
+        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "size": 20,
+        "source": "github_sync",
+        "github_sha": "02525d0fb872c7f42b5571944120ea478131d65b"
+    },
+    "teste-css-legivel": {
+        "id": "teste-css-legivel",
+        "name": "Teste CSS Legivel",
+        "filename": "teste-css-legivel.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-css-legivel.min.css",
+        "deployedAt": "2025-09-25T12:40:20+00:00",
+        "size": 152,
+        "source": "github_sync",
+        "github_sha": "14b4100c5f36c291585906390051eb88441554b4"
+    },
+    "teste-estrutura": {
+        "id": "teste-estrutura",
+        "name": "Teste Estrutura CSS",
+        "filename": "teste-estrutura-css.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-estrutura-css.min.css",
+        "deployedAt": "2025-09-25T12:56:30+00:00",
+        "size": 212,
+        "source": "github_sync",
+        "github_sha": "d39c93312ce1c2bc1633d6649c05ff8b5c2d2c39"
+    },
+    "teste-estrutura-v2": {
+        "id": "teste-estrutura-v2",
+        "name": "Teste Estrutura V2",
+        "filename": "teste-estrutura-v2.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-estrutura-v2.min.css",
+        "deployedAt": "2025-09-25T12:56:55+00:00",
+        "size": 197,
+        "source": "github_sync",
+        "github_sha": "38bfde07d346498728c88b16d6accc970d53a4df"
+    },
+    "teste-estrutura-v3": {
+        "id": "teste-estrutura-v3",
+        "name": "Teste Estrutura V3",
+        "filename": "teste-estrutura-v3.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-estrutura-v3.min.css",
+        "deployedAt": "2025-09-25T12:57:22+00:00",
+        "size": 157,
+        "source": "github_sync",
+        "github_sha": "2b112a889c8b47d1b10f4e8180d98f3641a41300"
+    },
+    "teste-final": {
+        "id": "teste-final",
+        "name": "Teste Final",
+        "filename": "teste-final.min.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-final.min.js",
+        "deployedAt": "2025-09-25T12:24:22+00:00",
+        "size": 26,
+        "source": "github_sync",
+        "github_sha": "71820f0150e49027cbd783deb3a992e02553804a"
+    },
+    "teste-important-final": {
+        "id": "teste-important-final",
+        "name": "Teste Important Final",
+        "filename": "teste-important-final.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-important-final.min.css",
+        "deployedAt": "2025-09-25T12:57:55+00:00",
+        "size": 164,
+        "source": "github_sync",
+        "github_sha": "89e4e50a120da0a8357f0f1186389cc5785201e2"
+    },
+    "teste-pseudo-final": {
+        "id": "teste-pseudo-final",
+        "name": "Teste Pseudo Final",
+        "filename": "teste-pseudo-final.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-pseudo-final.min.css",
+        "deployedAt": "2025-09-25T13:02:54+00:00",
+        "size": 243,
+        "source": "github_sync",
+        "github_sha": "72e4a5024f8fa67268b9e0c301e94f23761d5b84"
+    },
+    "teste-simples": {
+        "id": "teste-simples",
+        "name": "Teste Simples",
+        "filename": "teste-simples.min.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-simples.min.js",
+        "deployedAt": "2025-09-25T12:24:05+00:00",
+        "size": 21,
+        "source": "github_sync",
+        "github_sha": "b678f38bbe6d063dd3518114680897b73863c2ff"
+    },
+    "testesistemacomb42cf9274c7747c5a903b6fb278bd5c0": {
+        "id": "testesistemacomb42cf9274c7747c5a903b6fb278bd5c0",
+        "name": "Teste Sistema Completo.min",
+        "filename": "teste-sistema-completo.min.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-sistema-completo.min.js",
+        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "size": 366,
+        "source": "github_sync",
+        "github_sha": "3c466f94f7e9cc1de2272ed7014034ff1dd68599"
+    },
+    "vitrineproduto4a67808e51db1f6d183eebbbcd45a1a0": {
+        "id": "vitrineproduto4a67808e51db1f6d183eebbbcd45a1a0",
+        "name": "Vitrine Produto",
+        "filename": "vitrine-produto.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/vitrine-produto.css",
+        "deployedAt": "2025-09-27T00:54:10+00:00",
+        "size": 1869,
+        "source": "github_sync",
+        "github_sha": "7ecdfef82c9ef41b8c7037224f864e8b0d38f696"
+    },
+    "teste-css-fix": {
+        "id": "teste-css-fix",
+        "name": "Teste CSS Fix",
+        "filename": "teste-css-corrigido.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-css-corrigido.min.css",
+        "deployedAt": "2025-09-25T12:37:57+00:00",
+        "size": 48,
+        "source": "local_deploy"
     }
 }
