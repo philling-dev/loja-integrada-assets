@@ -1,0 +1,57 @@
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--gray-600);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0 8px;
+    border-radius: 8px;
+}
+
+.nav-item:hover {
+    background: var(--gray-100);
+    color: var(--gray-900);
+}
+
+.nav-item.active {
+    background: var(--blue-500);
+    color: white;
+}
+
+.nav-item.active:hover {
+    background: var(--blue-600);
+}
+
+.nav-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    opacity: 0.8;
+}
+
+/* Project Groups */
+.nav-group {
+    margin-bottom: 8px;
+}
+
+.project-header {
+    position: relative;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.project-header .chevron {
+    margin-left: auto;
+    transition: transform 0.2s ease;
+    opacity: 0.6;
+    width: 14px;
+    height: 14px;
+}
+
+.nav-group.expanded .chevron {
+    transform: rotate(90deg);
+}

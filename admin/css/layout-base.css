@@ -1,0 +1,14 @@
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-900);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll on body */
+}
+
+.dashboard {
+    display: flex;
+    height: 100vh;
+    overflow: hidden; /* Prevent any overflow from dashboard container */
+    width: 100%;
+}
