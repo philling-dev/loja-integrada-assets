@@ -1,0 +1,6 @@
+/* Nav separator */
+.nav-separator {
+    height: 1px;
+    background: var(--gray-200);
+    margin: 20px 16px;
+}
