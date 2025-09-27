@@ -1179,46 +1179,213 @@
             renderCodeItem(code) {
                 const deployedDate = new Date(code.deployedAt).toLocaleString('pt-BR');
                 const sizeKB = (code.size / 1024).toFixed(1);
-                const typeColor = code.type === 'css' ? 'var(--blue-500)' : 'var(--orange-500)';
+                const typeColor = code.type === 'css' ? '#3b82f6' : '#f97316';
                 const sourceIcon = code.source === 'github_sync' ? '🔄' : '📝';
                 const sourceText = code.source === 'github_sync' ? 'GitHub Sync' : 'Deploy Local';
 
+                // Status de deploy
+                const deployStatus = code.url && code.url.includes('github.io') ? 'deployed' : 'local';
+                const statusIcon = deployStatus === 'deployed' ? '✅' : '⏳';
+                const statusText = deployStatus === 'deployed' ? 'Deployed' : 'Local';
+                const statusColor = deployStatus === 'deployed' ? '#10b981' : '#f59e0b';
+
                 return `
-                    <div style="border: 1px solid var(--gray-200); border-radius: var(--border-radius); padding: 16px; background: white; transition: all 0.2s ease; hover: box-shadow: var(--shadow-lg);">
-                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                    <div data-code-id="${code.id}" style="border: 1px solid var(--gray-200); border-radius: var(--border-radius); padding: 16px; background: white; transition: all 0.2s ease; position: relative;"
+                         onmouseenter="this.style.boxShadow='0 10px 25px rgba(0,0,0,0.1)'; this.style.transform='translateY(-2px)'"
+                         onmouseleave="this.style.boxShadow='none'; this.style.transform='translateY(0)'">
+
+                        <!-- Status Badge -->
+                        <div style="position: absolute; top: 12px; right: 16px;">
+                            <span style="background: ${statusColor}; color: white; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: 500;">
+                                ${statusIcon} ${statusText}
+                            </span>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; padding-right: 80px;">
                             <div style="flex: 1; min-width: 0;">
-                                <div style="display: flex; align-items: center; margin-bottom: 4px;">
-                                    <span style="background: ${typeColor}; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 500; margin-right: 8px;">
+                                <div style="display: flex; align-items: center; margin-bottom: 6px;">
+                                    <span style="background: ${typeColor}; color: white; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-right: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                                         ${code.type.toUpperCase()}
                                     </span>
-                                    <h4 style="margin: 0; font-size: 14px; font-weight: 600; color: var(--gray-900); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    <h4 style="margin: 0; font-size: 15px; font-weight: 600; color: var(--gray-900); line-height: 1.2;">
                                         ${code.name}
                                     </h4>
                                 </div>
-                                <div style="font-size: 13px; color: var(--gray-600); margin-bottom: 2px;">
-                                    📁 ${code.filename}
+                                <div style="font-size: 13px; color: var(--gray-600); margin-bottom: 4px; display: flex; align-items: center;">
+                                    📁 <span style="font-family: monospace; margin-left: 4px;">${code.filename}</span>
                                 </div>
-                                <div style="font-size: 12px; color: var(--gray-500);">
-                                    📅 ${deployedDate} • 📦 ${sizeKB}KB • ${sourceIcon} ${sourceText}
+                                <div style="font-size: 12px; color: var(--gray-500); display: flex; align-items: center; gap: 12px;">
+                                    <span>📅 ${deployedDate}</span>
+                                    <span>📦 ${sizeKB}KB</span>
+                                    <span>${sourceIcon} ${sourceText}</span>
                                 </div>
                             </div>
-                            <div style="display: flex; gap: 8px; flex-shrink: 0; margin-left: 16px;">
-                                <button onclick="window.dashboard.copyUrl('${code.url}')" class="btn-icon" title="Copiar URL">
-                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
-                                        <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"/>
-                                    </svg>
-                                </button>
-                                <button onclick="window.open('${code.url}', '_blank')" class="btn-icon" title="Abrir URL">
-                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z"/>
-                                        <path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 001.06.053L16.5 4.44v2.81a.75.75 0 001.5 0v-4.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 000 1.5h2.553l-9.056 8.194a.75.75 0 00-.053 1.06z"/>
-                                    </svg>
-                                </button>
+                        </div>
+
+                        <!-- Actions Row -->
+                        <div style="border-top: 1px solid var(--gray-100); padding-top: 12px; margin-top: 12px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="flex: 1; font-size: 11px; color: var(--gray-500); margin-right: 16px;">
+                                    🔗 <span style="font-family: monospace; word-break: break-all;">${code.url}</span>
+                                </div>
+                                <div style="display: flex; gap: 6px; flex-shrink: 0;">
+                                    <button onclick="window.dashboard.editCode('${code.id}')" class="btn-icon" title="Editar Código" style="background: #3b82f6; color: white; padding: 6px; border-radius: 6px; border: none; cursor: pointer;">
+                                        <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+                                        </svg>
+                                    </button>
+                                    <button onclick="window.dashboard.redeployCode('${code.id}')" class="btn-icon" title="Re-deploy" style="background: #10b981; color: white; padding: 6px; border-radius: 6px; border: none; cursor: pointer;">
+                                        <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </button>
+                                    <button onclick="window.dashboard.copyUrl('${code.url}')" class="btn-icon" title="Copiar URL" style="background: #6b7280; color: white; padding: 6px; border-radius: 6px; border: none; cursor: pointer;">
+                                        <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
+                                            <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"/>
+                                        </svg>
+                                    </button>
+                                    <button onclick="window.open('${code.url}', '_blank')" class="btn-icon" title="Abrir URL" style="background: #6b7280; color: white; padding: 6px; border-radius: 6px; border: none; cursor: pointer;">
+                                        <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z"/>
+                                            <path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 001.06.053L16.5 4.44v2.81a.75.75 0 001.5 0v-4.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 000 1.5h2.553l-9.056 8.194a.75.75 0 00-.053 1.06z"/>
+                                        </svg>
+                                    </button>
+                                    <button onclick="window.dashboard.deleteCode('${code.id}')" class="btn-icon" title="Deletar" style="background: #ef4444; color: white; padding: 6px; border-radius: 6px; border: none; cursor: pointer;">
+                                        <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 `;
+            }
+
+            async editCode(codeId) {
+                try {
+                    // Fetch the code content from the deployed URL
+                    const container = document.getElementById('existingCodesContainer');
+                    const codeElement = container.querySelector(`[data-code-id="${codeId}"]`);
+
+                    // Find the code in the data
+                    const response = await fetch('/assets/index.json');
+                    const data = await response.json();
+                    const code = Object.values(data).find(c => c.id === codeId);
+
+                    if (!code) {
+                        this.showResult('Código não encontrado', 'error');
+                        return;
+                    }
+
+                    // Fetch the actual code content
+                    const codeResponse = await fetch(code.url);
+                    const codeContent = await codeResponse.text();
+
+                    // Pre-fill the form with the code data
+                    document.getElementById('codeFilename').value = code.name;
+                    document.getElementById('codeType').value = code.type;
+                    document.getElementById('codeContent').value = codeContent;
+
+                    // Show the form
+                    this.showNewCodeModal();
+
+                    // Add editing mode indicator
+                    this.isEditing = codeId;
+                    const deployBtn = document.querySelector('#codeForm .btn-primary');
+                    if (deployBtn) {
+                        deployBtn.textContent = 'Atualizar';
+                    }
+
+                    this.showResult('💫 Modo de edição ativado', 'info');
+                } catch (error) {
+                    console.error('Error editing code:', error);
+                    this.showResult('Erro ao carregar código para edição', 'error');
+                }
+            }
+
+            async redeployCode(codeId) {
+                try {
+                    // Find the code data
+                    const response = await fetch('/assets/index.json');
+                    const data = await response.json();
+                    const code = Object.values(data).find(c => c.id === codeId);
+
+                    if (!code) {
+                        this.showResult('Código não encontrado', 'error');
+                        return;
+                    }
+
+                    // Show loading state
+                    this.showResult('🚀 Re-deployando código...', 'info');
+
+                    // Fetch the current code content
+                    const codeResponse = await fetch(code.url);
+                    const codeContent = await codeResponse.text();
+
+                    // Re-deploy using the existing content
+                    const deployResponse = await fetch('/api/deploy-code.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            filename: code.name,
+                            content: codeContent,
+                            type: code.type,
+                            codeId: code.id,
+                            codeName: code.name
+                        })
+                    });
+
+                    const result = await deployResponse.json();
+
+                    if (result.success) {
+                        this.showResult(`✅ ${code.name} re-deployado com sucesso!`, 'success');
+                        // Refresh the list after a short delay
+                        setTimeout(() => {
+                            this.loadExistingCodes();
+                        }, 1000);
+                    } else {
+                        this.showResult(`❌ Erro no re-deploy: ${result.error}`, 'error');
+                    }
+                } catch (error) {
+                    console.error('Error redeploying code:', error);
+                    this.showResult('Erro no re-deploy', 'error');
+                }
+            }
+
+            async deleteCode(codeId) {
+                try {
+                    // Find the code data
+                    const response = await fetch('/assets/index.json');
+                    const data = await response.json();
+                    const code = Object.values(data).find(c => c.id === codeId);
+
+                    if (!code) {
+                        this.showResult('Código não encontrado', 'error');
+                        return;
+                    }
+
+                    // Confirm deletion
+                    const confirmed = confirm(`🗑️ Tem certeza que deseja deletar "${code.name}"?\n\nEsta ação não pode ser desfeita.`);
+                    if (!confirmed) return;
+
+                    this.showResult('🗑️ Deletando código...', 'info');
+
+                    // Note: Since we can't actually delete from GitHub Pages directly,
+                    // we'll need to implement a deletion API or mark as deleted
+                    // For now, we'll show a message about the limitation
+                    this.showResult(`⚠️ Funcionalidade de deleção em desenvolvimento.\n\nPara remover "${code.name}", você pode:\n1. Editar e substituir com código vazio\n2. Renomear para obsoleto_${code.name}`, 'warning');
+
+                    // TODO: Implement actual deletion via GitHub API
+                    // This would require GitHub token and proper deletion workflow
+
+                } catch (error) {
+                    console.error('Error deleting code:', error);
+                    this.showResult('Erro ao deletar código', 'error');
+                }
             }
 
             async copyUrl(url) {
