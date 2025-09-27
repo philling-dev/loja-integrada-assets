@@ -97,11 +97,14 @@ admin/
 
 ## 🎯 **PROJETOS ATIVOS**
 
-### **💻 Script Deploy - ✅ FUNCIONAL**
-- Interface completa códigos CSS/JS
+### **💻 Script Deploy - ✅ FUNCIONAL COMPLETO**
+- Interface completa códigos CSS/JS com listagem de todos arquivos
 - Deploy automático GitHub Pages
 - Monitoramento tempo real
 - API 100% integrada e testada
+- **NOVO**: Lista de códigos existentes (38+ arquivos)
+- **NOVO**: Ações rápidas (copiar URL, abrir arquivo)
+- **NOVO**: Organização por tipo CSS/JS com contadores
 
 ### **Roadmap:**
 - 📱 App Manager (Q1 2025)
@@ -251,9 +254,9 @@ scripts/audit-deploy-system.php       # ✅ Auditoria sistema completo
 
 ---
 
-**📅 Última Atualização**: 26/09/2025 22:15 UTC
-**📦 Versão Atual**: v1.1.0 ✅ **DEPLOY COMPLETO**
-**🛡️ Status Backup**: ✅ Sistema duplo ativo (168KB)
+**📅 Última Atualização**: 26/09/2025 22:44 UTC
+**📦 Versão Atual**: v1.1.0 ✅ **DEPLOY COMPLETO + HOTFIX**
+**🛡️ Status Backup**: ✅ Sistema duplo ativo (172KB)
 **🔄 Status Git**: ✅ Main e develop sincronizados
 **📊 Dashboard**: https://admin.widgetvpn.xyz/dashboard.html
 **🧪 Testes**: ✅ Sistema completo testado e auditado
@@ -269,3 +272,19 @@ scripts/audit-deploy-system.php       # ✅ Auditoria sistema completo
 - ✅ Verificação PM2: não requerido (sistema estático)
 - ✅ Conflito assets/index.json resolvido
 - ✅ Git workflow profissional seguido
+
+### **🔧 HOTFIX: Lista de Códigos Script Deploy (26/09/2025 22:44)**
+- ✅ **Problema identificado**: Códigos não apareciam na página "Script Deploy - Códigos"
+- ✅ **Causa**: Função `getScriptCodesContent()` só renderizava formulário, sem listagem
+- ✅ **Solução implementada**: Nova função `loadExistingCodes()` com interface completa
+- ✅ **Funcionalidades adicionadas**:
+  - Carregamento automático de códigos do `/assets/index.json`
+  - Interface organizada por tipo (CSS/JS) com contadores
+  - Informações completas: nome, arquivo, data, tamanho, origem
+  - Ações: copiar URL, abrir arquivo em nova aba
+  - Fallback inteligente: local → GitHub Pages
+  - Estados visuais: loading, erro, lista vazia
+  - Botão "Atualizar Lista" para refresh manual
+- ✅ **Resultado**: Página mostra todos os 38+ códigos (27 CSS + 11 JS)
+- ✅ **Commit**: `661cce5` - Feature completa implementada
+- ✅ **Backup**: Sistema duplo atualizado (172KB)
