@@ -392,6 +392,17 @@ class DeployScriptProject {
                         </div>
                     ` : ''}
                 </div>
+                ${code.deployed && code.deployUrl ? `
+                    <div class="code-snippet">
+                        <label>Tag para usar na Loja Integrada:</label>
+                        <div class="snippet-container">
+                            <code class="snippet-code">${this.escapeHtml(this.generateHtmlTag(code))}</code>
+                            <button class="btn btn-sm btn-secondary" onclick="DeployScript.copySnippet('${code.id}')" title="Copiar">
+                                <i data-lucide="copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                ` : ''}
             </div>
         `;
     }
@@ -827,6 +838,43 @@ class DeployScriptProject {
      */
     sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    /**
+     * Gerar tag HTML (script ou link) baseado no tipo
+     */
+    generateHtmlTag(code) {
+        if (code.type === 'css') {
+            return `<link rel="stylesheet" href="${code.deployUrl}">`;
+        } else {
+            return `<script src="${code.deployUrl}"></script>`;
+        }
+    }
+
+    /**
+     * Copiar snippet para clipboard
+     */
+    async copySnippet(id) {
+        const code = this.codes.find(c => c.id === id);
+        if (!code) return;
+
+        const snippet = this.generateHtmlTag(code);
+
+        try {
+            await navigator.clipboard.writeText(snippet);
+            Toast.success('Tag copiada para a área de transferência!');
+        } catch (error) {
+            // Fallback para navegadores antigos
+            const textarea = document.createElement('textarea');
+            textarea.value = snippet;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            Toast.success('Tag copiada para a área de transferência!');
+        }
     }
 }
 

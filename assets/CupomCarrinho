@@ -1,0 +1,78 @@
+
+ (function() {\n var PRODUTO = 372815634;
+ var CUPOM = 'TESTEGRATIS100';
+ var aplicado = false;
+ function isCarrinho() {\n var url = window.location.href;
+ return url.indexOf('/carrinho') > -1;
+ }\n function temProduto() {\n var html = document.body.innerHTML;
+ return html.indexOf('372815634') > -1;
+ }\n function aguardar(seletor, callback, tent) {\n tent = tent || 0;
+ var el = document.querySelector(seletor);
+ if (el) {\n callback(el);
+ } else if (tent < 20) {\n setTimeout(function() {\n aguardar(seletor, callback, tent + 1);
+ }, 1000);
+ }
+ }\n function aplicar() {\n if (!isCarrinho() || !temProduto() || aplicado) return;
+ aguardar('#usarCupom', function(campo) {\n if (campo.value === CUPOM) {\n aplicado = true;
+ return;
+ }
+ campo.value = CUPOM;
+ var evt = document.createEvent('HTMLEvents');
+ evt.initEvent('change', true, false);
+ campo.dispatchEvent(evt);
+ aguardar('#btn-cupom', function(btn) {\n setTimeout(function() {\n btn.click();
+ aplicado = true;
+ setTimeout(mudar, 1000);
+ }, 500);
+ });
+ });
+ }\n function mudar() {\n if (!isCarrinho()) return;
+ var linha = document.querySelector('tr[data-produto-id="372815634"]');
+ if (!linha) return;
+ var cel = linha.querySelector('.col-item-unit-price');
+ if (!cel) {\n cel = linha.querySelector('td[data-item-unit-valor]');
+ }
+ if (!cel) return;
+ cel.innerHTML = '';
+ cel.style.verticalAlign = 'middle';
+ cel.style.textAlign = 'center';
+ var box = document.createElement('div');
+ box.style.display = 'inline-block';
+ box.style.padding = '10px 20px';
+ box.style.backgroundColor = '#10b981';
+ box.style.borderRadius = '6px';
+ box.style.textAlign = 'center';
+ box.style.verticalAlign = 'middle';
+ var texto = document.createElement('span');
+ texto.innerHTML = 'TESTE GRATIS';
+ texto.style.color = '#ffffff';
+ texto.style.fontSize = '16px';
+ texto.style.fontWeight = 'bold';
+ texto.style.lineHeight = '1';
+ texto.style.display = 'inline-block';
+ texto.style.verticalAlign = 'middle';
+ box.appendChild(texto);
+ cel.appendChild(box);
+ }\n function init() {\n if (!isCarrinho()) return;
+ setTimeout(aplicar, 1500);
+ setTimeout(mudar, 2000);
+ setTimeout(mudar, 4000);
+ var obs = window.MutationObserver || window.WebKitMutationObserver;
+ if (obs) {\n var o = new obs(function() {\n if (!aplicado) {\n var campo = document.getElementById('usarCupom');
+ if (campo) aplicar();
+ }
+ var l = document.querySelector('tr[data-produto-id="372815634"]');
+ if (l) {\n var c = l.querySelector('.col-item-unit-price');
+ if (!c) c = l.querySelector('td[data-item-unit-valor]');
+ if (c) {\n var conteudo = c.innerHTML;
+ if (conteudo.indexOf('TESTE GRATIS') === -1) {\n mudar();
+ }
+ }
+ }
+ });
+ o.observe(document.body, {\n childList: true, subtree: true});
+ }
+ }\n if (document.readyState === 'loading') {\n document.addEventListener('DOMContentLoaded', init);
+ } else {\n init();
+ }
+ })();

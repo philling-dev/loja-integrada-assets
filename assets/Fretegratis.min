@@ -1,0 +1,11 @@
+.tag-produto.tag-frete-gratis {
+background: linear-gradient(135deg, #4CAF50, #2E7D32) !important;
+color: white !important;
+padding: 4px 12px !important;
+border-radius: 12px !important;
+font-size: 11px !important;
+font-weight: bold !important;
+display: inline-block !important;
+border: none;
+text-transform: none;
+}
