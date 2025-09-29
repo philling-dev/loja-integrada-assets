@@ -1244,6 +1244,24 @@
                             </div>
                         </div>
 
+                        <!-- Código para Loja Integrada -->
+                        <div style="border-top: 1px solid var(--gray-100); padding-top: 12px; margin-top: 12px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <div style="font-size: 11px; font-weight: 600; color: var(--gray-700);">
+                                    📋 Código para Loja Integrada:
+                                </div>
+                                <button onclick="window.dashboard.copyLojaIntegradaCode('${code.id}')"
+                                        class="btn-icon"
+                                        title="Copiar código HTML"
+                                        style="background: #10b981; color: white; padding: 4px 12px; border-radius: 6px; border: none; cursor: pointer; font-size: 11px; font-weight: 500;">
+                                    📋 Copiar
+                                </button>
+                            </div>
+                            <div style="background: var(--gray-50); border: 1px solid var(--gray-300); border-radius: 6px; padding: 8px; font-family: monospace; font-size: 10px; color: var(--gray-800); word-break: break-all;">
+                                ${code.type === 'css' ? '&lt;link rel="stylesheet" href="' + code.url + '"&gt;' : '&lt;script src="' + code.url + '"&gt;&lt;/script&gt;'}
+                            </div>
+                        </div>
+
                         <!-- Actions Row -->
                         <div style="border-top: 1px solid var(--gray-100); padding-top: 12px; margin-top: 12px;">
                             <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -1429,6 +1447,35 @@
                         this.showResult('Erro ao copiar URL', 'error');
                     }
                     document.body.removeChild(textArea);
+                }
+            }
+
+            async copyLojaIntegradaCode(codeId) {
+                try {
+                    // Buscar o código do index.json
+                    const response = await fetch('/assets/index.json');
+                    const data = await response.json();
+                    const code = Object.values(data).find(c => c.id === codeId);
+
+                    if (!code) {
+                        this.showResult('Código não encontrado', 'error');
+                        return;
+                    }
+
+                    // Gerar o HTML correto baseado no tipo
+                    let htmlCode = '';
+                    if (code.type === 'css') {
+                        htmlCode = '<link rel="stylesheet" href="' + code.url + '">';
+                    } else {
+                        htmlCode = '<script src="' + code.url + '"></' + 'script>';
+                    }
+
+                    // Copiar para clipboard
+                    await navigator.clipboard.writeText(htmlCode);
+                    this.showResult('✅ Código HTML copiado! Cole na Loja Integrada.', 'success');
+                } catch (err) {
+                    console.error('Failed to copy loja code:', err);
+                    this.showResult('Erro ao copiar código', 'error');
                 }
             }
 
