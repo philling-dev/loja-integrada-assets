@@ -362,17 +362,6 @@
         "source": "github_sync",
         "github_sha": "72e4a5024f8fa67268b9e0c301e94f23761d5b84"
     },
-    "teste-simples": {
-        "id": "teste-simples",
-        "name": "Teste Simples",
-        "filename": "teste-simples.min.js",
-        "type": "js",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-simples.min.js",
-        "deployedAt": "2025-09-25T12:24:05+00:00",
-        "size": 21,
-        "source": "github_sync",
-        "github_sha": "b678f38bbe6d063dd3518114680897b73863c2ff"
-    },
     "testesistemacomfc601badce5531b644daf40db846d683": {
         "id": "testesistemacomfc601badce5531b644daf40db846d683",
         "name": "Teste Sistema Completo.min",
