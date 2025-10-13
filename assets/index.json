@@ -230,17 +230,6 @@
         "source": "github_sync",
         "github_sha": "1fb5d8422fecb0cb848ee07f04227d94f1c5293b"
     },
-    "testintegration0fa700874b48bebe059ce1d7b836c417": {
-        "id": "testintegration0fa700874b48bebe059ce1d7b836c417",
-        "name": "Test Integration.min",
-        "filename": "test-integration.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-integration.min.css",
-        "deployedAt": "2025-09-27T01:04:08+00:00",
-        "size": 21,
-        "source": "github_sync",
-        "github_sha": "4f4b5c7ee347a0612028b85ff95ee4e88dbcea3e"
-    },
     "testsimplemin7a9549ddc9d583591afec06ff7b0f4f3": {
         "id": "testsimplemin7a9549ddc9d583591afec06ff7b0f4f3",
         "name": "Test Simple.min",
@@ -251,17 +240,6 @@
         "size": 16,
         "source": "github_sync",
         "github_sha": "ce33ea2f6ce0657d65d4f8870edac2b0cec0bde5"
-    },
-    "testsimplemin59f13e37c20afb9eff01410c1ac53513": {
-        "id": "testsimplemin59f13e37c20afb9eff01410c1ac53513",
-        "name": "Test Simple.min",
-        "filename": "test-simple.min.js",
-        "type": "js",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-simple.min.js",
-        "deployedAt": "2025-09-27T01:04:08+00:00",
-        "size": 20,
-        "source": "github_sync",
-        "github_sha": "02525d0fb872c7f42b5571944120ea478131d65b"
     },
     "teste-css-legivel": {
         "id": "teste-css-legivel",
@@ -328,17 +306,6 @@
         "size": 157,
         "source": "github_sync",
         "github_sha": "2b112a889c8b47d1b10f4e8180d98f3641a41300"
-    },
-    "teste-final": {
-        "id": "teste-final",
-        "name": "Teste Final",
-        "filename": "teste-final.min.js",
-        "type": "js",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-final.min.js",
-        "deployedAt": "2025-09-25T12:24:22+00:00",
-        "size": 26,
-        "source": "github_sync",
-        "github_sha": "71820f0150e49027cbd783deb3a992e02553804a"
     },
     "teste-important-final": {
         "id": "teste-important-final",

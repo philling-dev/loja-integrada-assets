@@ -1,0 +1,28 @@
+{
+    "testsimplemin59f13e37c20afb9eff01410c1ac53513": {
+        "id": "testsimplemin59f13e37c20afb9eff01410c1ac53513",
+        "name": "Test Simple.min",
+        "filename": "test-simple.min.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-simple.min.js",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
+        "size": 20,
+        "source": "github_sync",
+        "github_sha": "02525d0fb872c7f42b5571944120ea478131d65b",
+        "deletedAt": "2025-10-13T19:40:29+00:00",
+        "deletedBy": "admin"
+    },
+    "testintegration0fa700874b48bebe059ce1d7b836c417": {
+        "id": "testintegration0fa700874b48bebe059ce1d7b836c417",
+        "name": "Test Integration.min",
+        "filename": "test-integration.min.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-integration.min.css",
+        "deployedAt": "2025-09-27T01:04:08+00:00",
+        "size": 21,
+        "source": "github_sync",
+        "github_sha": "4f4b5c7ee347a0612028b85ff95ee4e88dbcea3e",
+        "deletedAt": "2025-10-13T19:59:05+00:00",
+        "deletedBy": "admin"
+    }
+}
