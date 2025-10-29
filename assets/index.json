@@ -214,5 +214,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-claude-debug.css",
         "deployedAt": "2025-10-29T18:52:26+00:00",
         "size": 46
+    },
+    "teste-deploy-fix": {
+        "id": "teste-deploy-fix",
+        "name": "Teste Deploy Fix",
+        "filename": "teste-deploy-fix.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-deploy-fix.css",
+        "deployedAt": "2025-10-29T19:04:54+00:00",
+        "size": 32
     }
 }
