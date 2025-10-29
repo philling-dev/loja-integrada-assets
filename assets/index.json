@@ -223,5 +223,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/TESTE-AUTO-JS.js",
         "deployedAt": "2025-10-29T20:15:43+00:00",
         "size": 86
+    },
+    "teste-script-tag": {
+        "id": "teste-script-tag",
+        "name": "Teste Script Tag",
+        "filename": "TESTE-SCRIPT-TAG.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/TESTE-SCRIPT-TAG.js",
+        "deployedAt": "2025-10-29T20:16:14+00:00",
+        "size": 82
     }
 }
