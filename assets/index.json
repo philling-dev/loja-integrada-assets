@@ -196,5 +196,14 @@
         "size": 1869,
         "source": "github_sync",
         "github_sha": "7ecdfef82c9ef41b8c7037224f864e8b0d38f696"
+    },
+    "teste-auto-css": {
+        "id": "teste-auto-css",
+        "name": "Teste Auto CSS",
+        "filename": "teste-auto-css.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-auto-css.css",
+        "deployedAt": "2025-10-29T19:42:12+00:00",
+        "size": 42
     }
 }
