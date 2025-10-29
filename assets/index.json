@@ -196,5 +196,14 @@
         "size": 1869,
         "source": "github_sync",
         "github_sha": "7ecdfef82c9ef41b8c7037224f864e8b0d38f696"
+    },
+    "1761766243186": {
+        "id": 1761766243186,
+        "name": "DOWNLOAD-SUPORTE",
+        "filename": "DOWNLOAD-SUPORTE",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/DOWNLOAD-SUPORTE",
+        "deployedAt": "2025-10-29T19:31:33+00:00",
+        "size": 1729
     }
 }
