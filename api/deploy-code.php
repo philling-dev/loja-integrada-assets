@@ -119,17 +119,17 @@ if (!is_dir($repoPath . '/assets')) {
 $filePath = $repoPath . '/assets/' . $filename;
 
 try {
-    // Escrever arquivo
-    if (file_put_contents($filePath, $content) === false) {
-        throw new Exception('Falha ao escrever arquivo');
-    }
-
-    // Atualizar index.json
+    // Carregar index.json local (fonte da verdade)
     $indexPath = $repoPath . '/assets/index.json';
     $index = [];
 
     if (file_exists($indexPath)) {
         $index = json_decode(file_get_contents($indexPath), true) ?: [];
+    }
+
+    // Escrever arquivo
+    if (file_put_contents($filePath, $content) === false) {
+        throw new Exception('Falha ao escrever arquivo');
     }
 
     // Adicionar/atualizar entrada no índice
@@ -145,13 +145,13 @@ try {
 
     file_put_contents($indexPath, json_encode($index, JSON_PRETTY_PRINT));
 
-    // Git add, commit e push (usa credenciais do GitHub CLI configurado)
+    // Git add, commit e push
     $commands = [
         "cd {$repoPath}",
         "git add assets/{$filename}",
         "git add assets/index.json",
-        "git commit -m \"Deploy: {$codeName} ({$filename})\" || true",  // Ignore se já commitado
-        "git push origin main 2>&1"  // GitHub CLI já configurado para credenciais
+        "git commit -m \"Deploy: {$codeName} ({$filename})\"",
+        "git push origin main 2>&1"
     ];
 
     $fullCommand = implode(' && ', $commands);
