@@ -21,7 +21,7 @@ SSH_KEY="/root/.ssh/backup_key"
 # Configurações Google Drive
 GDRIVE_REMOTE="drive"
 GDRIVE_BASE_DIR="AdminWidgetVPN-Backups"
-MAX_GDRIVE_BACKUPS=3
+MAX_GDRIVE_BACKUPS=10
 
 # Data e versão para organização
 DATE=$(date +%Y%m%d_%H%M%S)

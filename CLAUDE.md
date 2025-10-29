@@ -11,6 +11,23 @@
 
 ## 🚨 **REGRAS OBRIGATÓRIAS**
 
+### **📋 Idioma & Comunicação**
+- **SEMPRE responder em Português (pt-br)** - idioma de trabalho principal
+- **Padrões corporativos** - código profissional, limpo, sem decorações
+- **Sem emojis** em código/comentários/commits (apenas documentação se solicitado)
+- **Commits significativos** - mensagens seguindo SemVer
+
+### **📚 Documentação**
+- **NUNCA criar/modificar docs sem aprovação explícita**
+- **Pedir permissão primeiro** para arquivos .md, atualizações de README
+- **Atualizar CHANGELOG.md + VERSION** para todas as mudanças (SemVer: MAJOR.MINOR.PATCH)
+
+### **🗂️ Organização do Projeto**
+- **Nunca deixar arquivos órfãos** espalhados no projeto
+- **Manter estrutura organizada, modularizada, limpa**
+- **Referenciar arquivos importantes** no CLAUDE.md sem lê-los (acessar apenas quando modificações necessárias)
+- **Apenas informações técnicas** - sem conteúdo verboso, manter contexto apenas com informações essenciais
+
 ### **🔴 ANTES DE QUALQUER ALTERAÇÃO:**
 ```bash
 git tag -a backup-safe-pre-feature -m "Backup antes de alteração"  # 1. CRIAR TAG BACKUP
@@ -213,9 +230,9 @@ git tag -l "backup-*"
 
 ---
 
-**📅 Última Atualização**: 29/09/2025 - 20:00
+**📅 Última Atualização**: 13/10/2025 - 12:00
 **🎯 Status**: ✅ **SISTEMA FUNCIONAL E ESTÁVEL**
-**🔄 Branch**: main (commit d28d637)
-**📦 Versão**: v1.2.0
-**🆕 Feature**: Código para Loja Integrada implementado e funcionando
-**✅ Testes**: Aprovado pelo usuário
+**🔄 Branch**: main
+**📦 Versão**: v1.2.1
+**🆕 Atualização**: Adicionadas regras de idioma, documentação e organização de projeto
+**✅ Testes**: Sistema validado (37 assets ativos)
