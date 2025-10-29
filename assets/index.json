@@ -205,14 +205,5 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/SUPORTE-DOWNLOAD-V2.js",
         "deployedAt": "2025-10-29T20:10:01+00:00",
         "size": 1990
-    },
-    "teste-auto-detect-css": {
-        "id": "teste-auto-detect-css",
-        "name": "Teste Auto Detect CSS",
-        "filename": "TESTE-AUTO-DETECT-CSS.auto",
-        "type": "auto",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/TESTE-AUTO-DETECT-CSS.auto",
-        "deployedAt": "2025-10-29T20:13:39+00:00",
-        "size": 90
     }
 }
