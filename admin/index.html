@@ -1073,6 +1073,10 @@
                     if (result.success) {
                         this.showResult(`✅ Deploy realizado com sucesso!<br><strong>URL:</strong> <a href="${result.url}" target="_blank" style="color: var(--blue-500);">${result.url}</a>`, 'success');
                         this.hideCodeForm();
+                        // Atualizar lista de códigos se estiver na página de códigos
+                        if (this.currentPage === 'script-codes') {
+                            setTimeout(() => this.loadExistingCodes(), 1000);
+                        }
                     } else {
                         this.showResult(`❌ Erro no deploy: ${result.error || 'Erro desconhecido'}`, 'error');
                     }
