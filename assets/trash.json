@@ -395,5 +395,16 @@
         "size": 82,
         "deletedAt": "2025-10-29T20:23:15+00:00",
         "deletedBy": "admin"
+    },
+    "1761770522871": {
+        "id": 1761770522871,
+        "name": "tes",
+        "filename": "tes.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/tes.js",
+        "deployedAt": "2025-10-29T20:42:53+00:00",
+        "size": 1588,
+        "deletedAt": "2025-10-29T20:43:01+00:00",
+        "deletedBy": "admin"
     }
 }
