@@ -1,3 +1,1 @@
-// JavaScript original
-console.log("teste automático");
-alert("Hello World");
+console.log("teste");
