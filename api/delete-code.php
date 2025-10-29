@@ -136,17 +136,17 @@ try {
     if ($permanentDelete) {
         $commands = [
             "cd {$repoPath}",
-            "git rm -f assets/{$filename} 2>&1 || echo 'File already deleted'",
             "git add assets/index.json assets/trash.json",
-            "git commit -m \"Delete: Permanent removal of {$codeName} ({$filename})\" || echo 'Nothing to commit'",
+            "git rm -f assets/{$filename} 2>&1 || echo 'File already deleted'",
+            "git commit -m \"Delete: Permanent removal of {$codeName} ({$filename})\"",
             "git push origin main 2>&1"
         ];
     } else {
         $commands = [
             "cd {$repoPath}",
-            "git rm -f assets/{$filename} 2>&1 || echo 'File already deleted'",
             "git add assets/index.json assets/trash.json",
-            "git commit -m \"Trash: Move {$codeName} to trash (recoverable)\" || echo 'Nothing to commit'",
+            "git rm -f assets/{$filename} 2>&1 || echo 'File already deleted'",
+            "git commit -m \"Trash: Move {$codeName} to trash (recoverable)\"",
             "git push origin main 2>&1"
         ];
     }
