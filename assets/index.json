@@ -32,39 +32,6 @@
         "source": "github_sync",
         "github_sha": "eed1d1319bf90620cb14f5847e1e977f2a75ea76"
     },
-    "dashboardfixtes244c51dce13dad6423784057033459e0": {
-        "id": "dashboardfixtes244c51dce13dad6423784057033459e0",
-        "name": "Dashboard Fix Test.min",
-        "filename": "dashboard-fix-test.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dashboard-fix-test.min.css",
-        "deployedAt": "2025-09-27T01:04:08+00:00",
-        "size": 113,
-        "source": "github_sync",
-        "github_sha": "b49273cc1486485070f33e94c101682068c5195e"
-    },
-    "dashboardtestfi17693195560e008fc1de791fedc086d5": {
-        "id": "dashboardtestfi17693195560e008fc1de791fedc086d5",
-        "name": "Dashboard Test Final.min",
-        "filename": "dashboard-test-final.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/dashboard-test-final.min.css",
-        "deployedAt": "2025-09-27T01:04:08+00:00",
-        "size": 122,
-        "source": "github_sync",
-        "github_sha": "bbd99e88aedaa67e3c381dca553416871dbb5731"
-    },
-    "deploy-ok": {
-        "id": "deploy-ok",
-        "name": "Deploy OK",
-        "filename": "deploy-automatico-ok.min.js",
-        "type": "js",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/deploy-automatico-ok.min.js",
-        "deployedAt": "2025-09-25T12:25:36+00:00",
-        "size": 45,
-        "source": "github_sync",
-        "github_sha": "7994fc1e0ddde8f0463e55990bcdc6897ee5e19c"
-    },
     "descricao01min039a85b775e2d1c166aad817c0d7956e": {
         "id": "descricao01min039a85b775e2d1c166aad817c0d7956e",
         "name": "Descricao 01.min",
@@ -219,138 +186,6 @@
         "source": "github_sync",
         "github_sha": "706a6f8df7b14480a938d22ebf328119d671bc84"
     },
-    "navfixtestmin3327c7bc8aa19c52278bb0179af9bcef": {
-        "id": "navfixtestmin3327c7bc8aa19c52278bb0179af9bcef",
-        "name": "Nav Fix Test.min",
-        "filename": "nav-fix-test.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/nav-fix-test.min.css",
-        "deployedAt": "2025-09-27T01:04:08+00:00",
-        "size": 67,
-        "source": "github_sync",
-        "github_sha": "1fb5d8422fecb0cb848ee07f04227d94f1c5293b"
-    },
-    "testsimplemin7a9549ddc9d583591afec06ff7b0f4f3": {
-        "id": "testsimplemin7a9549ddc9d583591afec06ff7b0f4f3",
-        "name": "Test Simple.min",
-        "filename": "test-simple.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/test-simple.min.css",
-        "deployedAt": "2025-09-27T01:04:08+00:00",
-        "size": 16,
-        "source": "github_sync",
-        "github_sha": "ce33ea2f6ce0657d65d4f8870edac2b0cec0bde5"
-    },
-    "teste-css-legivel": {
-        "id": "teste-css-legivel",
-        "name": "Teste CSS Legivel",
-        "filename": "teste-css-legivel.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-css-legivel.min.css",
-        "deployedAt": "2025-09-25T12:40:20+00:00",
-        "size": 152,
-        "source": "github_sync",
-        "github_sha": "14b4100c5f36c291585906390051eb88441554b4"
-    },
-    "testedeploycssa091739e4f33b3d9008fb2a77d8471665": {
-        "id": "testedeploycssa091739e4f33b3d9008fb2a77d8471665",
-        "name": "Teste Deploy Css Auditoria.min",
-        "filename": "teste-deploy-css-auditoria.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-deploy-css-auditoria.min.css",
-        "deployedAt": "2025-09-27T01:04:08+00:00",
-        "size": 132,
-        "source": "github_sync",
-        "github_sha": "177f9199e7925d3065d9471925379fa37d55c979"
-    },
-    "testedeployjsau63b20228d1d6388bd401c35c0de92388": {
-        "id": "testedeployjsau63b20228d1d6388bd401c35c0de92388",
-        "name": "Teste Deploy Js Auditoria.min",
-        "filename": "teste-deploy-js-auditoria.min.js",
-        "type": "js",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-deploy-js-auditoria.min.js",
-        "deployedAt": "2025-09-27T01:04:08+00:00",
-        "size": 302,
-        "source": "github_sync",
-        "github_sha": "ea6ca0c3936094773a473ededc400335bc17054f"
-    },
-    "teste-estrutura": {
-        "id": "teste-estrutura",
-        "name": "Teste Estrutura CSS",
-        "filename": "teste-estrutura-css.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-estrutura-css.min.css",
-        "deployedAt": "2025-09-25T12:56:30+00:00",
-        "size": 212,
-        "source": "github_sync",
-        "github_sha": "d39c93312ce1c2bc1633d6649c05ff8b5c2d2c39"
-    },
-    "teste-estrutura-v2": {
-        "id": "teste-estrutura-v2",
-        "name": "Teste Estrutura V2",
-        "filename": "teste-estrutura-v2.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-estrutura-v2.min.css",
-        "deployedAt": "2025-09-25T12:56:55+00:00",
-        "size": 197,
-        "source": "github_sync",
-        "github_sha": "38bfde07d346498728c88b16d6accc970d53a4df"
-    },
-    "teste-estrutura-v3": {
-        "id": "teste-estrutura-v3",
-        "name": "Teste Estrutura V3",
-        "filename": "teste-estrutura-v3.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-estrutura-v3.min.css",
-        "deployedAt": "2025-09-25T12:57:22+00:00",
-        "size": 157,
-        "source": "github_sync",
-        "github_sha": "2b112a889c8b47d1b10f4e8180d98f3641a41300"
-    },
-    "teste-important-final": {
-        "id": "teste-important-final",
-        "name": "Teste Important Final",
-        "filename": "teste-important-final.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-important-final.min.css",
-        "deployedAt": "2025-09-25T12:57:55+00:00",
-        "size": 164,
-        "source": "github_sync",
-        "github_sha": "89e4e50a120da0a8357f0f1186389cc5785201e2"
-    },
-    "teste-pseudo-final": {
-        "id": "teste-pseudo-final",
-        "name": "Teste Pseudo Final",
-        "filename": "teste-pseudo-final.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-pseudo-final.min.css",
-        "deployedAt": "2025-09-25T13:02:54+00:00",
-        "size": 243,
-        "source": "github_sync",
-        "github_sha": "72e4a5024f8fa67268b9e0c301e94f23761d5b84"
-    },
-    "testesistemacomfc601badce5531b644daf40db846d683": {
-        "id": "testesistemacomfc601badce5531b644daf40db846d683",
-        "name": "Teste Sistema Completo.min",
-        "filename": "teste-sistema-completo.min.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-sistema-completo.min.css",
-        "deployedAt": "2025-09-30T07:00:02+00:00",
-        "size": 178,
-        "source": "github_sync",
-        "github_sha": "e8b5ec44538ffc63b4528d651019c011e8514601"
-    },
-    "testesistemacomb42cf9274c7747c5a903b6fb278bd5c0": {
-        "id": "testesistemacomb42cf9274c7747c5a903b6fb278bd5c0",
-        "name": "Teste Sistema Completo.min",
-        "filename": "teste-sistema-completo.min.js",
-        "type": "js",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-sistema-completo.min.js",
-        "deployedAt": "2025-09-27T01:04:08+00:00",
-        "size": 366,
-        "source": "github_sync",
-        "github_sha": "3c466f94f7e9cc1de2272ed7014034ff1dd68599"
-    },
     "vitrineproduto4a67808e51db1f6d183eebbbcd45a1a0": {
         "id": "vitrineproduto4a67808e51db1f6d183eebbbcd45a1a0",
         "name": "Vitrine Produto",
@@ -361,5 +196,14 @@
         "size": 1869,
         "source": "github_sync",
         "github_sha": "7ecdfef82c9ef41b8c7037224f864e8b0d38f696"
+    },
+    "1761760082973": {
+        "id": 1761760082973,
+        "name": "Download-suporte",
+        "filename": "Download-suporte",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/Download-suporte",
+        "deployedAt": "2025-10-29T17:48:53+00:00",
+        "size": 1729
     }
 }
