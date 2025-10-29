@@ -384,5 +384,16 @@
         "size": 86,
         "deletedAt": "2025-10-29T20:23:14+00:00",
         "deletedBy": "admin"
+    },
+    "teste-script-tag": {
+        "id": "teste-script-tag",
+        "name": "Teste Script Tag",
+        "filename": "TESTE-SCRIPT-TAG.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/TESTE-SCRIPT-TAG.js",
+        "deployedAt": "2025-10-29T20:16:14+00:00",
+        "size": 82,
+        "deletedAt": "2025-10-29T20:23:15+00:00",
+        "deletedBy": "admin"
     }
 }
