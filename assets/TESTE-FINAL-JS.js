@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded", function() {\n console.log("Teste final carregado"); });

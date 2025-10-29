@@ -205,5 +205,14 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/TESTE-FINAL-CSS.css",
         "deployedAt": "2025-10-29T19:47:31+00:00",
         "size": 65
+    },
+    "teste-final-js-456": {
+        "id": "teste-final-js-456",
+        "name": "Teste Final JS",
+        "filename": "TESTE-FINAL-JS.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/TESTE-FINAL-JS.js",
+        "deployedAt": "2025-10-29T19:48:05+00:00",
+        "size": 102
     }
 }
