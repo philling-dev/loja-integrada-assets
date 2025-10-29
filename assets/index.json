@@ -206,15 +206,6 @@
         "deployedAt": "2025-10-29T20:10:01+00:00",
         "size": 1990
     },
-    "teste-auto-css-final": {
-        "id": "teste-auto-css-final",
-        "name": "Teste Auto CSS",
-        "filename": "TESTE-AUTO-CSS.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/TESTE-AUTO-CSS.css",
-        "deployedAt": "2025-10-29T20:14:50+00:00",
-        "size": 56
-    },
     "teste-auto-js-final": {
         "id": "teste-auto-js-final",
         "name": "Teste Auto JS",
