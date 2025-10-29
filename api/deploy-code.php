@@ -31,6 +31,46 @@ $type = $input['type'] ?? 'js';
 $codeId = $input['codeId'] ?? '';
 $codeName = $input['codeName'] ?? '';
 
+// Detectar tipo automaticamente baseado no conteúdo
+function detectCodeType($content) {
+    $content = trim($content);
+
+    // JavaScript: começa com <script>, function, const, let, var, (function, etc
+    if (preg_match('/^(<script|function\s|const\s|let\s|var\s|\(function|document\.|window\.|if\s*\(|\/\/)/i', $content)) {
+        return 'js';
+    }
+
+    // CSS: começa com seletor, @import, @media, etc
+    if (preg_match('/^(@import|@media|@keyframes|\.|#|[a-z][\w-]*\s*{|\/\*)/i', $content)) {
+        return 'css';
+    }
+
+    // Detectar por conteúdo (se tem propriedades CSS)
+    if (preg_match('/(background|color|font-size|margin|padding|display|width|height)\s*:/i', $content)) {
+        return 'css';
+    }
+
+    // Padrão: JavaScript
+    return 'js';
+}
+
+// Auto-detectar tipo se não foi informado ou se o conteúdo não bate
+$detectedType = detectCodeType($content);
+if (empty($type) || $type === 'js') {
+    $type = $detectedType;
+}
+
+// Garantir que o filename tenha a extensão correta
+function ensureCorrectExtension($filename, $type) {
+    // Remove extensões existentes .css, .js, .min.css, .min.js
+    $filename = preg_replace('/\.(min\.)?(css|js)$/i', '', $filename);
+
+    // Adiciona a extensão correta
+    return $filename . '.' . $type;
+}
+
+$filename = ensureCorrectExtension($filename, $type);
+
 // Minificar conteúdo e converter HTML misto para JavaScript
 function minifyCode($content, $type) {
     // Detectar código HTML misto (CSS + JS) e converter para JavaScript puro

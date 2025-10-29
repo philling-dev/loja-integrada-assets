@@ -1727,11 +1727,16 @@
 
             async copyLojaIntegradaCode(codeId) {
                 try {
-                    const response = await fetch('/assets/index.json');
+                    const response = await fetch(`/assets/index.json?cb=${Date.now()}`, {
+                        cache: 'no-store'
+                    });
                     const data = await response.json();
-                    const code = Object.values(data).find(c => c.id === codeId);
+
+                    // Converter para string para comparação
+                    const code = Object.values(data).find(c => String(c.id) === String(codeId));
 
                     if (!code) {
+                        console.error('Code not found. Looking for:', codeId, 'Available IDs:', Object.values(data).map(c => c.id));
                         this.showToast('Código não encontrado', 'error');
                         return;
                     }
