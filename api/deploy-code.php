@@ -54,11 +54,9 @@ function detectCodeType($content) {
     return 'js';
 }
 
-// Auto-detectar tipo se não foi informado ou se o conteúdo não bate
+// Auto-detectar tipo sempre, ignorando o type enviado
 $detectedType = detectCodeType($content);
-if (empty($type) || $type === 'js') {
-    $type = $detectedType;
-}
+$type = $detectedType;
 
 // Garantir que o filename tenha a extensão correta
 function ensureCorrectExtension($filename, $type) {
