@@ -196,14 +196,5 @@
         "size": 1869,
         "source": "github_sync",
         "github_sha": "7ecdfef82c9ef41b8c7037224f864e8b0d38f696"
-    },
-    "1761762827359": {
-        "id": 1761762827359,
-        "name": "Teste-deploy-delet-v2",
-        "filename": "Teste-deploy-delet-v2",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/Teste-deploy-delet-v2",
-        "deployedAt": "2025-10-29T18:34:37+00:00",
-        "size": 5
     }
 }
