@@ -145,12 +145,12 @@ try {
 
     file_put_contents($indexPath, json_encode($index, JSON_PRETTY_PRINT));
 
-    // Git add, commit e push
+    // Git add, commit e push (usando --only para evitar commit de arquivos staged previamente)
     $commands = [
         "cd {$repoPath}",
         "git add assets/{$filename}",
         "git add assets/index.json",
-        "git commit -m \"Deploy: {$codeName} ({$filename})\"",
+        "git commit --only assets/{$filename} assets/index.json -m \"Deploy: {$codeName} ({$filename})\"",
         "git push origin main 2>&1"
     ];
 

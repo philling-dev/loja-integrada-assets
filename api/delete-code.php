@@ -132,13 +132,13 @@ try {
         }
     }
 
-    // 4. Git commit e push
+    // 4. Git commit e push (usando --only para evitar commit de arquivos staged previamente)
     if ($permanentDelete) {
         $commands = [
             "cd {$repoPath}",
             "git add assets/index.json assets/trash.json",
             "git rm -f assets/{$filename} 2>&1 || echo 'File already deleted'",
-            "git commit -m \"Delete: Permanent removal of {$codeName} ({$filename})\"",
+            "git commit --only assets/index.json assets/trash.json -m \"Delete: Permanent removal of {$codeName} ({$filename})\"",
             "git push origin main 2>&1"
         ];
     } else {
@@ -146,7 +146,7 @@ try {
             "cd {$repoPath}",
             "git add assets/index.json assets/trash.json",
             "git rm -f assets/{$filename} 2>&1 || echo 'File already deleted'",
-            "git commit -m \"Trash: Move {$codeName} to trash (recoverable)\"",
+            "git commit --only assets/index.json assets/trash.json -m \"Trash: Move {$codeName} to trash (recoverable)\"",
             "git push origin main 2>&1"
         ];
     }
