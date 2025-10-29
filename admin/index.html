@@ -1041,17 +1041,43 @@
                 }
             }
 
+            detectCodeType(content) {
+                const trimmed = content.trim();
+
+                // JavaScript: começa com <script>, function, const, let, var, (function, etc
+                if (/^(<script|function\s|const\s|let\s|var\s|\(function|document\.|window\.|if\s*\(|\/\/)/i.test(trimmed)) {
+                    return 'js';
+                }
+
+                // CSS: começa com seletor, @import, @media, etc
+                if (/^(@import|@media|@keyframes|\.|#|[a-z][\w-]*\s*{|\/\*)/i.test(trimmed)) {
+                    return 'css';
+                }
+
+                // Detectar por conteúdo (se tem propriedades CSS)
+                if (/(background|color|font-size|margin|padding|display|width|height)\s*:/i.test(trimmed)) {
+                    return 'css';
+                }
+
+                // Padrão: JavaScript
+                return 'js';
+            }
+
             async deployCode() {
                 const filename = document.getElementById('codeFilename').value.trim();
                 const content = document.getElementById('codeContent').value.trim();
-                const type = document.getElementById('codeType').value;
+
+                // Detectar tipo automaticamente baseado no conteúdo
+                const detectedType = this.detectCodeType(content);
+                const type = detectedType;
 
                 if (!filename || !content) {
                     this.showResult('Por favor, preencha todos os campos.', 'error');
                     return;
                 }
 
-                this.showResult('Fazendo deploy...', 'loading');
+                // Mostrar tipo detectado
+                this.showResult(`Detectado como ${type.toUpperCase()}. Fazendo deploy...`, 'loading');
 
                 try {
                     const response = await fetch('/api/deploy-code.php', {
@@ -1293,13 +1319,22 @@
                                 <label style="display: block; margin-bottom: 8px; font-weight: 500;">Nome do arquivo:</label>
                                 <input type="text" id="codeFilename" placeholder="ex: meu-codigo-css" style="width: 100%; padding: 10px; border: 1px solid var(--gray-300); border-radius: var(--border-radius);">
                             </div>
-                            <div style="margin-bottom: 16px;">
-                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Tipo:</label>
-                                <select id="codeType" style="width: 100%; padding: 10px; border: 1px solid var(--gray-300); border-radius: var(--border-radius);">
-                                    <option value="css">CSS</option>
-                                    <option value="js">JavaScript</option>
-                                </select>
+                            <!-- Seletor de tipo escondido - detecção automática -->
+                            <select id="codeType" style="display: none;">
+                                <option value="css">CSS</option>
+                                <option value="js">JavaScript</option>
+                            </select>
+
+                            <!-- Info sobre detecção automática -->
+                            <div style="margin-bottom: 16px; padding: 12px; background: #f0f9ff; border: 1px solid #bfdbfe; border-radius: 6px;">
+                                <div style="display: flex; align-items: center; color: #1e40af;">
+                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20" style="margin-right: 8px;">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span style="font-size: 13px; font-weight: 500;">Tipo detectado automaticamente (CSS ou JS)</span>
+                                </div>
                             </div>
+
                             <div style="margin-bottom: 16px;">
                                 <label style="display: block; margin-bottom: 8px; font-weight: 500;">Código:</label>
                                 <textarea id="codeContent" rows="10" placeholder="Seu código CSS ou JavaScript aqui..." style="width: 100%; padding: 10px; border: 1px solid var(--gray-300); border-radius: var(--border-radius); font-family: 'SF Mono', Consolas, monospace;"></textarea>
