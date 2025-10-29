@@ -196,14 +196,5 @@
         "size": 1869,
         "source": "github_sync",
         "github_sha": "7ecdfef82c9ef41b8c7037224f864e8b0d38f696"
-    },
-    "teste-auto-js": {
-        "id": "teste-auto-js",
-        "name": "Teste Auto JS",
-        "filename": "TESTE-AUTO-JS.js",
-        "type": "js",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/TESTE-AUTO-JS.js",
-        "deployedAt": "2025-10-29T19:42:51+00:00",
-        "size": 21
     }
 }

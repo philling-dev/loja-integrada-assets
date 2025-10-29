@@ -307,5 +307,16 @@
         "size": 42,
         "deletedAt": "2025-10-29T19:43:12+00:00",
         "deletedBy": "admin"
+    },
+    "teste-auto-js": {
+        "id": "teste-auto-js",
+        "name": "Teste Auto JS",
+        "filename": "TESTE-AUTO-JS.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/TESTE-AUTO-JS.js",
+        "deployedAt": "2025-10-29T19:42:51+00:00",
+        "size": 21,
+        "deletedAt": "2025-10-29T19:43:13+00:00",
+        "deletedBy": "admin"
     }
 }
