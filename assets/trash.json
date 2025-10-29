@@ -274,5 +274,16 @@
         "size": 5,
         "deletedAt": "2025-10-29T19:08:19+00:00",
         "deletedBy": "admin"
+    },
+    "1761764865229": {
+        "id": 1761764865229,
+        "name": "DETELE-DEPLOY-V3",
+        "filename": "DETELE-DEPLOY-V3",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/DETELE-DEPLOY-V3",
+        "deployedAt": "2025-10-29T19:08:35+00:00",
+        "size": 5,
+        "deletedAt": "2025-10-29T19:10:57+00:00",
+        "deletedBy": "admin"
     }
 }
