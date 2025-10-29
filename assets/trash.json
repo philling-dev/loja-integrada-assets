@@ -296,5 +296,16 @@
         "size": 1729,
         "deletedAt": "2025-10-29T19:34:03+00:00",
         "deletedBy": "admin"
+    },
+    "teste-auto-css": {
+        "id": "teste-auto-css",
+        "name": "Teste Auto CSS",
+        "filename": "teste-auto-css.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-auto-css.css",
+        "deployedAt": "2025-10-29T19:42:12+00:00",
+        "size": 42,
+        "deletedAt": "2025-10-29T19:43:12+00:00",
+        "deletedBy": "admin"
     }
 }
