@@ -1347,15 +1347,26 @@
 
                 try {
                     // Try local first, then fallback to GitHub Pages
-                    // Add cache busting to always get fresh data (query param only to avoid CORS preflight)
+                    // Add cache busting to always get fresh data
                     const cacheBuster = `?cb=${Date.now()}`;
                     let response;
                     try {
-                        response = await fetch(`/assets/index.json${cacheBuster}`);
+                        response = await fetch(`/assets/index.json${cacheBuster}`, {
+                            cache: 'no-store',
+                            headers: {
+                                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                                'Pragma': 'no-cache',
+                                'Expires': '0'
+                            }
+                        });
                         if (!response.ok) throw new Error('Local fetch failed');
+                        console.log('Loaded from local:', response.url);
                     } catch (e) {
                         console.log('Local fetch failed, trying GitHub Pages...');
-                        response = await fetch(`https://philling-dev.github.io/loja-integrada-assets/assets/index.json${cacheBuster}`);
+                        response = await fetch(`https://philling-dev.github.io/loja-integrada-assets/assets/index.json${cacheBuster}`, {
+                            cache: 'no-store'
+                        });
+                        console.log('Loaded from GitHub Pages:', response.url);
                     }
 
                     const data = await response.json();
@@ -1541,9 +1552,14 @@
                     const codeElement = container.querySelector(`[data-code-id="${codeId}"]`);
 
                     // Find the code in the data
-                    const response = await fetch('/assets/index.json');
+                    const response = await fetch(`/assets/index.json?cb=${Date.now()}`, {
+                        cache: 'no-store',
+                        headers: {
+                            'Cache-Control': 'no-cache, no-store, must-revalidate'
+                        }
+                    });
                     const data = await response.json();
-                    const code = Object.values(data).find(c => c.id === codeId);
+                    const code = Object.values(data).find(c => String(c.id) === String(codeId));
 
                     if (!code) {
                         this.showResult('Código não encontrado', 'error');
@@ -1629,7 +1645,13 @@
 
             async deleteCode(codeId) {
                 try {
-                    const response = await fetch('/assets/index.json');
+                    const response = await fetch(`/assets/index.json?cb=${Date.now()}`, {
+                        cache: 'no-store',
+                        headers: {
+                            'Cache-Control': 'no-cache, no-store, must-revalidate',
+                            'Pragma': 'no-cache'
+                        }
+                    });
                     const data = await response.json();
                     const code = Object.values(data).find(c => String(c.id) === String(codeId));
 
