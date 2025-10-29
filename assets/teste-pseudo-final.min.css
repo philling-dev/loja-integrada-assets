@@ -1,1 +1,0 @@
-li.all-menu > li {\n position: relative;\n \n}\n\nli.all-menu > li:hover {\n display: block;\n \n}\n\nli.all-menu > li.com-filho > a::after {\n content: \"▶\";\n \n}\n\nli.all-menu .nivel-dois li:last-child {\n border-bottom: none;\n \n}\n\n
