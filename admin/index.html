@@ -1627,10 +1627,11 @@
                 try {
                     const response = await fetch('/assets/index.json');
                     const data = await response.json();
-                    const code = Object.values(data).find(c => c.id === codeId);
+                    const code = Object.values(data).find(c => String(c.id) === String(codeId));
 
                     if (!code) {
                         this.showToast('Código não encontrado', 'error');
+                        console.error('Code not found. Looking for:', codeId, 'Available IDs:', Object.values(data).map(c => c.id));
                         return;
                     }
 
