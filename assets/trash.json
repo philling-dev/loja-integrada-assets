@@ -230,5 +230,27 @@
         "size": 1729,
         "deletedAt": "2025-10-29T18:18:00+00:00",
         "deletedBy": "admin"
+    },
+    "1761761968118": {
+        "id": 1761761968118,
+        "name": "Testdeploy-delet",
+        "filename": "Testdeploy-delet",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/Testdeploy-delet",
+        "deployedAt": "2025-10-29T18:20:18+00:00",
+        "size": 5,
+        "deletedAt": "2025-10-29T18:28:42+00:00",
+        "deletedBy": "admin"
+    },
+    "teste-claude-debug": {
+        "id": "teste-claude-debug",
+        "name": "Teste Claude Debug",
+        "filename": "teste-claude-debug.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/teste-claude-debug.css",
+        "deployedAt": "2025-10-29T18:52:26+00:00",
+        "size": 46,
+        "deletedAt": "2025-10-29T19:06:12+00:00",
+        "deletedBy": "admin"
     }
 }
