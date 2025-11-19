@@ -205,14 +205,5 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/SUPORTE-DOWNLOAD-V2.js",
         "deployedAt": "2025-10-29T20:10:01+00:00",
         "size": 1990
-    },
-    "1763568843041": {
-        "id": 1763568843041,
-        "name": "descricao-produto-css",
-        "filename": "descricao-produto-css.css",
-        "type": "css",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/descricao-produto-css.css",
-        "deployedAt": "2025-11-19T16:14:09+00:00",
-        "size": 3458
     }
 }
