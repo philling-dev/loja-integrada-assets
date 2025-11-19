@@ -428,5 +428,16 @@
         "size": 2164,
         "deletedAt": "2025-11-19T16:00:34+00:00",
         "deletedBy": "admin"
+    },
+    "1763568065494": {
+        "id": 1763568065494,
+        "name": "DESCRICAO-JS",
+        "filename": "DESCRICAO-JS.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/DESCRICAO-JS.js",
+        "deployedAt": "2025-11-19T16:01:11+00:00",
+        "size": 2164,
+        "deletedAt": "2025-11-19T16:13:22+00:00",
+        "deletedBy": "admin"
     }
 }

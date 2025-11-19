@@ -214,14 +214,5 @@
         "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/DESCRI\u00c7AO-PRODUTO.css",
         "deployedAt": "2025-11-19T15:55:35+00:00",
         "size": 3450
-    },
-    "1763568065494": {
-        "id": 1763568065494,
-        "name": "DESCRICAO-JS",
-        "filename": "DESCRICAO-JS.js",
-        "type": "js",
-        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/DESCRICAO-JS.js",
-        "deployedAt": "2025-11-19T16:01:11+00:00",
-        "size": 2164
     }
 }
