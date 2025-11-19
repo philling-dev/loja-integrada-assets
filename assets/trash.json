@@ -461,5 +461,16 @@
         "size": 2557,
         "deletedAt": "2025-11-19T16:29:38+00:00",
         "deletedBy": "admin"
+    },
+    "1763569789475": {
+        "id": 1763569789475,
+        "name": "descricao-produto-js-02",
+        "filename": "descricao-produto-js-02.js",
+        "type": "js",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/descricao-produto-js-02.js",
+        "deployedAt": "2025-11-19T16:29:55+00:00",
+        "size": 2549,
+        "deletedAt": "2025-11-19T16:37:34+00:00",
+        "deletedBy": "admin"
     }
 }
