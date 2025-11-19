@@ -406,5 +406,16 @@
         "size": 1588,
         "deletedAt": "2025-10-29T20:43:01+00:00",
         "deletedBy": "admin"
+    },
+    "1763567554592": {
+        "id": 1763567554592,
+        "name": "DESCRI\u00c7AO-PRODUTO",
+        "filename": "DESCRI\u00c7AO-PRODUTO.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/DESCRI\u00c7AO-PRODUTO.css",
+        "deployedAt": "2025-11-19T15:52:41+00:00",
+        "size": 3450,
+        "deletedAt": "2025-11-19T15:56:24+00:00",
+        "deletedBy": "admin"
     }
 }
