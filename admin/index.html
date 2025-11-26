@@ -1038,6 +1038,13 @@
                     // Clear form
                     document.getElementById('codeFilename').value = '';
                     document.getElementById('codeContent').value = '';
+
+                    // Limpar modo de edicao e restaurar botao
+                    this.isEditing = null;
+                    const deployBtn = document.querySelector('#codeForm .btn-primary');
+                    if (deployBtn) {
+                        deployBtn.textContent = 'Deploy';
+                    }
                 }
             }
 
@@ -1076,8 +1083,13 @@
                     return;
                 }
 
+                // Verificar se estamos editando um codigo existente
+                const isEditMode = this.isEditing !== undefined && this.isEditing !== null;
+                const codeId = isEditMode ? this.isEditing : Date.now();
+
                 // Mostrar tipo detectado
-                this.showResult(`Detectado como ${type.toUpperCase()}. Fazendo deploy...`, 'loading');
+                const actionText = isEditMode ? 'Atualizando' : 'Fazendo deploy';
+                this.showResult(`Detectado como ${type.toUpperCase()}. ${actionText}...`, 'loading');
 
                 try {
                     const response = await fetch('/api/deploy-code.php', {
@@ -1089,7 +1101,7 @@
                             filename: filename,
                             content: content,
                             type: type,
-                            codeId: Date.now(),
+                            codeId: codeId,
                             codeName: filename
                         })
                     });
@@ -1097,7 +1109,11 @@
                     const result = await response.json();
 
                     if (result.success) {
-                        this.showResult(`✅ Deploy realizado com sucesso!<br><strong>URL:</strong> <a href="${result.url}" target="_blank" style="color: var(--blue-500);">${result.url}</a>`, 'success');
+                        const successMsg = isEditMode ? 'Codigo atualizado' : 'Deploy realizado';
+                        this.showResult(`✅ ${successMsg} com sucesso!<br><strong>URL:</strong> <a href="${result.url}" target="_blank" style="color: var(--blue-500);">${result.url}</a>`, 'success');
+
+                        // Limpar modo de edicao
+                        this.isEditing = null;
                         this.hideCodeForm();
 
                         // Atualizar lista de códigos automaticamente
