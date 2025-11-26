@@ -527,5 +527,16 @@
         "size": 9756,
         "deletedAt": "2025-11-26T13:30:51+00:00",
         "deletedBy": "admin"
+    },
+    "1764162120661": {
+        "id": 1764162120661,
+        "name": "Descricao-css-02",
+        "filename": "Descricao-css-02.css",
+        "type": "css",
+        "url": "https:\/\/philling-dev.github.io\/loja-integrada-assets\/assets\/Descricao-css-02.css",
+        "deployedAt": "2025-11-26T13:02:19+00:00",
+        "size": 6890,
+        "deletedAt": "2025-11-26T13:30:56+00:00",
+        "deletedBy": "admin"
     }
 }
