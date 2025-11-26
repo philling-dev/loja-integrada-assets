@@ -1,0 +1,289 @@
+.ci-idface {
+--ci-primary: #c41230;
+--ci-primary-dark: #a00f28;
+--ci-dark: #1a1a1a;
+--ci-gray-100: #f7f7f7;
+--ci-gray-200: #e8e8e8;
+--ci-gray-400: #999;
+--ci-gray-600: #555;
+--ci-white: #fff;
+--ci-radius: 8px;
+--ci-shadow: 0 2px 8px rgba(0,0,0,.06);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+background: var(--ci-white);
+color: var(--ci-dark);
+max-width: 100%;
+margin: 0;
+padding: 0;
+text-align: left;
+line-height: 1.6;
+} .ci-idface *, .ci-idface *::before, .ci-idface *::after {
+box-sizing: border-box;
+} .ci-idface__hero {
+padding: 48px 32px;
+background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+color: var(--ci-white);
+text-align: center;
+} .ci-idface__badge {
+display: inline-block;
+padding: 6px 16px;
+background: rgba(255,255,255,.1);
+border: 1px solid rgba(255,255,255,.2);
+border-radius: 20px;
+font-size: 11px;
+font-weight: 600;
+letter-spacing: .5px;
+text-transform: uppercase;
+margin-bottom: 20px;
+} .ci-idface h1 {
+font-size: clamp(1.75rem, 4vw, 2.5rem);
+font-weight: 300;
+margin: 0 0 16px;
+line-height: 1.2;
+} .ci-idface h1 strong {
+font-weight: 700;
+color: var(--ci-primary);
+} .ci-idface__lead {
+font-size: 1.05rem;
+color: rgba(255,255,255,.8);
+max-width: 540px;
+margin: 0 auto 28px;
+} .ci-idface__actions {
+display: flex;
+justify-content: center;
+gap: 12px;
+flex-wrap: wrap;
+margin-bottom: 20px;
+} .ci-idface__btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 14px 32px;
+font-size: 14px;
+font-weight: 600;
+text-decoration: none;
+border-radius: 6px;
+transition: all .2s ease;
+cursor: pointer;
+border: none;
+} .ci-idface__btn--primary {
+background: var(--ci-primary);
+color: var(--ci-white);
+} .ci-idface__btn--primary:hover {
+background: var(--ci-primary-dark);
+transform: translateY(-1px);
+} .ci-idface__btn--ghost {
+background: transparent;
+color: var(--ci-white);
+border: 1px solid rgba(255,255,255,.3);
+} .ci-idface__btn--ghost:hover {
+background: rgba(255,255,255,.1);
+border-color: rgba(255,255,255,.5);
+} .ci-idface__hero .ci-idface__note {
+font-size: 12px;
+color: rgba(255,255,255,.5);
+margin: 0;
+} .ci-idface__tabs {
+display: flex;
+background: var(--ci-gray-100);
+border-bottom: 1px solid var(--ci-gray-200);
+padding: 0 16px;
+gap: 0;
+overflow-x: auto;
+} .ci-idface__tab {
+padding: 16px 24px;
+font-size: 13px;
+font-weight: 600;
+color: var(--ci-gray-600);
+background: transparent;
+border: none;
+border-bottom: 2px solid transparent;
+cursor: pointer;
+transition: all .2s ease;
+white-space: nowrap;
+} .ci-idface__tab:hover {
+color: var(--ci-dark);
+} .ci-idface__tab--active {
+color: var(--ci-primary);
+border-bottom-color: var(--ci-primary);
+background: var(--ci-white);
+} .ci-idface__panes {
+padding: 32px 24px;
+} .ci-idface__pane {
+display: none;
+animation: ciFade .3s ease;
+} .ci-idface__pane--active {
+display: block;
+} .ci-idface__pane h3 {
+font-size: 13px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: .5px;
+color: var(--ci-primary);
+margin: 0 0 16px;
+} .ci-idface__pane ul {
+list-style: none;
+padding: 0;
+margin: 0;
+} .ci-idface__pane li {
+position: relative;
+padding: 8px 0 8px 20px;
+border-bottom: 1px solid var(--ci-gray-200);
+font-size: 14px;
+} .ci-idface__pane li:last-child {
+border-bottom: none;
+} .ci-idface__pane li::before {
+content: "";
+position: absolute;
+left: 0;
+top: 14px;
+width: 6px;
+height: 6px;
+background: var(--ci-primary);
+border-radius: 50%;
+} .ci-idface__grid-2 {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 24px;
+margin-bottom: 24px;
+} .ci-idface__card {
+padding: 24px;
+background: var(--ci-gray-100);
+border-radius: var(--ci-radius);
+} .ci-idface__highlight {
+padding: 20px 24px;
+background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+color: var(--ci-white);
+border-radius: var(--ci-radius);
+font-size: 14px;
+} .ci-idface__highlight p {
+margin: 0;
+} .ci-idface__specs {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 32px;
+} .ci-idface__spec-group h3 {
+padding-bottom: 12px;
+border-bottom: 2px solid var(--ci-primary);
+margin-bottom: 12px;
+} .ci-idface__downloads-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 12px;
+} .ci-idface__download-item {
+display: flex;
+align-items: center;
+gap: 16px;
+padding: 20px;
+background: var(--ci-gray-100);
+border-radius: var(--ci-radius);
+text-decoration: none;
+color: var(--ci-dark);
+transition: all .2s ease;
+border: 1px solid transparent;
+} .ci-idface__download-item:hover {
+border-color: var(--ci-primary);
+background: var(--ci-white);
+box-shadow: var(--ci-shadow);
+} .ci-idface__download-icon {
+width: 48px;
+height: 48px;
+display: flex;
+align-items: center;
+justify-content: center;
+background: var(--ci-primary);
+color: var(--ci-white);
+font-size: 11px;
+font-weight: 700;
+border-radius: 6px;
+} .ci-idface__download-info {
+display: flex;
+flex-direction: column;
+} .ci-idface__download-info strong {
+font-size: 14px;
+margin-bottom: 2px;
+} .ci-idface__download-info span:last-child {
+font-size: 12px;
+color: var(--ci-gray-600);
+} .ci-idface__faq-list {
+border: 1px solid var(--ci-gray-200);
+border-radius: var(--ci-radius);
+overflow: hidden;
+} .ci-idface__faq-item {
+border-bottom: 1px solid var(--ci-gray-200);
+} .ci-idface__faq-item:last-child {
+border-bottom: none;
+} .ci-idface__faq-question {
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 20px 24px;
+font-size: 14px;
+font-weight: 600;
+color: var(--ci-dark);
+background: var(--ci-white);
+border: none;
+cursor: pointer;
+text-align: left;
+transition: background .2s ease;
+} .ci-idface__faq-question:hover {
+background: var(--ci-gray-100);
+} .ci-idface__faq-icon {
+width: 24px;
+height: 24px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+background: var(--ci-gray-200);
+font-size: 14px;
+transition: all .2s ease;
+} .ci-idface__faq-icon::before {
+content: "+";
+} .ci-idface__faq-item--open .ci-idface__faq-icon {
+background: var(--ci-primary);
+color: var(--ci-white);
+} .ci-idface__faq-item--open .ci-idface__faq-icon::before {
+content: "-";
+} .ci-idface__faq-answer {
+max-height: 0;
+overflow: hidden;
+transition: max-height .3s ease, padding .3s ease;
+background: var(--ci-gray-100);
+} .ci-idface__faq-answer p {
+margin: 0;
+padding: 0 24px 20px;
+font-size: 14px;
+color: var(--ci-gray-600);
+line-height: 1.7;
+} .ci-idface__faq-item--open .ci-idface__faq-answer {
+padding-top: 20px;
+} .ci-idface__note {
+font-size: 12px;
+color: var(--ci-gray-400);
+margin-top: 24px;
+} @media (max-width: 768px) {
+.ci-idface__hero {
+padding: 32px 20px;
+} .ci-idface__grid-2, .ci-idface__specs, .ci-idface__downloads-grid {
+grid-template-columns: 1fr;
+} .ci-idface__actions {
+flex-direction: column;
+} .ci-idface__btn {
+width: 100%;
+} .ci-idface__panes {
+padding: 24px 16px;
+} .ci-idface__tab {
+padding: 14px 16px;
+font-size: 12px;
+}
+} @keyframes ciFade {
+from {
+opacity: 0;
+transform: translateY(8px);
+} to {
+opacity: 1;
+transform: translateY(0);
+}
+}
